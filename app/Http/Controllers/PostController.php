@@ -89,7 +89,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -99,9 +101,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->url;
+
+        if ($image = $request->file('image')) {
+            if(isset($post->public_id)){
+                Cloudder::destroyImage($post->public_id);
+            }
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width' => 200,
+                'height' => 200
+            ]);
+            $post->image_path = $logoUrl;
+            $post->public_id = $publicId;
+        }
+
+        $post->save();
+
+        return view('posts.show', compact('post'));
     }
 
     /**
