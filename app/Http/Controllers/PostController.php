@@ -137,6 +137,14 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        if(isset($post->public_id)) {
+            Cloudder::destroyImage($post->public_id);
+        }
+
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('flash_message', '投稿が削除されました');
     }
 }
