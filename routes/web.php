@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('posts', 'PostController');
 Route::resource('comments', 'CommentController');
+
+Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
+Route::post('post/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');

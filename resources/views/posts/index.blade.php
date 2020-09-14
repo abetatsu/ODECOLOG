@@ -11,5 +11,17 @@
 <img src="{{ $post->image_path }}" alt="画像">
 <a href="{{ route('posts.show', $post->id) }}">詳細</a>
 <br>
+@if($post->users()->where('user_id', Auth::id())->exists())
+<form action="{{ route('unfavorites', $post) }}" method="POST">
+     @csrf
+     <input type="submit" value="&#xf164;" class="fas btn btn-success">
+</form>
+@else
+<form action="{{ route('favorites', $post) }}" method="POST">
+     @csrf
+     <input type="submit" value="&#xf164;" class="fas">
+</form>
+@endif
+{{ $post->users()->count() }}
 @endforeach
 @endsection
