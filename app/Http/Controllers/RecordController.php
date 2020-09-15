@@ -80,7 +80,9 @@ class RecordController extends Controller
      */
     public function show($id)
     {
-        //
+        $record = Record::find($id);
+
+        return view('records.show', compact('record'));
     }
 
     /**
