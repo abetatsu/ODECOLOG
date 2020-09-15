@@ -93,7 +93,9 @@ class RecordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $record = Record::find($id);
+
+        return view('records.edit', compact('record'));
     }
 
     /**
@@ -103,9 +105,38 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RecordRequest $request, $id)
     {
-        //
+        $record = Record::find($id);
+
+        $record->size = $request->size;
+        $record->sleep_time = $request->sleep_time;
+        $record->care_item1 = $request->care_item1;
+        $record->care_item2 = $request->care_item2;
+        $record->care_item3 = $request->care_item3;
+        $record->care_item4 = $request->care_item4;
+        $record->alcohol = $request->alcohol;
+        $record->stress = $request->stress;
+        $record->remarks = $request->remarks;
+
+        if ($image = $request->file('image')) {
+            if(isset($record->public_id)){
+                Cloudder::destroyImage($record->public_id);
+            }
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width' => 200,
+                'height' => 200
+            ]);
+            $record->image_path = $logoUrl;
+            $record->public_id = $publicId;
+        }
+
+        $record->save();
+
+        return view('records.show', compact('record'));
     }
 
     /**
