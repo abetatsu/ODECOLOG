@@ -13,7 +13,7 @@
 {{ $record->remarks }}<br>
 {{ $record->created_at }}<br>
 <img src="{{ $record->image_path }}" alt="画像">
-<a href="{{ route('records.show', $record->id) }}">詳細</a>
+<a href="{{ route('records.show', $record->id) }}">詳細</a><br>
 @endforeach
 <br>
 <a href="{{ route('records.create') }}">投稿する</a>

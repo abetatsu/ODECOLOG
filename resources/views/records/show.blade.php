@@ -14,5 +14,9 @@
 <img src="{{ $record->image_path }}" alt="画像"><br>
 <a href="{{ route('records.index') }}">戻る</a>
 <a href="{{ route('records.edit', $record->id) }}">編集</a>
-
+<form action="{{ route('records.destroy', $record->id) }}" method="POST">
+     @method('DELETE')
+     @csrf
+     <input type="submit" value="削除" class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+</form>
 @endsection
