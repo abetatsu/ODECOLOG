@@ -67,7 +67,7 @@ class RecordController extends Controller
 
         $record->save();
 
-        $records = Record::find(Auth::id());
+        $records = Record::where('user_id', Auth::id())->get();
 
         return view('records.index', compact('records'));
     }
@@ -147,6 +147,16 @@ class RecordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Record::find($id);
+
+        if(isset($record->public_id)){
+            Cloudder::destroyImage($record->public_id);
+        }
+
+        $record->delete();
+
+        $records = Record::where('user_id', Auth::id())->get();
+
+        return redirect()->route('records.index', compact('records'))->with('flash_message', '投稿が削除されました');
     }
 }
