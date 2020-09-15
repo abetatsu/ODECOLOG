@@ -3,6 +3,8 @@
 @section('content')
 <a href="{{ route('posts.create') }}">記事を投稿する</a>
 <br>
+<a href="{{ route('records.index') }}">カレンダー</a>
+<br>
 @foreach($posts as $post)
 {{ $post->title }}
 {{ $post->content }}
