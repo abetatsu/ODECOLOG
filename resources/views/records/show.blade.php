@@ -13,5 +13,6 @@
 {{ $record->created_at }}<br>
 <img src="{{ $record->image_path }}" alt="画像"><br>
 <a href="{{ route('records.index') }}">戻る</a>
+<a href="{{ route('records.edit', $record->id) }}">編集</a>
 
 @endsection
