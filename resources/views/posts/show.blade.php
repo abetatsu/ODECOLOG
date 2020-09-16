@@ -5,7 +5,7 @@
 {{ $post->content }}
 {{ $post->url }}
 {{ $post->updated_at }}
-<img src="{{ $post->image_path }}" alt="画像"><br>
+<img src="{{ $post->image_path }}" alt="画像" style="width:200px; height:200px;"><br>
 <a href="{{ route('posts.edit', $post->id) }}">編集</a>
 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
      @method('DELETE')

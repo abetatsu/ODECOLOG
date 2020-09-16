@@ -17,4 +17,5 @@
 @endforeach
 <br>
 <a href="{{ route('records.create') }}">投稿する</a>
+<a href="{{ route('posts.index') }}">投稿記事一覧に戻る</a>
 @endsection
