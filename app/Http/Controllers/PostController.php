@@ -92,6 +92,10 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
+        if(Auth::id() !== $post->user_id) {
+            return abort(403);
+        }
+
         return view('posts.edit', compact('post'));
     }
 
@@ -139,6 +143,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        if(Auth::id() !== $post->user_id) {
+            return abort(403);
+        }
 
         if(isset($post->public_id)) {
             Cloudder::destroyImage($post->public_id);

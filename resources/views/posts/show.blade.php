@@ -8,12 +8,14 @@
 <img src="{{ $post->image_path }}" alt="画像" style="width:500px; height:500px;" class="mx-auto"><br>
 {{ $post->content }}<br>
 <p>URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer">{{ $post->url }}</a></p>
+@if($post->user_id === Auth::id()) 
 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info col-sm-1">編集</a>
 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
      @method('DELETE')
      @csrf
      <input type="submit" value="削除" class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
 </form>
+@endif
 <form action="{{ route('comments.store') }}" method="POST">
      @csrf
      <div class="form-group">

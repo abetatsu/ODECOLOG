@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Auth;
 
 class Calendar
 {
@@ -60,9 +61,9 @@ EOS;
                          $this->html .= "<td>&nbsp;</td>";
                     } else {
                          $target = $now->setDate($year, $month, $day)->toDateString();
-                         $this->html .= "<td><a href=\"records/create?date={$target}\">" . $day . "&nbsp";
+                         $this->html .= "<td><a href=\"/records/create?date={$target}\">" . $day . "&nbsp";
                          foreach ($this->records as $record) {
-                              if ($record->day == $target) {
+                              if ($record->day == $target && $record->user_id == Auth::id() ) {
                                    $this->html .= <<< EOS
                                    <a href="/records/{$record->id}">●</a>
                                    EOS;
