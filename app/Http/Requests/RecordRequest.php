@@ -26,6 +26,7 @@ class RecordRequest extends FormRequest
         return [
             'size' => 'required',
             'image' => 'required',
+            'day' => "required",
         ];
     }
 
@@ -34,6 +35,7 @@ class RecordRequest extends FormRequest
         return [
             'size.required' => 'サイズの選択は必須です。',
             'image.required' => '画像の投稿は必須です。',
+            'day.required' => '日付の投稿は必須です。',
         ];
     }
 }

@@ -1,21 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($records as $record)
-{{ $record->size }}<br>
-{{ $record->sleep_item }}<br>
-{{ $record->care_item1 }}<br>
-{{ $record->care_item2 }}<br>
-{{ $record->care_item3 }}<br>
-{{ $record->care_item4 }}<br>
-{{ $record->alcohol }}<br>
-{{ $record->stress }}<br>
-{{ $record->remarks }}<br>
-{{ $record->created_at }}<br>
-<img src="{{ $record->image_path }}" alt="画像">
-<a href="{{ route('records.show', $record->id) }}">詳細</a><br>
-@endforeach
-<br>
-<a href="{{ route('records.create') }}">投稿する</a>
 <a href="{{ route('posts.index') }}">投稿記事一覧に戻る</a>
+<a href="{{ route('records.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1600236686/%E3%83%A1%E3%83%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3_p2hshu.png" alt="投稿する" style="width:50px; height:50px;"></a>
+{!! $tag !!}
 @endsection

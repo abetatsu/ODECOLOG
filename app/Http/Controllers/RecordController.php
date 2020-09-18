@@ -7,19 +7,28 @@ use App\Http\Requests\RecordRequest;
 use JD\Cloudder\Facades\Cloudder;
 use App\Record;
 use Auth;
+use App\Calendar;
 
 class RecordController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $records = Record::all();
+        $cal = new Calendar($records);
+        $tag = $cal->showCalendarTag($request->month,$request->year);
         $records = Record::where('user_id', Auth::id())->get();
 
-        return view('records.index', compact('records'));
+        return view('records.index', compact('records', 'tag'));
     }
 
     /**
@@ -27,9 +36,9 @@ class RecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('records.create');
+        return view('records.create', ['date' => $request->date]);
     }
 
     /**
@@ -52,6 +61,7 @@ class RecordController extends Controller
         $record->alcohol = $request->alcohol;
         $record->stress = $request->stress;
         $record->remarks = $request->remarks;
+        $record->day = $request->day;
 
         if ($image = $request->file('image')) {
             $image_path = $image->getRealPath();
@@ -68,8 +78,11 @@ class RecordController extends Controller
         $record->save();
 
         $records = Record::where('user_id', Auth::id())->get();
+        $records = Record::all();
+        $cal = new Calendar($records);
+        $tag = $cal->showCalendarTag($request->month,$request->year);
 
-        return view('records.index', compact('records'));
+        return view('records.index', compact('records','tag'));
     }
 
     /**
@@ -118,6 +131,7 @@ class RecordController extends Controller
         $record->alcohol = $request->alcohol;
         $record->stress = $request->stress;
         $record->remarks = $request->remarks;
+        $record->day = $request->day;
 
         if ($image = $request->file('image')) {
             if(isset($record->public_id)){
@@ -145,7 +159,7 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $record = Record::find($id);
 
@@ -156,7 +170,10 @@ class RecordController extends Controller
         $record->delete();
 
         $records = Record::where('user_id', Auth::id())->get();
+        $records = Record::all();
+        $cal = new Calendar($records);
+        $tag = $cal->showCalendarTag($request->month,$request->year);
 
-        return redirect()->route('records.index', compact('records'))->with('flash_message', '投稿が削除されました');
+        return redirect()->route('records.index', compact('records', 'tag'))->with('flash_message', '投稿が削除されました');
     }
 }
