@@ -27,6 +27,7 @@ class CreateRecordsTable extends Migration
             $table->String('remarks', 200)->nullable();
             $table->text('public_id')->nullable();
             $table->text('image_path')->nullable();
+            $table->date('day');
             $table->timestamps();
         });
     }

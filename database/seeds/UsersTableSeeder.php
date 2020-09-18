@@ -12,7 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('users')->insert(
+            [
             'name' => 'example',
             'email' => 'test@example.com',
             'password' => Hash::make('konnitiha0840'),
@@ -22,6 +23,7 @@ class UsersTableSeeder extends Seeder
             'updated_at' => new Carbon(),
             'public_id' => 'hageprofile_linkgv',
             'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1600220367/hageprofile_linkgv.png',
-        ]);
+            ],
+        );
     }
 }

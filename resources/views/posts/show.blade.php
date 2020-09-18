@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-{{ $post->title }}
-{{ $post->content }}
-{{ $post->url }}
-{{ $post->updated_at }}
-<img src="{{ $post->image_path }}" alt="画像" style="width:200px; height:200px;"><br>
-<a href="{{ route('posts.edit', $post->id) }}">編集</a>
+<a href="{{ route('posts.index') }}" class="btn btn-info">戻る</a>
+<div class="card col-sm-6 my-3 mx-auto">
+<h2>{{ $post->title }}</h2>
+{{ $post->updated_at->format('Y/m/d H:i:s') }}
+<img src="{{ $post->image_path }}" alt="画像" style="width:500px; height:500px;" class="mx-auto"><br>
+{{ $post->content }}<br>
+<p>URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer">{{ $post->url }}</a></p>
+<a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info col-sm-1">編集</a>
 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
      @method('DELETE')
      @csrf
      <input type="submit" value="削除" class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
 </form>
-<a href="{{ route('posts.index') }}">戻る</a>
 <form action="{{ route('comments.store') }}" method="POST">
      @csrf
      <div class="form-group">
@@ -33,6 +34,7 @@
                <footer class="blockquote-footer">{{ $comment->created_at }}</footer>
           </blockquote>
      </div>
+</div>
 </div>
 @endforeach
 

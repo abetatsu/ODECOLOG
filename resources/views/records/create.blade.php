@@ -3,13 +3,19 @@
 @section('content')
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto" method="POST" action="{{ route('records.store') }}">
      @csrf
-     <div class="form-group">
-          <label for="image">画像</label>
-          <input type="file" class="form-control-file" id="image" name="image">
-     </div>
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
      @endforeach
+     <div class="form-group">
+          <label for="day">日付</label>
+          <input type="date" class="form-controll" id="day" name="day" value="{{ $date }}">
+          <small id="emailHelp" class="form-text text-muted">日付の入力は必須です</small>
+     </div>
+     <div class="form-group">
+          <label for="image">画像</label>
+          <input type="file" class="form-control-file" id="image" name="image">
+          <small id="emailHelp" class="form-text text-muted">画像の投稿は必須です</small>
+     </div>
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
           <select　class="form-control" name="size" id="size">
@@ -38,7 +44,7 @@
      </div>
      <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
      <div class="form-group">
-          <label for="sleep_time">睡眠時間</label>
+          <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
                <option value="">選択してください</option>
                <option value="1時間">1時間</option>
@@ -56,23 +62,23 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="care_item1">ケア用品1</label>
+          <label for="care_item1">ケア用品1(任意)</label>
           <input type="text" class="form-control" name="care_item1" id="care_item1" placeholder="使っているケア用品を入力してください">
      </div>
      <div class="form-group">
-          <label for="care_item2">ケア用品2</label>
+          <label for="care_item2">ケア用品2(任意)</label>
           <input type="text" class="form-control" name="care_item2" id="care_item2" placeholder="使っているケア用品を入力してください">
      </div>
      <div class="form-group">
-          <label for="care_item3">ケア用品3</label>
+          <label for="care_item3">ケア用品3(任意)</label>
           <input type="text" class="form-control" name="care_item3" id="care_item3" placeholder="使っているケア用品を入力してください">
      </div>
      <div class="form-group">
-          <label for="care_item4">ケア用品4</label>
+          <label for="care_item4">ケア用品4(任意)</label>
           <input type="text" class="form-control" name="care_item4" id="care_item4" placeholder="使っているケア用品を入力してください">
      </div>
      <div class="form-group">
-          <label for="alcohol">飲酒量</label>
+          <label for="alcohol">飲酒量(任意)</label>
           <select class="form-control" id="alcohol" name="alcohol">
                <option value="">選択してください</option>
                <option value="1合（180ml）未満">1合（180ml）未満</option>
@@ -84,7 +90,7 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="stress">ストレス</label>
+          <label for="stress">ストレス(任意)</label>
           <select class="form-control" id="stress" name="stress">
                <option value="">選択してください</option>
                <option value="ほぼない">ほぼない</option>
@@ -94,7 +100,7 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="remarks">備考</label>
+          <label for="remarks">備考(任意)</label>
           <textarea type="text" class="form-control" name="remarks" id="remarks" placeholder="メモしたいことがあれば入力してください" rows="4" cols="40">
           </textarea>
      </div>

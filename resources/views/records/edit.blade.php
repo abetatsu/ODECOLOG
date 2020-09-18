@@ -5,9 +5,15 @@
      @csrf
      @method('PUT')
      <div class="form-group">
+          <label for="day">日付</label>
+          <input type="date" class="form-controll" id="day" name="day" value="{{ $record->day }}">
+          <small id="emailHelp" class="form-text text-muted">日付の入力は必須です</small>
+     </div>
+     <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
           <img src="{{ $record->image_path }}" alt="画像">
+          <small id="emailHelp" class="form-text text-muted">画像の投稿は必須です</small>
      </div>
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
@@ -44,7 +50,7 @@
      </div>
      <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
      <div class="form-group">
-          <label for="sleep_time">睡眠時間</label>
+          <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
                @if(!empty($record->sleep_time))
                <option value="{{ $record->sleep_time }}" selected>{{ $record->sleep_time }}</option>
@@ -66,23 +72,23 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="care_item1">ケア用品1</label>
+          <label for="care_item1">ケア用品1(任意)</label>
           <input type="text" class="form-control" name="care_item1" id="care_item1" value="{{ $record->care_item1 }}">
      </div>
      <div class="form-group">
-          <label for="care_item2">ケア用品2</label>
+          <label for="care_item2">ケア用品2(任意)</label>
           <input type="text" class="form-control" name="care_item2" id="care_item2" value="{{ $record->care_item2 }}">
      </div>
      <div class="form-group">
-          <label for="care_item3">ケア用品3</label>
+          <label for="care_item3">ケア用品3(任意)</label>
           <input type="text" class="form-control" name="care_item3" id="care_item3" value="{{ $record->care_item3 }}">
      </div>
      <div class="form-group">
-          <label for="care_item4">ケア用品4</label>
+          <label for="care_item4">ケア用品4(任意)</label>
           <input type="text" class="form-control" name="care_item4" id="care_item4" value="{{ $record->care_item4 }}">
      </div>
      <div class="form-group">
-          <label for="alcohol">飲酒量</label>
+          <label for="alcohol">飲酒量(任意)</label>
           <select class="form-control" id="alcohol" name="alcohol">
                @if(!empty($record->alcohol))
                <option value="{{ $record->alcohol }}" selected>{{ $record->alcohol }}</option>
@@ -98,7 +104,7 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="stress">ストレス</label>
+          <label for="stress">ストレス(任意)</label>
           <select class="form-control" id="stress" name="stress">
                @if(!empty($record->stress))
                <option value="{{ $record->stress }}" selected>{{ $record->stress }}</option>
@@ -112,7 +118,7 @@
           </select>
      </div>
      <div class="form-group">
-          <label for="remarks">備考</label>
+          <label for="remarks">備考(任意)</label>
           <textarea type="text" class="form-control" name="remarks" id="remarks" rows="4" cols="40">
                {{ $record->remarks }}
           </textarea>
