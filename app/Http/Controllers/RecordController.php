@@ -95,6 +95,10 @@ class RecordController extends Controller
     {
         $record = Record::find($id);
 
+        if(Auth::id() !== $record->user_id) {
+            return abort(403);
+        }
+
         return view('records.show', compact('record'));
     }
 
@@ -107,6 +111,10 @@ class RecordController extends Controller
     public function edit($id)
     {
         $record = Record::find($id);
+
+        if(Auth::id() !== $record->user_id) {
+            return abort(403);
+        }
 
         return view('records.edit', compact('record'));
     }
@@ -162,6 +170,10 @@ class RecordController extends Controller
     public function destroy(Request $request,$id)
     {
         $record = Record::find($id);
+
+        if(Auth::id() !== $record->user_id) {
+            return abort(403);
+        }
 
         if(isset($record->public_id)){
             Cloudder::destroyImage($record->public_id);
