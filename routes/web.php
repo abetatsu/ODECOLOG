@@ -23,6 +23,7 @@ Route::resource('posts', 'PostController');
 Route::resource('comments', 'CommentController');
 Route::resource('users', 'UserController');
 Route::resource('records', 'RecordController');
+Route::resource('gallery', 'PhotoGalleryController');
 
 Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
 Route::post('post/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
