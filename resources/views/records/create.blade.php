@@ -18,7 +18,7 @@
      </div>
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
-          <select　class="form-control" name="size" id="size">
+          <select class="form-control" name="size" id="size">
                <option value="">選択してください</option>
                <option value="指1本">指1本</option>
                <option value="指2本">指2本</option>
