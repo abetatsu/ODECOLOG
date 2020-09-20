@@ -20,8 +20,13 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
-    public function users()
+    public function likes()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+    }
+
+    public function dislikes()
+    {
+        return $this->belongsToMany('App\User', 'dislikes')->withTimestamps();
     }
 }

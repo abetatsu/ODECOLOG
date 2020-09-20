@@ -14,18 +14,12 @@
           <p class="card-text">{{ $post->content }}</p>
      </div>
      <img src="{{ $post->image_path }}" alt="画像" style="width:200px; height:200px;" class="mx-auto">
-     @if($post->users()->where('user_id', Auth::id())->exists())
-     <form action="{{ route('unfavorites', $post) }}" method="POST">
-          @csrf
-          <input type="submit" value="&#xf164;" class="fas btn btn-success">
-     </form>
-     @else
-     <form action="{{ route('favorites', $post) }}" method="POST">
-          @csrf
-          <input type="submit" value="&#xf164;" class="fas">
-     </form>
-     @endif
-     {{ $post->users()->count() }}
+     <like-component
+          :post="{{ json_encode($post) }}"
+     ></like-component>
+     <dislike-component
+          :post="{{ json_encode($post) }}"
+     ></dislike-component>
 </div>
 <br>
 @endforeach

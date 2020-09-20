@@ -20,7 +20,7 @@
      @endforeach
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
-          <select　class="form-control" name="size" id="size">
+          <select class="form-control" name="size" id="size">
                @if(!empty($record->size))
                <option value="{{ $record->size }}" selected>{{ $record->size }}</option>
                @else
