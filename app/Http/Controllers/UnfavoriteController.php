@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Auth;
 
-class FavoriteController extends Controller
+class UnfavoriteController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +37,8 @@ class FavoriteController extends Controller
     public function store($id)
     {
         $post = Post::find($id);
-        $post->likes()->attach(Auth::id());
-        $count = $post->likes()->count();
+        $post->dislikes()->attach(Auth::id());
+        $count = $post->dislikes()->count();
         $result = true;
         return response()->json([
             'result' => $result,
@@ -93,8 +89,8 @@ class FavoriteController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        $post->likes()->detach(Auth::id());
-        $count = $post->likes()->count();
+        $post->dislikes()->detach(Auth::id());
+        $count = $post->dislikes()->count();
         $result = false;
         return response()->json([
             'result' => $result,
@@ -102,23 +98,24 @@ class FavoriteController extends Controller
         ]);
     }
 
-    public function countfavorite($id)
+    public function countunfavorite($id)
     {
         $post = Post::find($id);
-        $count = $post->likes()->count();
+        $count = $post->dislikes()->count();
 
         return response()->json($count);
     }
 
-    public function hasfavorite($id)
+    public function hasunfavorite($id)
     {
         $post = Post::find($id);
 
-        if ($post->likes()->where('user_id', Auth::id())->exists()) {
+        if($post->dislikes()->where('user_id', Auth::id())->exists()) {
             $result = true;
         } else {
             $result = false;
         }
+
         return response()->json($result);
     }
 }

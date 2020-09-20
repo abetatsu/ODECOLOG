@@ -25,5 +25,12 @@ Route::resource('users', 'UserController');
 Route::resource('records', 'RecordController');
 Route::resource('gallery', 'PhotoGalleryController');
 
-Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
-Route::post('post/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
+Route::get('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
+Route::get('posts/{post}/removefavorites', 'FavoriteController@destroy')->name('removefavorites');
+Route::get('posts/{post}/countfavorites', 'FavoriteController@countfavorite');
+Route::get('posts/{post}/hasfavorites', 'FavoriteController@hasfavorite');
+
+Route::get('posts/{post}/unfavorites', 'UnfavoriteController@store')->name('unfavorites');
+Route::get('posts/{post}/removeunfavorites', 'UnfavoriteController@destroy')->name('removeunfavorites');
+Route::get('posts/{post}/countunfavorites', 'UnfavoriteController@countunfavorite');
+Route::get('posts/{post}/hasunfavorites', 'UnfavoriteController@hasunfavorite');

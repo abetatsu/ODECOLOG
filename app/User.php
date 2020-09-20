@@ -49,7 +49,12 @@ class User extends Authenticatable
 
     public function favorites()
     {
-        return $this->belongsToMany('App\Post')->withTimestamps();
+        return $this->belongsToMany('App\Post', 'likes')->withTimestamps();
+    }
+
+    public function unfavorites()
+    {
+        return $this->belongsToMany('App\Post', 'dislikes')->withTimestamps();
     }
 
     public function records()
