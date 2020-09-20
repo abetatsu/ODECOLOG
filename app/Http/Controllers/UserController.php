@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use JD\Cloudder\Facades\Cloudder;
 use App\Http\Requests\UserRequest;
+use App\Post;
+use Auth;
 
 class UserController extends Controller
 {
@@ -53,8 +55,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $posts = Post::where('user_id', $user->id)->get();
 
-        return view('users.show', compact('user'));
+        return view('users.show', compact('user', 'posts'));
     }
 
     /**
@@ -66,6 +69,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+
+        if(Auth::id() !== $user->id) {
+            return abort(403);
+        }
 
         return view('users.edit', compact('user'));
     }
