@@ -84,6 +84,10 @@
             @yield('content')
         </main>
     </div>
+    <footer class="row">
+        <p class="mx-auto">copy@right.ODECOLOG.2020</p>
+        <a href="{{ url('contact') }}" class="mr-3">お問い合わせ</a>
+    </footer>
 </body>
 
 </html>
