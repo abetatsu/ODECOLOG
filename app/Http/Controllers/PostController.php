@@ -9,6 +9,7 @@ use Auth;
 use JD\Cloudder\Facades\Cloudder;
 use Carbon\Carbon;
 
+
 class PostController extends Controller
 {
     public function __construct()
@@ -22,35 +23,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id')->paginate(10);
         $now = Carbon::now();
-
-        foreach($posts as $post)
-        {
-            $date = $post->updated_at;
-            if($now->isSameDay($date))
-            {
-                $diffHours = $now->diffInHours($date);
-
-                if($diffHours < 1)
-                {
-                    $diffMinutes = $now->diffInMinutes($date);
-
-                    if($diffMinutes < 60)
-                    {
-                        $diffSeconds = $now->diffInSeconds($date);
-                    }
-                }
-
-            } elseif($now->isSameMonth($date, true)){
-                $diffDays = $now->diffInDays();
-            } elseif($now->isSameYear($date)) {
-                $diffMonths = $now->diffInMonths();
-            } else {
-                $diffYears = $now->diffInYears();
-            }
-
-        }
 
         return view('posts.index', compact('posts'));
     }
