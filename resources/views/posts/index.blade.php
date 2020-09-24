@@ -9,7 +9,7 @@
           <h2>{{ $post->title }}</h2>
      </a>
      <a href="{{ route('users.show', $post->user->id) }}"><img src="{{ $post->user->image_path }}" alt="プロフィール画像" style="width:50px; height:50px;">{{ $post->user->name }}</a>
-     {{ $post->updated_at->format('Y/m/d H:i:s') }}
+     {{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}
      <div class="card-body">
           <p class="card-text">{{ $post->content }}</p>
      </div>
