@@ -17,7 +17,7 @@
           </form>
      </nav>
 </div>
-<div class="col-sm-6 my-5 mx-auto calendar-index">
+<div class="col-sm-8 my-5 calendar-index">
 {!! $tag !!}
 <div>
 @endsection

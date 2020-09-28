@@ -279,5 +279,80 @@ h2 {
      background: #ddd;
      box-shadow: 5px 5px 20px #c8c9cc,
      -5px -5px 20px #ffffff;
+     margin: 2% 2% 2% 25%;
+     padding: 5%;
+}
+
+.calendar-top {
+     text-align: center;
+     margin-bottom: 2%;
+     opacity: 0.8;
+}
+
+.table-bordered {
+     border: solid 1px #111;
+}
+
+.calendar-arrow {
+     border-radius: 50%;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
      margin: 2% 2% 2% 2%;
+     padding: 2%;
+     opacity: 0.8;
+}
+
+.calendar-arrow:hover {
+     opacity: 0.6;
+}
+
+.calendar-check {
+     border-radius: 50%;
+     background: #ddd;
+     box-shadow: inset 5px 5px 20px #c8c9cc,
+     inset -5px -5px 20px #ffffff;
+     padding: 5%;
+}
+
+.calendar-check:hover {
+     opacity: 0.6;
+}
+
+td > a {
+     color: #111;
+     opacity: 0.8;
+}
+
+td > a:hover {
+     color: #111;
+     opacity: 0.6;
+}
+
+.table {
+     table-layout: fixed;
+}
+
+.red {
+     color: #FF97C2;
+}
+
+.blue {
+     color: #8EB8FF;
+}
+
+table.table-bordered{
+     border:1px solid #aaa;
+}
+table.table-bordered > thead > tr > th{
+     border:1px solid #aaa;
+}
+table.table-bordered > tbody > tr{
+     border:1px solid #aaa;
+}
+table.table-bordered > tbody > tr > td{
+     border:1px solid #aaa;
+}
+.table tbody + tbody {
+     border:1px solid #aaa;
 }
