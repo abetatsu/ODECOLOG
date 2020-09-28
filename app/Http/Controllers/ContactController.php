@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\User;
+use Auth;
 
 class ContactController extends Controller
 {
@@ -14,7 +16,9 @@ class ContactController extends Controller
     
     public function index()
     {
-        return view('contact.index');
+        $user = User::find(Auth::id());
+
+        return view('contact.index', compact('user'));
     }
 
     public function confirm(ContactRequest $request)

@@ -1920,10 +1920,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post'],
+  props: ["post"],
   data: function data() {
     return {
       count: "",
@@ -1938,7 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
     unfavorite: function unfavorite() {
       var _this = this;
 
-      axios.get('/posts/' + this.post.id + '/unfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/unfavorites").then(function (res) {
         _this.result = res.data.result;
         _this.count = res.data.count;
       })["catch"](function (error) {
@@ -1948,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
     removeunfavorite: function removeunfavorite() {
       var _this2 = this;
 
-      axios.get('/posts/' + this.post.id + '/removeunfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/removeunfavorites").then(function (res) {
         _this2.result = res.data.result;
         _this2.count = res.data.count;
       })["catch"](function (error) {
@@ -1958,7 +1956,7 @@ __webpack_require__.r(__webpack_exports__);
     countunfavorites: function countunfavorites() {
       var _this3 = this;
 
-      axios.get('/posts/' + this.post.id + '/countunfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/countunfavorites").then(function (res) {
         _this3.count = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -1967,7 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
     hasunfavorites: function hasunfavorites() {
       var _this4 = this;
 
-      axios.get('/posts/' + this.post.id + '/hasunfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/hasunfavorites").then(function (res) {
         _this4.result = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -2032,10 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post'],
+  props: ["post"],
   data: function data() {
     return {
       count: "",
@@ -2050,7 +2046,7 @@ __webpack_require__.r(__webpack_exports__);
     favorite: function favorite() {
       var _this = this;
 
-      axios.get('/posts/' + this.post.id + '/favorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/favorites").then(function (res) {
         _this.result = res.data.result;
         _this.count = res.data.count;
       })["catch"](function (error) {
@@ -2060,7 +2056,7 @@ __webpack_require__.r(__webpack_exports__);
     removefavorite: function removefavorite() {
       var _this2 = this;
 
-      axios.get('/posts/' + this.post.id + '/removefavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/removefavorites").then(function (res) {
         _this2.result = res.data.result;
         _this2.count = res.data.count;
       })["catch"](function (error) {
@@ -2070,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
     countfavorites: function countfavorites() {
       var _this3 = this;
 
-      axios.get('/posts/' + this.post.id + '/countfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/countfavorites").then(function (res) {
         _this3.count = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -2079,7 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
     hasfavorites: function hasfavorites() {
       var _this4 = this;
 
-      axios.get('/posts/' + this.post.id + '/hasfavorites').then(function (res) {
+      axios.get("/posts/" + this.post.id + "/hasfavorites").then(function (res) {
         _this4.result = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -49902,39 +49898,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center mt-1" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", [
-          _vm.result
-            ? _c(
-                "a",
-                {
-                  staticClass: "btn btn-danger",
-                  on: {
-                    click: function($event) {
-                      return _vm.removeunfavorite()
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fas fa-thumbs-down" })]
-              )
-            : _c(
-                "a",
-                {
-                  staticClass: "btn btn-secondary",
-                  on: {
-                    click: function($event) {
-                      return _vm.unfavorite()
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fas fa-thumbs-down" })]
-              ),
-          _vm._v("\n        " + _vm._s(_vm.count) + "\n      ")
-        ])
-      ])
-    ])
+  return _c("div", [
+    _vm._v("\n     " + _vm._s(_vm.count) + "\n     "),
+    _vm.result
+      ? _c(
+          "a",
+          {
+            staticClass: "text-danger pointer",
+            on: {
+              click: function($event) {
+                return _vm.removeunfavorite()
+              }
+            }
+          },
+          [_c("i", { staticClass: "fas fa-thumbs-down" })]
+        )
+      : _c(
+          "a",
+          {
+            staticClass: "text-secondary thumbs pointer",
+            on: {
+              click: function($event) {
+                return _vm.unfavorite()
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-thumbs-down" }),
+            _vm._v("怪しい\n     ")
+          ]
+        )
   ])
 }
 var staticRenderFns = []
@@ -50006,39 +49999,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center mt-1" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", [
-          _vm.result
-            ? _c(
-                "a",
-                {
-                  staticClass: "btn btn-success",
-                  on: {
-                    click: function($event) {
-                      return _vm.removefavorite()
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fas fa-thumbs-up" })]
-              )
-            : _c(
-                "a",
-                {
-                  staticClass: "btn btn-secondary",
-                  on: {
-                    click: function($event) {
-                      return _vm.favorite()
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fas fa-thumbs-up" })]
-              ),
-          _vm._v("\n        " + _vm._s(_vm.count) + "\n      ")
-        ])
-      ])
-    ])
+  return _c("div", [
+    _vm._v("\n     " + _vm._s(_vm.count) + "\n  "),
+    _vm.result
+      ? _c(
+          "a",
+          {
+            staticClass: "text-success pointer",
+            on: {
+              click: function($event) {
+                return _vm.removefavorite()
+              }
+            }
+          },
+          [_c("i", { staticClass: "fas fa-thumbs-up" })]
+        )
+      : _c(
+          "a",
+          {
+            staticClass: "text-secondary thumbs pointer",
+            on: {
+              click: function($event) {
+                return _vm.favorite()
+              }
+            }
+          },
+          [_c("i", { staticClass: "fas fa-thumbs-up" }), _vm._v("いいね\n  ")]
+        )
   ])
 }
 var staticRenderFns = []
@@ -62224,8 +62211,6 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./swiper */ "./resources/js/swiper.js");
-
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -62249,6 +62234,8 @@ Vue.component('dislike-component', __webpack_require__(/*! ./components/DislikeC
 var app = new Vue({
   el: '#app'
 });
+
+__webpack_require__(/*! ./swiper */ "./resources/js/swiper.js");
 
 /***/ }),
 

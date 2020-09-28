@@ -1,8 +1,23 @@
 @extends('layouts.app')
-
 @section('content')
-<a href="{{ route('posts.index') }}">投稿記事一覧に戻る</a>
-<a href="{{ route('records.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1600236686/%E3%83%A1%E3%83%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3_p2hshu.png" alt="投稿する" style="width:50px; height:50px;"></a>
-<a href="{{ route('gallery.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1600433989/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_ufanjr.png" alt="photogallery" style="width:50px; height:50px;"></a>
+<div class="card post-menu-card col-sm-3">
+     <nav class="post-menu">
+          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a href="{{ route('records.index') }}" style="border-bottom:#111 solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a href="{{ route('gallery.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+               @csrf
+          </form>
+     </nav>
+</div>
+<div class="col-sm-6 my-5 mx-auto calendar-index">
 {!! $tag !!}
+<div>
 @endsection

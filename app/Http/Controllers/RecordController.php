@@ -23,11 +23,10 @@ class RecordController extends Controller
      */
     public function index(Request $request)
     {
-        $records = Record::all();
+        $records = Record::where('user_id', Auth::id())->get();
         $cal = new Calendar($records);
         $tag = $cal->showCalendarTag($request->month,$request->year);
-        $records = Record::where('user_id', Auth::id())->get();
-
+        
         return view('records.index', compact('records', 'tag'));
     }
 
