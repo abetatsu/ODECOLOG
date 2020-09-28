@@ -55,7 +55,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $posts = Post::where('user_id', $user->id)->get();
+        $posts = Post::where('user_id', $user->id)->paginate(10);
 
         return view('users.show', compact('user', 'posts'));
     }

@@ -20,6 +20,7 @@ class Calendar
           $now = Carbon::now();
           $year = $y;
           $month = $m;
+          
           if ($year == null) {
                $year = $now->year;
                $month = $now->month;
@@ -37,10 +38,10 @@ class Calendar
           $lastDay = Carbon::create($year, $month, 1)->daysInMonth;
           $day = 1 - $firstWeekDay;
           $this->html = <<< EOS
-          <h1>
-          <a class="btn btn-primary" href="/records/?year={$prev_year}&month={$prev_month}" role="button">&lt;前月</a>
-          {$year}年{$month}月
-          <a class="btn btn-primary" href="/records/?year={$next_year}&month={$next_month}" role="button">翌月&gt;</a>
+          <h1 class="mx-auto">
+          <a href="/records/?year={$prev_year}&month={$prev_month}" role="button"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601012680/chevron-left_yrrcyg.svg"></a>
+          {$year} / {$month}
+          <a href="/records/?year={$next_year}&month={$next_month}" role="button"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601012718/chevron-right_dddbda.svg"></a>
           </h1>
           <table class="table table-bordered">
           <tr>

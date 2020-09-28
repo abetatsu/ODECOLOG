@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-require('./swiper');
 
 window.Vue = require('vue');
 
@@ -33,3 +32,5 @@ Vue.component('dislike-component', require('./components/DislikeComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+require('./swiper');

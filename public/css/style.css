@@ -1,0 +1,283 @@
+#app > nav {
+     background-color: #ddd;
+}
+
+body {
+     background-color: #ddd;
+}
+
+p {
+     opacity: 0.8;
+     color: #111;
+}
+
+h2 {
+     opacity: 0.6;
+     color: #111;
+}
+
+.post-menu-card {
+     /* width: 360px; */
+     height: 100%;
+     background-color: #ddd;
+     position: fixed;
+     top: 55px;
+     left: 0;
+}
+
+.navbar-expand-md {
+     position: fixed;
+     width: 100%;
+     z-index: 1;
+}
+
+.post-menu {
+     display: flex;
+     flex-direction: column;
+     margin-top: 10%;
+     font-weight: bold;
+     align-self: center;
+}
+
+.card {
+     border: none;
+     border-radius: 0;
+}
+
+.card-post {
+     border-radius: 50px;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+}
+
+/* .card-post:hover {
+     border-radius: 50px;
+     background: #ddd;
+     box-shadow: inset 5px 5px 20px #c8c9cc,
+     inset -5px -5px 20px #ffffff;
+} */
+
+.post-menu > a {
+     margin-top: 30%;
+     text-decoration: none;
+     color: #111;
+     opacity: 0.8;
+}
+
+.post-menu > a:hover {
+     border-bottom: #111 solid 1px;
+}
+
+.post-profile {
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     border: #ddd solid 5px;
+}
+
+.post-profile:hover {
+     opacity: 0.6;
+}
+
+.profile-image {
+     width: 200px;
+     height: 200px;
+     border-radius: 50%;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     border: #ddd solid 5px;
+}
+
+.profile-show {
+     border-radius: 50px;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+}
+
+.post-image {
+     width: 300px;
+     height: 300px;
+     border-radius: 15%;
+     margin: 5% 0 5% 0;
+}
+
+.post-icon {
+     text-align: center;
+     font-size: 1.5rem;
+     text-decoration: none;
+}
+
+.post-icon > a:hover {
+     opacity: 0.8;
+}
+
+.thumbs:hover {
+     text-decoration: none;
+}
+
+.fa-comments {
+     color: #6c757d;
+}
+
+.post-profiles {
+     margin: 5% 0 0 5%;
+     display: inline-block;
+}
+
+.pointer {
+     cursor: pointer;
+}
+
+.dot-menu {
+     position: absolute;
+     right: 5%;
+     top: 5%;
+}
+
+.dot-menu-item {
+     font-weight: bold;
+}
+
+.post-profile-name {
+     margin: 5% 0 0 2%;
+     font-weight: bold;
+     color: #111;
+}
+
+.post-profile-name:hover {
+     color: #111;
+     opacity: 0.8;
+}
+
+.post-top {
+     display: flex;
+     justify-content: flex-start;
+     align-items:center;
+}
+
+.post-title {
+     margin: 5% 5% 0 5%;
+     display: inline-block;
+}
+
+.post-title > a {
+     color: #111;
+}
+
+.post-title:hover {
+     color: #111;
+}
+
+.card-text {
+     margin: 0 5% 0 5%;
+}
+
+.post-show-date {
+     margin-left: 8%;
+}
+
+.post-show-url {
+     margin: 0 5% 0 8%;
+}
+
+.post-show-url > a {
+     color: #111;
+}
+
+.post-show-image {
+     border-radius: 15%;
+     margin: 5% 0 5% 0;
+     width: 500px;
+     height: 500px;
+}
+
+.discuss-image {
+     width: 60%;
+     height: 60%;
+     margin: 0 auto 10% auto;
+}
+
+.disscuss {
+     margin: 5% 0 0 0;
+     font-weight: bold;
+}
+
+.comment-wrap {
+     border-radius: 50px;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     margin: 2% 2% 2% 2%;
+}
+
+.comment-align {
+     display: flex;
+     justify-content: flex-start;
+     align-items:center;
+}
+
+.comment-profiles {
+     margin: 2% 0 2% 5%;
+     display: inline-block;
+}
+
+.comment-profile-name {
+     margin: 2% 0 2% 2%;
+     font-weight: bold;
+     color: #111;
+}
+
+.comment-profile-name:hover {
+     color: #111;
+}
+
+.comment-content {
+     margin: 0 5% 5% 5%;
+}
+
+.dot-menu-comments {
+     position: relative;
+     left: 90%;
+     margin-top: 2%;
+}
+
+.dropdown-menu-bg {
+     background-color: #ddd;
+}
+
+.comment-form {
+     display: flex;
+     flex-direction: row;
+}
+
+.comment-button {
+     border: none;
+     border-radius: 50px;
+}
+
+.comment-button:hover {
+     opacity: 0.8;
+}
+
+.comment-input {
+     border-radius: 15px;
+     font-size: 1rem;
+}
+
+*:focus {
+     outline: none !important;
+}
+
+.calendar-index {
+     border-radius: 50px;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     margin: 2% 2% 2% 2%;
+}

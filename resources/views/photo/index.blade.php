@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="{{ asset('/js/app.js') }}" defer></script>
-</head>
-
-<body>
-     <a href="{{ route('records.index') }}">戻る</a>
-     <!-- Slider main container -->
-     <div class="swiper-container" style="width:1000px; height:500px;">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-               <!-- Slides -->
-               @foreach($records as $record)
-               <div class="swiper-slide">
-                    <img src="{{ $record->image_path }}" style="background-position:center; width:1000px; height:500px;">
-               </div>
-               @endforeach
+@extends('layouts.app')
+@section('content')
+<div class="card post-menu-card col-sm-2">
+     <nav class="post-menu">
+          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a href="{{ route('gallery.index') }}" style="border-bottom:#111 solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+               @csrf
+          </form>
+     </nav>
+</div>
+<!-- Slider main container -->
+<div class="swiper-container py-5" style="width:1000px; height:500px;">
+     <!-- Additional required wrapper -->
+     <div class="swiper-wrapper">
+          <!-- Slides -->
+          @foreach($records as $record)
+          <div class="swiper-slide">
+               <img src="{{ $record->image_path }}" style="background-position:center; width:100%; height:500px;">
           </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
+          @endforeach
      </div>
-</body>
+     <!-- If we need pagination -->
+     <div class="swiper-pagination"></div>
 
-</html>
+     <!-- If we need navigation buttons -->
+     <div class="swiper-button-prev"></div>
+     <div class="swiper-button-next"></div>
+
+     <!-- If we need scrollbar -->
+     <div class="swiper-scrollbar"></div>
+</div>
+@endsection

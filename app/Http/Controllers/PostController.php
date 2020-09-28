@@ -9,7 +9,6 @@ use Auth;
 use JD\Cloudder\Facades\Cloudder;
 use Carbon\Carbon;
 
-
 class PostController extends Controller
 {
     public function __construct()
