@@ -7,10 +7,10 @@
           <a href="{{ route('posts.create') }}" style="border-bottom:#111 solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
           <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
           <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('gallery.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                          document.getElementById('logout-form').submit();">
+                                                       document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -43,5 +43,4 @@
      </div>
      <button type="submit" class="btn btn-primary">投稿する</button>
 </form>
-<a href="{{ route('posts.index') }}">戻る</a>
 @endsection

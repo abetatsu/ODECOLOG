@@ -1,12 +1,12 @@
 <template>
   <div>
-       {{ count }}
     <a @click="removefavorite()" class="text-success pointer" v-if="result">
       <i class="fas fa-thumbs-up"></i>
     </a>
     <a @click="favorite()" class="text-secondary thumbs pointer" v-else>
       <i class="fas fa-thumbs-up"></i>いいね
     </a>
+    {{ count }}
   </div>
 </template>
 

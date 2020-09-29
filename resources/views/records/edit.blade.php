@@ -7,10 +7,10 @@
           <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
           <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
           <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('gallery.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                  document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -18,7 +18,7 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto" method="POST" action="{{ route('records.update', $record->id) }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5" method="POST" action="{{ route('records.update', $record->id) }}">
      @csrf
      @method('PUT')
      <div class="form-group">
@@ -29,7 +29,7 @@
      <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
-          <img src="{{ $record->image_path }}" alt="画像">
+          <img src="{{ $record->image_path }}" alt="画像" class="record-edit-image">
           <small id="emailHelp" class="form-text text-muted">画像の投稿は必須です</small>
      </div>
      @foreach ($errors->all() as $error)
@@ -37,6 +37,7 @@
      @endforeach
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
+          <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
                @if(!empty($record->size))
                <option value="{{ $record->size }}" selected>{{ $record->size }}</option>
@@ -65,7 +66,6 @@
                <option value="15cm">15cm</option>
           </select>
      </div>
-     <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
      <div class="form-group">
           <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
@@ -136,8 +136,7 @@
      </div>
      <div class="form-group">
           <label for="remarks">備考(任意)</label>
-          <textarea type="text" class="form-control" name="remarks" id="remarks" rows="4" cols="40">
-          {{ $record->remarks }}
+          <textarea type="text" class="form-control" name="remarks" id="remarks" rows="4" cols="40">{{ $record->remarks }}
           </textarea>
      </div>
      <button type="submit" class="btn btn-primary">登録する</button>
