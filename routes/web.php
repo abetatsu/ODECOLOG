@@ -25,7 +25,7 @@ Route::resource('posts', 'PostController');
 Route::resource('comments', 'CommentController');
 Route::resource('users', 'UserController');
 Route::resource('records', 'RecordController');
-Route::resource('gallery', 'PhotoGalleryController');
+Route::resource('photos', 'PhotoGalleryController');
 
 Route::get('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
 Route::get('posts/{post}/removefavorites', 'FavoriteController@destroy')->name('removefavorites');

@@ -49899,7 +49899,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n     " + _vm._s(_vm.count) + "\n     "),
     _vm.result
       ? _c(
           "a",
@@ -49925,9 +49924,10 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "fas fa-thumbs-down" }),
-            _vm._v("怪しい\n     ")
+            _vm._v("怪しい\n      ")
           ]
-        )
+        ),
+    _vm._v("\n      " + _vm._s(_vm.count) + "\n")
   ])
 }
 var staticRenderFns = []
@@ -50000,7 +50000,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n     " + _vm._s(_vm.count) + "\n  "),
     _vm.result
       ? _c(
           "a",
@@ -50025,7 +50024,8 @@ var render = function() {
             }
           },
           [_c("i", { staticClass: "fas fa-thumbs-up" }), _vm._v("いいね\n  ")]
-        )
+        ),
+    _vm._v("\n  " + _vm._s(_vm.count) + "\n")
   ])
 }
 var staticRenderFns = []

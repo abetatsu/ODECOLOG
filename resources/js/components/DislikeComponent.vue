@@ -1,13 +1,13 @@
 <template>
-     <div>
-          {{ count }}
+    <div>
           <a @click="removeunfavorite()" class="text-danger pointer" v-if="result">
           <i class="fas fa-thumbs-down"></i>
           </a>
           <a @click="unfavorite()" class="text-secondary thumbs pointer" v-else>
           <i class="fas fa-thumbs-down"></i>怪しい
           </a>
-     </div>
+          {{ count }}
+    </div>
 </template>
 
 <script>

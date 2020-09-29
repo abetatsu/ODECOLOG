@@ -21,7 +21,7 @@ class PhotoGalleryController extends Controller
     {
         $records = Record::where('user_id', Auth::id())->get();
 
-        return view('photo.index', compact('records'));
+        return view('photos.index', compact('records'));
     }
 
     /**
