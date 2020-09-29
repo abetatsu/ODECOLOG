@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+use Psy\VersionUpdater\GitHubChecker;
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

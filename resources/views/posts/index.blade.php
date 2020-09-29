@@ -10,7 +10,7 @@
           <a href="{{ route('gallery.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                       document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -28,7 +28,7 @@
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item dot-menu-item" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
                <a class="dropdown-item dot-menu-item" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
-                                                     document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
+                                                       document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
                <form id="delete-post" action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:none;">
                     @method('DELETE')
                     @csrf
@@ -47,7 +47,8 @@
           </a>
      </h2>
      <div class="card-body">
-          <p class="card-text">{{ $post->content }}</p>
+          @php $content = Illuminate\Support\Str::limit($post->content,150); @endphp
+          <p class="card-text">{{ $content }} <a href="{{ route('posts.show', $post->id) }}">続きをみる</a></p>
      </div>
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
      <hr>
