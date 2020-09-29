@@ -82,7 +82,19 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $comment = Comment::find($post->id);
+
+        $comment->user_id = Auth::id();
+        $comment->post_id = $post->id;
+        $comment->comment = $request->comment;
+
+        $comment->save();
+
+        $post->load('user', 'comments');
+
+        return redirect()->route('posts.show', compact('post'));
+
     }
 
     /**
@@ -93,6 +105,14 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        if(Auth::id() !== $comment->user_id) {
+            return abort(403);
+        }
+
+        $comment->delete();
+
+        return redirect()->route('posts.show', $id)->with('flash_message', 'コメントが削除されました');
     }
 }

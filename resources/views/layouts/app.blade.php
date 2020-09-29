@@ -53,14 +53,12 @@
                 </div>
             </div>
         </nav>
-
-        @if (session('flash_message'))
-        <div class="alert alert-danger">
-            {{ session('flash_message') }}
-        </div>
-        @endif
-
         <main class="py-4">
+            @if (session('flash_message'))
+            <div class="alert alert-danger">
+                {{ session('flash_message') }}
+            </div>
+            @endif
             @yield('content')
         </main>
     </div>

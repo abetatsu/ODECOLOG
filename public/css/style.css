@@ -16,6 +16,16 @@ h2 {
      color: #111;
 }
 
+a {
+     color: #222;
+     opacity: 0.8;
+}
+
+a:hover {
+     color: #222;
+     opacity: 0.6;
+}
+
 .post-menu-card {
      /* width: 360px; */
      height: 100%;
@@ -101,8 +111,8 @@ h2 {
 }
 
 .post-image {
-     width: 300px;
-     height: 300px;
+     width: 60%;
+     height: 400px;
      border-radius: 15%;
      margin: 5% 0 5% 0;
 }
@@ -148,11 +158,12 @@ h2 {
      margin: 5% 0 0 2%;
      font-weight: bold;
      color: #111;
+     opacity: 0.8;
 }
 
 .post-profile-name:hover {
      color: #111;
-     opacity: 0.8;
+     opacity: 0.6;
 }
 
 .post-top {
@@ -193,7 +204,7 @@ h2 {
 .post-show-image {
      border-radius: 15%;
      margin: 5% 0 5% 0;
-     width: 500px;
+     width: 70%;
      height: 500px;
 }
 
@@ -231,10 +242,12 @@ h2 {
      margin: 2% 0 2% 2%;
      font-weight: bold;
      color: #111;
+     opacity: 0.8;
 }
 
 .comment-profile-name:hover {
      color: #111;
+     opacity: 0.6;
 }
 
 .comment-content {
@@ -242,7 +255,7 @@ h2 {
 }
 
 .dot-menu-comments {
-     position: relative;
+     position: absolute;
      left: 90%;
      margin-top: 2%;
 }
@@ -355,4 +368,22 @@ table.table-bordered > tbody > tr > td{
 }
 .table tbody + tbody {
      border:1px solid #aaa;
+}
+
+.alert-danger {
+     z-index: 2;
+}
+
+.comment-edit-profile {
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+}
+
+.comment-edit-name {
+     font-weight: bold;
+}
+
+.comment-edit-input {
+     width: 100%;
 }

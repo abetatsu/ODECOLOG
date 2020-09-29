@@ -29,12 +29,12 @@
      @endforeach
      <div class="form-group">
           <label for="title">タイトル</label>
-          <input type="text" class="form-control" name="title" id="title" placeholder="タイトルを入力してください">
+          <input type="text" class="form-control" name="title" id="title" placeholder="タイトルを入力してください(30文字以内)">
           <small id="emailHelp" class="form-text text-muted">タイトルの入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="content">内容</label>
-          <textarea type="text" class="form-control" name="content" id="content" placeholder="内容を入力してください" rows="4" cols="40">
+          <textarea type="text" class="form-control" name="content" id="content" placeholder="内容を入力してください(1000文字以内)" rows="4" cols="40">
           </textarea>
      </div>
      <div class="form-group">
