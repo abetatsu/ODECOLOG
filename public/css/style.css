@@ -434,7 +434,41 @@ table.record-table > thead > tr > th{
      display: block;
 }
 
+.gallery-photos {
+     background-position: center;
+     width: 100%;
+     height: 500px;
+}
+
 .record-edit-image {
      width: 50%;
 }
 
+.login-card {
+     border-radius: 30px;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     padding: 3%;
+     font-weight: bold;
+}
+
+.login-button {
+     border: none;
+     padding: 4%;
+     font-weight: bold;
+     border-radius: 15%;
+     background: #ddd;
+     box-shadow: inset 5px 5px 20px #c8c9cc,
+     inset -5px -5px 20px #ffffff;
+}
+
+.login-button:hover {
+     border-radius: 15%;
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     border: none;
+     padding: 4%;
+     font-weight: bold;
+}

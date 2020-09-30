@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a @click="removefavorite()" class="text-success pointer" v-if="result">
+    <a @click="removeFavorite()" class="text-success pointer" v-if="result">
       <i class="fas fa-thumbs-up"></i>
     </a>
     <a @click="favorite()" class="text-secondary thumbs pointer" v-else>
@@ -20,8 +20,8 @@ export default {
     };
   },
   mounted() {
-    this.hasfavorites();
-    this.countfavorites();
+    this.hasFavorites();
+    this.countFavorites();
   },
   methods: {
     favorite() {
@@ -35,9 +35,9 @@ export default {
           console.log(error);
         });
     },
-    removefavorite() {
+    removeFavorite() {
       axios
-        .get("/posts/" + this.post.id + "/removefavorites")
+        .get("/posts/" + this.post.id + "/remove/favorites")
         .then((res) => {
           this.result = res.data.result;
           this.count = res.data.count;
@@ -46,9 +46,9 @@ export default {
           console.log(error);
         });
     },
-    countfavorites() {
+    countFavorites() {
       axios
-        .get("/posts/" + this.post.id + "/countfavorites")
+        .get("/posts/" + this.post.id + "/count/favorites")
         .then((res) => {
           this.count = res.data;
         })
@@ -56,9 +56,9 @@ export default {
           console.log(error);
         });
     },
-    hasfavorites() {
+    hasFavorites() {
       axios
-        .get("/posts/" + this.post.id + "/hasfavorites")
+        .get("/posts/" + this.post.id + "/has/favorites")
         .then((res) => {
           this.result = res.data;
         })

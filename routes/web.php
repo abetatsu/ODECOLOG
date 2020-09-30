@@ -28,14 +28,14 @@ Route::resource('records', 'RecordController');
 Route::resource('photos', 'PhotoGalleryController');
 
 Route::get('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
-Route::get('posts/{post}/removefavorites', 'FavoriteController@destroy')->name('removefavorites');
-Route::get('posts/{post}/countfavorites', 'FavoriteController@countfavorite');
-Route::get('posts/{post}/hasfavorites', 'FavoriteController@hasfavorite');
+Route::get('posts/{post}/remove/favorites', 'FavoriteController@destroy')->name('removefavorites');
+Route::get('posts/{post}/count/favorites', 'FavoriteController@countFavorite');
+Route::get('posts/{post}/has/favorites', 'FavoriteController@hasFavorite');
 
 Route::get('posts/{post}/unfavorites', 'UnfavoriteController@store')->name('unfavorites');
-Route::get('posts/{post}/removeunfavorites', 'UnfavoriteController@destroy')->name('removeunfavorites');
-Route::get('posts/{post}/countunfavorites', 'UnfavoriteController@countunfavorite');
-Route::get('posts/{post}/hasunfavorites', 'UnfavoriteController@hasunfavorite');
+Route::get('posts/{post}/remove/unfavorites', 'UnfavoriteController@destroy')->name('removeunfavorites');
+Route::get('posts/{post}/countun/favorites', 'UnfavoriteController@countUnfavorite');
+Route::get('posts/{post}/has/unfavorites', 'UnfavoriteController@hasUnfavorite');
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/confirm', 'ContactController@confirm')->name('confirm');

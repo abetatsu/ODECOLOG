@@ -36,15 +36,25 @@
      </div>
      @endif
      <div class="post-top">
-          <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles"><img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile"></a>
+          <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles">
+               @if(empty($post->user->image_path))
+               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
+               @else
+               <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
+               @endif
+          </a>
           <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name">{{ $post->user->name }}</a>
      </div>
      <h2 class="post-title">『{{ $post->title }}』</h2>
      <div class="card-body">
           <p class="card-text">{{ $post->content }}</p>
      </div>
+     @if(isset($post->url))
      <p class="post-show-url">URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer">{{ $post->url }}</a></p>
+     @endif
+     @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-show-image mx-auto">
+     @endif
      <p class="post-show-date">{{ $post->updated_at->format('Y/m/d H:i:s') }}</p>
      <hr>
      <div class="row pb-3">
@@ -107,7 +117,13 @@
           </div>
           @endif
           <div class="comment-align">
-               <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profiles"><img src="{{ $comment->user->image_path }}" alt="プロフィール画像" class="post-profile"></a>
+               <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profiles">
+                    @if(empty($post->user->image_path))
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
+                    @else
+                    <img src="{{ $comment->user->image_path }}" alt="プロフィール画像" class="post-profile">
+                    @endif
+               </a>
                <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profile-name">{{ $comment->user->name }}</a>
                <footer class="blockquote-footer">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
           </div>

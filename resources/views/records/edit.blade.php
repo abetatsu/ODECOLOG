@@ -21,23 +21,26 @@
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5" method="POST" action="{{ route('records.update', $record->id) }}">
      @csrf
      @method('PUT')
+     @if ($errors->any())
+     @foreach ($errors->all() as $error)
+     <p class="text-center text-danger">{{ $error }}</p>
+     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
+     @endforeach
+     @endif
      <div class="form-group">
           <label for="day">日付</label>
           <input type="date" class="form-controll" id="day" name="day" value="{{ $record->day }}">
-          <small id="emailHelp" class="form-text text-muted">日付の入力は必須です</small>
+          <small class="form-text text-muted">日付の入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
           <img src="{{ $record->image_path }}" alt="画像" class="record-edit-image">
-          <small id="emailHelp" class="form-text text-muted">画像の投稿は必須です</small>
+          <small class="form-text text-muted">画像の投稿は必須です</small>
      </div>
-     @foreach ($errors->all() as $error)
-     <p class="text-center text-danger">{{ $error }}</p>
-     @endforeach
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
-          <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
+          <small class="form-text text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
                @if(!empty($record->size))
                <option value="{{ $record->size }}" selected>{{ $record->size }}</option>

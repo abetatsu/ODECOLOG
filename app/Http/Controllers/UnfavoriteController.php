@@ -98,7 +98,7 @@ class UnfavoriteController extends Controller
         ]);
     }
 
-    public function countunfavorite($id)
+    public function countUnfavorite($id)
     {
         $post = Post::find($id);
         $count = $post->dislikes()->count();
@@ -106,7 +106,7 @@ class UnfavoriteController extends Controller
         return response()->json($count);
     }
 
-    public function hasunfavorite($id)
+    public function hasUnfavorite($id)
     {
         $post = Post::find($id);
 

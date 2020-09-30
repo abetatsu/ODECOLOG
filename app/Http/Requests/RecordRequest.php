@@ -26,7 +26,7 @@ class RecordRequest extends FormRequest
         return [
             'size' => 'required',
             'image' => 'required',
-            'day' => "required",
+            'day' => 'required',
         ];
     }
 

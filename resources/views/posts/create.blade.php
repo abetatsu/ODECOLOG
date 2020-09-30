@@ -18,24 +18,28 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto" method="POST" action="{{ route('posts.store') }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5" method="POST" action="{{ route('posts.store') }}">
      @csrf
+     @if ($errors->any())
+     @foreach ($errors->all() as $error)
+     <p class="text-center text-danger">{{ $error }}</p>
+     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
+     @endforeach
+     @endif
      <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
      </div>
-     @foreach ($errors->all() as $error)
-     <p class="text-center text-danger">{{ $error }}</p>
-     @endforeach
      <div class="form-group">
           <label for="title">タイトル</label>
           <input type="text" class="form-control" name="title" id="title" placeholder="タイトルを入力してください(30文字以内)">
-          <small id="emailHelp" class="form-text text-muted">タイトルの入力は必須です</small>
+          <small class="form-text text-muted">タイトルの入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="content">内容</label>
           <textarea type="text" class="form-control" name="content" id="content" placeholder="内容を入力してください(1000文字以内)" rows="4" cols="40">
           </textarea>
+          <small class="form-text text-muted">内容の入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="url">関連URL・リンク</label>
