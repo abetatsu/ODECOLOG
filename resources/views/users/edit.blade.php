@@ -18,9 +18,10 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto" method="POST" action="{{ route('users.update', $user->id) }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('users.update', $user->id) }}">
      @method('PUT')
      @csrf
+     <h2 class="text-center">ユーザー情報編集フォーム</h2>
      <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
@@ -78,6 +79,6 @@
                <option value="その他の業種">その他の業種</option>
           </select>
      </div>
-     <button type="submit" class="btn btn-primary">更新する</button>
+     <button type="submit" class="login-button">更新する</button>
 </form>
 @endsection

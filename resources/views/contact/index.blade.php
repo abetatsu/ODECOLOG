@@ -18,10 +18,9 @@
           </form>
      </nav>
 </div>
-<h1 class="text-center py-5">お問い合わせフォーム</h1>
-
-<form action="{{ route('confirm') }}" method="post" class="mx-auto col-sm-6">
+<form action="{{ route('confirm') }}" method="post" class="mx-auto col-sm-6 form-wrap my-5">
      @csrf
+     <h2 class="text-center">お問い合わせフォーム</h2>
      @if ($errors->has('name'))
      <p class="text-danger">{{$errors->first('name')}}</p>
      @endif
@@ -43,6 +42,7 @@
           <label for="message">お問い合わせ内容(必須)</label>
           <textarea class="form-control" id="message" rows="5" name="message" placeholder="お問い合わせ内容を入力してください">{{ old('message') }}</textarea>
      </div>
-     <button type="submit" class="btn btn-primary">確認画面へ</button>
+     <button type="submit" class="login-button">確認画面へ</button>
 </form>
+</div>
 @endsection

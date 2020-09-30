@@ -18,9 +18,10 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto" method="POST" action="{{ route('posts.update', $post->id) }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('posts.update', $post->id) }}">
      @method('PUT')
      @csrf
+     <h2 class="text-center">投稿編集フォーム</h2>
      <div class="form-group">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
@@ -46,6 +47,6 @@
           <label for="url">関連URL・リンク</label>
           <input type="url" class="form-control" id="url" value="{{ $post->url }}" name="url">
      </div>
-     <button type="submit" class="btn btn-primary">更新する</button>
+     <button type="submit" class="login-button">更新する</button>
 </form>
 @endsection
