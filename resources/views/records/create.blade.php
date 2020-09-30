@@ -18,8 +18,9 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto py-5" method="POST" action="{{ route('records.store') }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.store') }}">
      @csrf
+     <h2 class="text-center">記録作成フォーム</h2>
      @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
@@ -136,7 +137,6 @@
           <textarea type="text" class="form-control" name="remarks" id="remarks" placeholder="メモしたいことがあれば入力してください" rows="4" cols="40">{{ old('remarks') }}
           </textarea>
      </div>
-     <button type="submit" class="btn btn-primary">登録する</button>
+     <button type="submit" class="login-button">登録する</button>
 </form>
-<a href="{{ route('records.index') }}">戻る</a>
 @endsection

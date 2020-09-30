@@ -18,8 +18,9 @@
           </form>
      </nav>
 </div>
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5" method="POST" action="{{ route('posts.store') }}">
+<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('posts.store') }}">
      @csrf
+     <h2 class="text-center">新規投稿作成フォーム</h2>
      @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
@@ -45,6 +46,6 @@
           <label for="url">関連URL・リンク</label>
           <input type="url" class="form-control" id="url" placeholder="関連URL・リンクを入力してください" name="url">
      </div>
-     <button type="submit" class="btn btn-primary">投稿する</button>
+     <button type="submit" class="login-button">投稿する</button>
 </form>
 @endsection
