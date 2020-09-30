@@ -32,11 +32,11 @@
      <div class="form-group">
           <label for="name">名前</label>
           <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
-          <small id="emailHelp" class="form-text text-muted">名前の入力は必須です</small>
+          <small class="form-text text-muted">名前の入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="age">年齢</label>
-          <select　class="form-control" name="age" 　id="age">
+          <select class="form-control" name="age" id="age">
                @if(!empty($user->age))
                <option value="{{ $user->age }}" selected>{{ $user->age }}</option>
                @else
@@ -80,5 +80,4 @@
      </div>
      <button type="submit" class="btn btn-primary">更新する</button>
 </form>
-<a href="{{ route('users.show', $user->id) }}">戻る</a>
 @endsection

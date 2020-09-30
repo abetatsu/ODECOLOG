@@ -24,9 +24,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:30',
-            'content' => 'max:1000',
-            'image' => 'mimes:jpeg,jpg,png,gif|max:10240',
+            'title' => 'bail|required|max:30',
+            'content' => 'required|max:1000',
+            'image' => 'bail|mimes:jpeg,jpg,png,gif|max:10240',
         ];
     }
 
@@ -35,6 +35,7 @@ class PostRequest extends FormRequest
         return [
             'title.required' => 'タイトルは必須です。',
             'title.max' => 'タイトルは30文字以内で記入してください。',
+            'content.required' => '内容は必須です。',
             'content.max' => '内容は1000文字以内で入力してください。',
             'image.mimes' => 'ファイルタイプをjpeg,jpg,png,gifに設定してください。',
             'image.max' => 'ファイルサイズを10MB以下に設定してください。',

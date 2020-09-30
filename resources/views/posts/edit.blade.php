@@ -26,17 +26,21 @@
           <input type="file" class="form-control-file" id="image" name="image">
           <img src="{{ $post->image_path }}" alt="画像" style="width:100px; height:100px;">
      </div>
+     @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
+     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
      @endforeach
+     @endif
      <div class="form-group">
           <label for="title">タイトル</label>
           <input type="text" class="form-control" name="title" id="title" value="{{ $post->title }}">
-          <small id="emailHelp" class="form-text text-muted">タイトルの入力は必須です</small>
+          <small class="form-text text-muted">タイトルの入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="content">内容</label>
           <textarea type="text" class="form-control" name="content" id="content" rows="4" cols="40">{{ $post->content }}</textarea>
+          <small class="form-text text-muted">内容の入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="url">関連URL・リンク</label>
@@ -44,5 +48,4 @@
      </div>
      <button type="submit" class="btn btn-primary">更新する</button>
 </form>
-<a href="{{ route('posts.index') }}">戻る</a>
 @endsection

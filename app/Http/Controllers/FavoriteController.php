@@ -102,7 +102,7 @@ class FavoriteController extends Controller
         ]);
     }
 
-    public function countfavorite($id)
+    public function countFavorite($id)
     {
         $post = Post::find($id);
         $count = $post->likes()->count();
@@ -110,7 +110,7 @@ class FavoriteController extends Controller
         return response()->json($count);
     }
 
-    public function hasfavorite($id)
+    public function hasFavorite($id)
     {
         $post = Post::find($id);
 

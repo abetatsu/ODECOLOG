@@ -1,6 +1,6 @@
 <template>
     <div>
-          <a @click="removeunfavorite()" class="text-danger pointer" v-if="result">
+          <a @click="removeUnfavorite()" class="text-danger pointer" v-if="result">
           <i class="fas fa-thumbs-down"></i>
           </a>
           <a @click="unfavorite()" class="text-secondary thumbs pointer" v-else>
@@ -20,8 +20,8 @@ export default {
     };
   },
   mounted() {
-    this.hasunfavorites();
-    this.countunfavorites();
+    this.hasUnfavorites();
+    this.countUnfavorites();
   },
   methods: {
     unfavorite() {
@@ -35,9 +35,9 @@ export default {
           console.log(error);
         });
     },
-    removeunfavorite() {
+    removeUnfavorite() {
       axios
-        .get("/posts/" + this.post.id + "/removeunfavorites")
+        .get("/posts/" + this.post.id + "/remove/unfavorites")
         .then((res) => {
           this.result = res.data.result;
           this.count = res.data.count;
@@ -46,9 +46,9 @@ export default {
           console.log(error);
         });
     },
-    countunfavorites() {
+    countUnfavorites() {
       axios
-        .get("/posts/" + this.post.id + "/countunfavorites")
+        .get("/posts/" + this.post.id + "/count/unfavorites")
         .then((res) => {
           this.count = res.data;
         })
@@ -56,9 +56,9 @@ export default {
           console.log(error);
         });
     },
-    hasunfavorites() {
+    hasUnfavorites() {
       axios
-        .get("/posts/" + this.post.id + "/hasunfavorites")
+        .get("/posts/" + this.post.id + "/has/unfavorites")
         .then((res) => {
           this.result = res.data;
         })

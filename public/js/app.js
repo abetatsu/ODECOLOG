@@ -1929,8 +1929,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.hasunfavorites();
-    this.countunfavorites();
+    this.hasUnfavorites();
+    this.countUnfavorites();
   },
   methods: {
     unfavorite: function unfavorite() {
@@ -1943,29 +1943,29 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    removeunfavorite: function removeunfavorite() {
+    removeUnfavorite: function removeUnfavorite() {
       var _this2 = this;
 
-      axios.get("/posts/" + this.post.id + "/removeunfavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/remove/unfavorites").then(function (res) {
         _this2.result = res.data.result;
         _this2.count = res.data.count;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    countunfavorites: function countunfavorites() {
+    countUnfavorites: function countUnfavorites() {
       var _this3 = this;
 
-      axios.get("/posts/" + this.post.id + "/countunfavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/count/unfavorites").then(function (res) {
         _this3.count = res.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    hasunfavorites: function hasunfavorites() {
+    hasUnfavorites: function hasUnfavorites() {
       var _this4 = this;
 
-      axios.get("/posts/" + this.post.id + "/hasunfavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/has/unfavorites").then(function (res) {
         _this4.result = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -2039,8 +2039,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.hasfavorites();
-    this.countfavorites();
+    this.hasFavorites();
+    this.countFavorites();
   },
   methods: {
     favorite: function favorite() {
@@ -2053,29 +2053,29 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    removefavorite: function removefavorite() {
+    removeFavorite: function removeFavorite() {
       var _this2 = this;
 
-      axios.get("/posts/" + this.post.id + "/removefavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/remove/favorites").then(function (res) {
         _this2.result = res.data.result;
         _this2.count = res.data.count;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    countfavorites: function countfavorites() {
+    countFavorites: function countFavorites() {
       var _this3 = this;
 
-      axios.get("/posts/" + this.post.id + "/countfavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/count/favorites").then(function (res) {
         _this3.count = res.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    hasfavorites: function hasfavorites() {
+    hasFavorites: function hasFavorites() {
       var _this4 = this;
 
-      axios.get("/posts/" + this.post.id + "/hasfavorites").then(function (res) {
+      axios.get("/posts/" + this.post.id + "/has/favorites").then(function (res) {
         _this4.result = res.data;
       })["catch"](function (error) {
         console.log(error);
@@ -49906,7 +49906,7 @@ var render = function() {
             staticClass: "text-danger pointer",
             on: {
               click: function($event) {
-                return _vm.removeunfavorite()
+                return _vm.removeUnfavorite()
               }
             }
           },
@@ -50007,7 +50007,7 @@ var render = function() {
             staticClass: "text-success pointer",
             on: {
               click: function($event) {
-                return _vm.removefavorite()
+                return _vm.removeFavorite()
               }
             }
           },

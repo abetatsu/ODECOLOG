@@ -8,6 +8,7 @@ use JD\Cloudder\Facades\Cloudder;
 use App\Record;
 use Auth;
 use App\Calendar;
+use Validator;
 
 class RecordController extends Controller
 {
@@ -49,6 +50,20 @@ class RecordController extends Controller
     public function store(RecordRequest $request)
     {
         $record = new Record;
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'day' => 'unique:records',
+            ],
+            [
+                'day.unique' => 'すでにこの日付には記録がされています。別の日付で登録してください。',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
 
         $record->user_id = Auth::id();
         $record->size = $request->size;

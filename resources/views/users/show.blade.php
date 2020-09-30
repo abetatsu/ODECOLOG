@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('content')
 <div class="card post-menu-card col-sm-3">
      <nav class="post-menu">
           <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
@@ -16,7 +17,6 @@
           </form>
      </nav>
 </div>
-@section('content')
 <div class="card col-md-6 mx-auto my-5 profile-show">
      @if($user->id === Auth::id())
      <div class="dropdown dot-menu">
@@ -26,8 +26,8 @@
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item dot-menu-item" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
                <a class="dropdown-item dot-menu-item"  onclick="event.preventDefault();
-                                                  document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-               <form id="delete-post" action="" method="POST" style="display:none;">
+                                                  document.getElementById('delete-user').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
+               <form id="delete-user" action="" method="POST" style="display:none;">
                     @method('DELETE')
                     @csrf
                </form>
@@ -36,7 +36,11 @@
      @endif
      <div class="row">
           <div class="card-body col-md-5">
+               @if(empty($user->image_path))
+               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="画像" class="profile-image">
+               @else
                <img src="{{ $user->image_path }}" alt="画像" class="profile-image">
+               @endif
           </div>
           <div class="card-body col-md-5">
                <p class="d-inline-block">名前：{{ $user->name }}</p>
@@ -67,7 +71,13 @@
      </div>
      @endif
      <div class="post-top">
-          <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles"><img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile"></a>
+          <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles">
+               @if(empty($post->user->image_path))
+               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
+               @else
+               <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
+               @endif
+          </a>
           <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name">{{ $post->user->name }}</a>
           <p class="post-profiles">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</p>
      </div>
@@ -79,7 +89,9 @@
      <div class="card-body">
           <p class="card-text">{{ $post->content }}</p>
      </div>
+     @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
+     @endif
      <hr>
      <div class="row pb-3">
           <div class="col-4 post-icon">

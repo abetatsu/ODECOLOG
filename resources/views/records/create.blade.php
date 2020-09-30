@@ -20,22 +20,29 @@
 </div>
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto py-5" method="POST" action="{{ route('records.store') }}">
      @csrf
+     @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
+     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
      @endforeach
+     @endif
      <div class="form-group">
           <label for="day">日付</label>
           <input type="date" class="form-controll" id="day" name="day" value="{{ $date }}">
-          <small id="emailHelp" class="form-text text-muted">日付の入力は必須です</small>
+          <small class="form-text text-muted">日付の入力は必須です</small>
      </div>
      <div class="form-group">
           <label for="image">おでこの画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
-          <small id="emailHelp" class="form-text text-muted">画像の投稿は必須です</small>
+          <small class="form-text text-muted">画像の投稿は必須です</small>
      </div>
      <div class="form-group">
           <label for="size">サイズ(眉山から生え際の長さ)</label>
+          <small class="form-text text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
+               @if(!empty(old('size')))
+               <option value="{{ old('size') }}">{{ old('size') }}</option>
+               @endif
                <option value="">選択してください</option>
                <option value="指1本">指1本</option>
                <option value="指2本">指2本</option>
@@ -59,10 +66,12 @@
                <option value="15cm">15cm</option>
           </select>
      </div>
-     <small id="emailHelp" class="form-text text-muted">サイズの入力は必須です</small>
      <div class="form-group">
           <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
+               @if(!empty(old('sleep_time')))
+               <option value="{{ old('sleep_time') }}">{{ old('sleep_time') }}</option>
+               @endif
                <option value="">選択してください</option>
                <option value="1時間">1時間</option>
                <option value="2時間">2時間</option>
@@ -80,23 +89,26 @@
      </div>
      <div class="form-group">
           <label for="care_item1">ケア用品1(任意)</label>
-          <input type="text" class="form-control" name="care_item1" id="care_item1" placeholder="使っているケア用品を入力してください">
+          <input type="text" class="form-control" name="care_item1" id="care_item1" placeholder="使っているケア用品を入力してください" value="{{ old('care_item1') }}">
      </div>
      <div class="form-group">
           <label for="care_item2">ケア用品2(任意)</label>
-          <input type="text" class="form-control" name="care_item2" id="care_item2" placeholder="使っているケア用品を入力してください">
+          <input type="text" class="form-control" name="care_item2" id="care_item2" placeholder="使っているケア用品を入力してください" value="{{ old('care_item2') }}">
      </div>
      <div class="form-group">
           <label for="care_item3">ケア用品3(任意)</label>
-          <input type="text" class="form-control" name="care_item3" id="care_item3" placeholder="使っているケア用品を入力してください">
+          <input type="text" class="form-control" name="care_item3" id="care_item3" placeholder="使っているケア用品を入力してください" value="{{ old('care_item3') }}">
      </div>
      <div class="form-group">
           <label for="care_item4">ケア用品4(任意)</label>
-          <input type="text" class="form-control" name="care_item4" id="care_item4" placeholder="使っているケア用品を入力してください">
+          <input type="text" class="form-control" name="care_item4" id="care_item4" placeholder="使っているケア用品を入力してください" value="{{ old('care_item4') }}">
      </div>
      <div class="form-group">
           <label for="alcohol">飲酒量(任意)</label>
           <select class="form-control" id="alcohol" name="alcohol">
+               @if(!empty(old('alcohol')))
+               <option value="{{ old('alcohol') }}">{{ old('alcohol') }}</option>
+               @endif
                <option value="">選択してください</option>
                <option value="1合（180ml）未満">1合（180ml）未満</option>
                <option value="1合以上2合（360ml）未満">1合以上2合（360ml）未満</option>
@@ -109,6 +121,9 @@
      <div class="form-group">
           <label for="stress">ストレス(任意)</label>
           <select class="form-control" id="stress" name="stress">
+               @if(!empty(old('stress')))
+               <option value="{{ old('stress') }}">{{ old('stress') }}</option>
+               @endif
                <option value="">選択してください</option>
                <option value="ほぼない">ほぼない</option>
                <option value="少しある">少しある</option>
@@ -118,7 +133,7 @@
      </div>
      <div class="form-group">
           <label for="remarks">備考(任意)</label>
-          <textarea type="text" class="form-control" name="remarks" id="remarks" placeholder="メモしたいことがあれば入力してください" rows="4" cols="40">
+          <textarea type="text" class="form-control" name="remarks" id="remarks" placeholder="メモしたいことがあれば入力してください" rows="4" cols="40">{{ old('remarks') }}
           </textarea>
      </div>
      <button type="submit" class="btn btn-primary">登録する</button>
