@@ -4,9 +4,9 @@
       <i class="fas fa-thumbs-up"></i>
     </a>
     <a @click="favorite()" class="text-secondary thumbs pointer" v-else>
-      <i class="fas fa-thumbs-up"></i>いいね
+      <i class="fas fa-thumbs-up"></i>
     </a>
-    {{ count }}
+    <p class="text-muted d-inline-block">{{ count }}</p>
   </div>
 </template>
 

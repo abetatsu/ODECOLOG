@@ -2,13 +2,13 @@
 @section('content')
 <div class="card post-menu-card col-sm-3">
      <nav class="post-menu">
-          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
-          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
-          <a href="{{ route('users.show', Auth::user()->id) }}" style="border-bottom:#111 solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
-          <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
-          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+          <a class="text-muted" href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a class="text-muted" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a class="text-muted" href="{{ route('users.show', Auth::user()->id) }}" style="border-bottom:#6c757d solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
@@ -19,13 +19,13 @@
 </div>
 <div class="card col-md-6 mx-auto my-5 profile-show">
      @if($user->id === Auth::id())
-     <div class="dropdown dot-menu">
+     <div class="dropdown dot-menu-profile">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item" onclick="event.preventDefault();
+               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <a class="dropdown-item dot-menu-item text-muted" onclick="event.preventDefault();
                                                   document.getElementById('delete-user').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">WITHDRAWAL</a>
                <form id="delete-user" action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:none;">
                     @method('DELETE')
@@ -42,15 +42,16 @@
                <img src="{{ $user->image_path }}" alt="画像" class="profile-image">
                @endif
           </div>
-          <div class="card-body col-md-5">
-               <p class="d-inline-block">名前：{{ $user->name }}</p>
-               <p>投稿数：{{ $user->posts->count() }}</p>
-               <p>年齢：{{ $user->age }}</p>
-               <p>職業：{{ $user->job }}</p>
+          <div class="card-body col-md-5 profile-detail">
+               <p class="text-muted">名前：{{ $user->name }}</p>
+               <p class="text-muted">投稿数：{{ $user->posts->count() }}</p>
+               <p class="text-muted">コメント数：{{ $user->comments->count() }}</p>
+               <p class="text-muted">年齢：{{ $user->age }}</p>
+               <p class="text-muted">職業：{{ $user->job }}</p>
           </div>
      </div>
 </div>
-<h2 class="text-center">投稿一覧</h2>
+<h2 class="text-center text-muted">投稿一覧</h2>
 <hr class="col-sm-6">
 @foreach($posts as $post)
 <div class="card card-post col-sm-6 my-5 mx-auto">
@@ -60,8 +61,8 @@
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
+               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
                                                   document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
                <form id="delete-post" action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:none;">
                     @method('DELETE')
@@ -78,16 +79,17 @@
                <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
                @endif
           </a>
-          <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name">{{ $post->user->name }}</a>
-          <p class="post-profiles">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</p>
+          <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name text-muted">{{ $post->user->name }}</a>
+          <p class="post-profiles text-muted">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</p>
      </div>
      <h2 class="post-title">
-          <a href="{{ route('posts.show', $post->id) }}">
+          <a href="{{ route('posts.show', $post->id) }}" class="text-muted">
                『{{ $post->title }}』
           </a>
      </h2>
      <div class="card-body">
-          <p class="card-text">{{ $post->content }}</p>
+          @php $content = Illuminate\Support\Str::limit($post->content,150); @endphp
+          <p class="card-text text-muted">{{ $content }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
      </div>
      @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">

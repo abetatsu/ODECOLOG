@@ -3,13 +3,13 @@
 @section('content')
 <div class="card post-menu-card col-sm-3">
      <nav class="post-menu">
-          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
-          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
-          <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
-          <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
-          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+          <a class="text-muted" href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a class="text-muted" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a class="text-muted" href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
@@ -21,27 +21,24 @@
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.update', $record->id) }}">
      @csrf
      @method('PUT')
-     <h2 class="text-center">記録編集フォーム</h2>
+     <h2 class="text-center text-muted">記録編集フォーム</h2>
      @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
      <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
      @endforeach
      @endif
-     <div class="form-group">
-          <label for="day">日付</label>
+     <div class="form-group text-muted">
+          <label for="day">日付</label><small class="d-inline-block ml-3 text-muted">日付の入力は必須です</small><br>
           <input type="date" class="form-controll" id="day" name="day" value="{{ $record->day }}">
-          <small class="form-text text-muted">日付の入力は必須です</small>
      </div>
-     <div class="form-group">
-          <label for="image">画像</label>
+     <div class="form-group text-muted">
+          <label for="image">画像</label><small class="d-inline-block ml-3 text-muted">画像の投稿は必須です</small>
           <input type="file" class="form-control-file" id="image" name="image">
-          <img src="{{ $record->image_path }}" alt="画像" class="record-edit-image">
-          <small class="form-text text-muted">画像の投稿は必須です</small>
+          <img src="{{ $record->image_path }}" alt="画像" class="form-image">
      </div>
-     <div class="form-group">
-          <label for="size">サイズ(眉山から生え際の長さ)</label>
-          <small class="form-text text-muted">サイズの入力は必須です</small>
+     <div class="form-group text-muted">
+          <label for="size">サイズ(眉山から生え際までの長さ)</label><small class="d-inline-block ml-3 text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
                @if(!empty($record->size))
                <option value="{{ $record->size }}" selected>{{ $record->size }}</option>
@@ -70,7 +67,7 @@
                <option value="15cm">15cm</option>
           </select>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
                @if(!empty($record->sleep_time))
@@ -92,23 +89,23 @@
                <option value="1時間未満">1時間未満</option>
           </select>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="care_item1">ケア用品1(任意)</label>
           <input type="text" class="form-control" name="care_item1" id="care_item1" value="{{ $record->care_item1 }}">
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="care_item2">ケア用品2(任意)</label>
           <input type="text" class="form-control" name="care_item2" id="care_item2" value="{{ $record->care_item2 }}">
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="care_item3">ケア用品3(任意)</label>
           <input type="text" class="form-control" name="care_item3" id="care_item3" value="{{ $record->care_item3 }}">
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="care_item4">ケア用品4(任意)</label>
           <input type="text" class="form-control" name="care_item4" id="care_item4" value="{{ $record->care_item4 }}">
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="alcohol">飲酒量(任意)</label>
           <select class="form-control" id="alcohol" name="alcohol">
                @if(!empty($record->alcohol))
@@ -124,7 +121,7 @@
                <option value="5合（900ml）以上">5合（900ml）以上</option>
           </select>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="stress">ストレス(任意)</label>
           <select class="form-control" id="stress" name="stress">
                @if(!empty($record->stress))
@@ -138,11 +135,11 @@
                <option value="強く感じる">強く感じる</option>
           </select>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="remarks">備考(任意)</label>
           <textarea type="text" class="form-control" name="remarks" id="remarks" rows="4" cols="40">{{ $record->remarks }}
           </textarea>
      </div>
-     <button type="submit" class="login-button">登録する</button>
+     <button type="submit" class="login-button text-muted">登録する</button>
 </form>
 @endsection
