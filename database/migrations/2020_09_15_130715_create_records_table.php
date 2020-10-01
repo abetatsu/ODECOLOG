@@ -29,6 +29,8 @@ class CreateRecordsTable extends Migration
             $table->text('image_path')->nullable();
             $table->date('day');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

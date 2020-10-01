@@ -196,7 +196,6 @@ class RecordController extends Controller
         $record->delete();
 
         $records = Record::where('user_id', Auth::id())->get();
-        $records = Record::all();
         $cal = new Calendar($records);
         $tag = $cal->showCalendarTag($request->month,$request->year);
 

@@ -7,6 +7,7 @@ use App\User;
 use JD\Cloudder\Facades\Cloudder;
 use App\Http\Requests\UserRequest;
 use App\Post;
+use App\Record;
 use Auth;
 
 class UserController extends Controller
@@ -109,7 +110,9 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('users.show', compact('user'));
+        $posts = Post::where('user_id', $user->id)->paginate(10);
+
+        return view('users.show', compact('user', 'post'));
     }
 
     /**
@@ -120,6 +123,30 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $record = Record::where('user_id', $user->id)->get('public_id');
+        $post = Post::where('user_id', $user->id)->get('public_id');
+        $pluckedRecord = $record->pluck('public_id');
+        $pluckedPost = $post->pluck('public_id');
+        
+        if(Auth::id() !== $user->id) {
+            return abort(403);
+        }
+        
+        if(isset($user->public_id)) {
+            Cloudder::destroyImage($user->public_id);
+        }
+        
+        if($record->isNotEmpty()){
+            Cloudder::destroyImage($pluckedRecord[0]);
+        }
+        
+        if($post->isNotEmpty()) {
+            Cloudder::destroyImage($pluckedPost[0]);
+        }
+
+        $user->delete();
+
+        return redirect()->route('posts.index')->with('flash_message', 'ユーザー情報が削除されました');
     }
 }
