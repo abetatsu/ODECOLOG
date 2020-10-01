@@ -27,7 +27,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601094354/odeco_osaxyo.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-12',
+                'day' => '2020-10-12',
             ],
             [
                 'user_id' => 1,
@@ -43,7 +43,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601094354/odeco_osaxyo.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-22',
+                'day' => '2020-10-22',
             ],
             [
                 'user_id' => 1,
@@ -59,7 +59,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601094354/odeco_osaxyo.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-16',
+                'day' => '2020-10-16',
             ],
             [
                 'user_id' => 2,
@@ -75,7 +75,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601344276/2150325_s_putyyg.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-30',
+                'day' => '2020-10-30',
             ],
             [
                 'user_id' => 2,
@@ -91,7 +91,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601344276/2150325_s_putyyg.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-25',
+                'day' => '2020-10-25',
             ],
             [
                 'user_id' => 2,
@@ -107,7 +107,7 @@ class RecordTableSeeder extends Seeder
                 'image_path' => 'https://res.cloudinary.com/tatsu/image/upload/v1601344276/2150325_s_putyyg.jpg',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
-                'day' => '2020-09-19',
+                'day' => '2020-10-19',
             ],
         ]);
     }

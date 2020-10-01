@@ -3,13 +3,13 @@
 @section('content')
 <div class="card post-menu-card col-sm-3">
      <nav class="post-menu">
-          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
-          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
-          <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
-          <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
-          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+          <a class="text-muted" href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a class="text-muted" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a class="text-muted" href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
@@ -21,21 +21,20 @@
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('users.update', $user->id) }}">
      @method('PUT')
      @csrf
-     <h2 class="text-center">ユーザー情報編集フォーム</h2>
-     <div class="form-group">
+     <h2 class="text-center text-muted">ユーザー情報編集フォーム</h2>
+     <div class="form-group text-muted">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
-          <img src="{{ $user->image_path }}" alt="画像が設定されていません" style="width:100px; height:100px;">
+          <img src="{{ $user->image_path }}" alt="画像が設定されていません" class="form-image">
      </div>
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
      @endforeach
-     <div class="form-group">
-          <label for="name">名前</label>
+     <div class="form-group text-muted">
+          <label for="name">名前</label><small class="d-inline-block ml-3 text-muted">名前の入力は必須です</small>
           <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
-          <small class="form-text text-muted">名前の入力は必須です</small>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="age">年齢</label>
           <select class="form-control" name="age" id="age">
                @if(!empty($user->age))
@@ -53,7 +52,7 @@
                <option value="80歳以上">80歳以上</option>
           </select>
      </div>
-     <div class="form-group">
+     <div class="form-group text-muted">
           <label for="job">職業</label>
           <select class="form-control" id="job" name="job">
                @if(!empty($user->job))
@@ -79,6 +78,6 @@
                <option value="その他の業種">その他の業種</option>
           </select>
      </div>
-     <button type="submit" class="login-button">更新する</button>
+     <button type="submit" class="login-button text-muted">更新する</button>
 </form>
 @endsection

@@ -49922,12 +49922,12 @@ var render = function() {
               }
             }
           },
-          [
-            _c("i", { staticClass: "fas fa-thumbs-down" }),
-            _vm._v("怪しい\n      ")
-          ]
+          [_c("i", { staticClass: "fas fa-thumbs-down" })]
         ),
-    _vm._v("\n      " + _vm._s(_vm.count) + "\n")
+    _vm._v(" "),
+    _c("p", { staticClass: "text-muted d-inline-block" }, [
+      _vm._v(_vm._s(_vm.count))
+    ])
   ])
 }
 var staticRenderFns = []
@@ -50023,9 +50023,12 @@ var render = function() {
               }
             }
           },
-          [_c("i", { staticClass: "fas fa-thumbs-up" }), _vm._v("いいね\n  ")]
+          [_c("i", { staticClass: "fas fa-thumbs-up" })]
         ),
-    _vm._v("\n  " + _vm._s(_vm.count) + "\n")
+    _vm._v(" "),
+    _c("p", { staticClass: "text-muted d-inline-block" }, [
+      _vm._v(_vm._s(_vm.count))
+    ])
   ])
 }
 var staticRenderFns = []

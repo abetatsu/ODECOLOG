@@ -3,13 +3,13 @@
 @section('content')
 <div class="card post-menu-card col-sm-3">
      <nav class="post-menu">
-          <a href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
-          <a href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
-          <a href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
-          <a href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
-          <a href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+          <a class="text-muted" href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
+          <a class="text-muted" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
+          <a class="text-muted" href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
+          <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
+          <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
+          <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
           </a>
@@ -20,13 +20,13 @@
 </div>
 <div class="card col-sm-6 my-5 mx-auto profile-show">
      @if($post->user_id === Auth::id())
-     <div class="dropdown dot-menu">
+     <div class="dropdown dot-menu-show">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
+               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
                                              document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
                <form id="delete-post" action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:none;">
                     @method('DELETE')
@@ -43,19 +43,19 @@
                <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
                @endif
           </a>
-          <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name">{{ $post->user->name }}</a>
+          <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name text-muted">{{ $post->user->name }}</a>
      </div>
-     <h2 class="post-title">『{{ $post->title }}』</h2>
+     <h2 class="post-title text-muted">『{{ $post->title }}』</h2>
      <div class="card-body">
-          <p class="card-text">{{ $post->content }}</p>
+          <p class="card-text text-muted">{{ $post->content }}</p>
      </div>
      @if(isset($post->url))
-     <p class="post-show-url">URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer">{{ $post->url }}</a></p>
+     <p class="post-show-url text-muted">URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer" class="text-muted">{{ $post->url }}</a></p>
      @endif
      @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-show-image mx-auto">
      @endif
-     <p class="post-show-date">{{ $post->updated_at->format('Y/m/d H:i:s') }}</p>
+     <p class="post-show-date text-muted">{{ $post->updated_at->format('Y/m/d H:i:s') }}</p>
      <hr>
      <div class="row pb-3">
           <div class="col-4 post-icon">
@@ -70,7 +70,7 @@
      </div>
 </div>
 <div class="card col-sm-6 my-5 mx-auto profile-show">
-     <h2 class="text-center disscuss">Discussion</h2>
+     <h2 class="text-center disscuss text-muted">Discussion</h2>
      <img src="https://res.cloudinary.com/tatsu/image/upload/v1601204891/humaaans_va79aq.png" alt="コメント画像" class="discuss-image">
      @foreach($post->comments as $comment)
      <div class="comment-wrap">
@@ -81,10 +81,10 @@
                </div>
                <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                     <!-- Button trigger modal -->
-                    <a class="dropdown-item dot-menu-item" data-toggle="modal" data-target="#exampleModal"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-                    <a class="dropdown-item dot-menu-item" href="{{ route('comments.destroy', $comment->id) }}" onclick="event.preventDefault();
-                                                  document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-                    <form id="delete-post" action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display:none;">
+                    <a class="dropdown-item dot-menu-item text-muted" data-toggle="modal" data-target="#exampleModal"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+                    <a class="dropdown-item dot-menu-item text-muted" href="{{ route('comments.destroy', $comment->id) }}" onclick="event.preventDefault();
+                                                  document.getElementById('delete-comment').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
+                    <form id="delete-comment" action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display:none;">
                          @method('DELETE')
                          @csrf
                     </form>
@@ -97,7 +97,7 @@
                          <div class="modal-header">
                               <div class="comment-edit-profile">
                                    <a href="{{ route('users.show', $comment->user->id) }}" class=""><img src="{{ $comment->user->image_path }}" alt="プロフィール画像" class="post-profile"></a>
-                                   <a href="{{ route('users.show', $comment->user->id) }}" class="comment-edit-name">{{ $comment->user->name }}</a>
+                                   <a href="{{ route('users.show', $comment->user->id) }}" class="comment-edit-name text-muted">{{ $comment->user->name }}</a>
                                    <footer class="blockquote-footer">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
                               </div>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -109,7 +109,7 @@
                                    @method('PUT')
                                    @csrf
                                    <input class="comment-edit-input" name="comment" type="text" value="{{ $comment->comment }}">
-                                   <input type="submit" class="btn btn-secondary" value="変更する">
+                                   <input type="submit" class="login-button mt-2" value="変更する">
                               </form>
                          </div>
                     </div>
@@ -124,10 +124,10 @@
                     <img src="{{ $comment->user->image_path }}" alt="プロフィール画像" class="post-profile">
                     @endif
                </a>
-               <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profile-name">{{ $comment->user->name }}</a>
+               <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profile-name text-muted">{{ $comment->user->name }}</a>
                <footer class="blockquote-footer">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
           </div>
-          <p class="comment-content">{{ $comment->comment }}</p>
+          <p class="comment-content text-muted">{{ $comment->comment }}</p>
      </div>
      @endforeach
      <hr>
@@ -140,7 +140,7 @@
                <input type="hidden" name="post_id" id="comment" value="{{ $post->id }}">
                <textarea type="text" name="comment" class="form-control comment-input" placeholder="コメントする(100文字以内)"></textarea>
           </div>
-          <button type="submit" class="col-2 comment-button">投稿</button>
+          <button type="submit" class="col-2 comment-button text-muted">投稿</button>
      </form>
 </div>
 @endsection
