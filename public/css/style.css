@@ -152,6 +152,7 @@ a:hover {
 
 .dot-menu-item {
      font-weight: bold;
+     cursor: pointer;
 }
 
 .post-profile-name {

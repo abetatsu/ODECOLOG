@@ -25,9 +25,9 @@
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item dot-menu-item" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item"  onclick="event.preventDefault();
-                                                  document.getElementById('delete-user').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-               <form id="delete-user" action="" method="POST" style="display:none;">
+               <a class="dropdown-item dot-menu-item" onclick="event.preventDefault();
+                                                  document.getElementById('delete-user').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">WITHDRAWAL</a>
+               <form id="delete-user" action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:none;">
                     @method('DELETE')
                     @csrf
                </form>

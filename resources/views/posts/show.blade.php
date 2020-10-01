@@ -118,7 +118,7 @@
           @endif
           <div class="comment-align">
                <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profiles">
-                    @if(empty($post->user->image_path))
+                    @if(empty($comment->user->image_path))
                     <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
                     @else
                     <img src="{{ $comment->user->image_path }}" alt="プロフィール画像" class="post-profile">

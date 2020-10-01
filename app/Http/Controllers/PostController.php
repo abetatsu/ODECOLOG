@@ -149,7 +149,7 @@ class PostController extends Controller
         if(Auth::id() !== $post->user_id) {
             return abort(403);
         }
-
+        
         if(isset($post->public_id)) {
             Cloudder::destroyImage($post->public_id);
         }
