@@ -82,8 +82,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
-        $comment = Comment::find($post->id);
+        $comment = Comment::find($id);
+        $post = Post::find($comment->post_id);
 
         $comment->user_id = Auth::id();
         $comment->post_id = $post->id;
@@ -103,9 +103,10 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($comment_id, $post_id)
     {
-        $comment = Comment::find($id);
+        
+        $comment = Comment::find($comment_id);
 
         if(Auth::id() !== $comment->user_id) {
             return abort(403);
@@ -113,6 +114,8 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->route('posts.show', $id)->with('flash_message', 'コメントが削除されました');
+        $post = Post::find($post_id);
+
+        return redirect()->route('posts.show', compact('post'))->with('flash_message', 'コメントが削除されました');
     }
 }
