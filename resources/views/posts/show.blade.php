@@ -26,11 +26,10 @@
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.destroy', $post->id) }}" onclick="event.preventDefault();
-                                             document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-               <form id="delete-post" action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:none;">
+               <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
                </form>
           </div>
      </div>
@@ -65,13 +64,15 @@
                <dislike-component :post="{{ json_encode($post) }}"></dislike-component>
           </div>
           <div class="col-4 post-icon">
-               <a href="{{ route('posts.show', $post->id) }}"><i class="fas fa-comments"></i></a>
+               <a href="#comment" class="text-muted"><i class="fas fa-comments"></i> {{ count($post->comments) }}</a>
           </div>
      </div>
 </div>
-<div class="card col-sm-6 my-5 mx-auto profile-show">
-     <h2 class="text-center disscuss text-muted">Discussion</h2>
+<div class="card col-sm-6 mx-auto profile-show" id="comment">
+     <h2 class="text-center disscuss text-muted mb-5">Conversation</h2>
+     @if($post->comments->isEmpty())
      <img src="https://res.cloudinary.com/tatsu/image/upload/v1601204891/humaaans_va79aq.png" alt="コメント画像" class="discuss-image">
+     @endif
      @foreach($post->comments as $comment)
      <div class="comment-wrap">
           @if($comment->user_id === Auth::id())
@@ -82,11 +83,10 @@
                <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                     <!-- Button trigger modal -->
                     <a class="dropdown-item dot-menu-item text-muted" data-toggle="modal" data-target="#exampleModal"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-                    <a class="dropdown-item dot-menu-item text-muted" href="{{ route('comments.destroy', $comment->id) }}" onclick="event.preventDefault();
-                                                  document.getElementById('delete-comment').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-                    <form id="delete-comment" action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display:none;">
+                    <form class="dropdown-item dot-menu-item text-muted" action="/comments/{{ $comment->id }}/{{ $post->id }}" method="POST">
                          @method('DELETE')
                          @csrf
+                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
                     </form>
                </div>
           </div>
@@ -105,7 +105,7 @@
                               </button>
                          </div>
                          <div class="modal-body">
-                              <form action="{{ route('comments.update', $post->id) }}" method="POST">
+                              <form action="{{ route('comments.update', $comment->id) }}" method="POST">
                                    @method('PUT')
                                    @csrf
                                    <input class="comment-edit-input" name="comment" type="text" value="{{ $comment->comment }}">
@@ -136,9 +136,9 @@
      @endforeach
      <form action="{{ route('comments.store') }}" method="POST" class="comment-form">
           @csrf
-          <div class="form-group col-10">
+          <div class="col-10">
                <input type="hidden" name="post_id" id="comment" value="{{ $post->id }}">
-               <textarea type="text" name="comment" class="form-control comment-input" placeholder="コメントする(100文字以内)"></textarea>
+               <input type="text" name="comment" class="form-control comment-input" placeholder="コメントする(100文字以内)"></input>
           </div>
           <button type="submit" class="col-2 comment-button text-muted">投稿</button>
      </form>

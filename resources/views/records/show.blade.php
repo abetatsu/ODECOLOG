@@ -26,11 +26,10 @@
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item dot-menu-item text-muted" href="{{ route('records.edit', $record->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <a class="dropdown-item dot-menu-item text-muted" onclick="event.preventDefault();
-                                                  document.getElementById('delete-post').submit();"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg">DELETE</a>
-               <form id="delete-post" action="{{ route('records.destroy', $record->id) }}" method="POST" style="display:none;">
+               <form class="dropdown-item dot-menu-item text-muted" action="{{ route('records.destroy', $record->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
                </form>
           </div>
      </div>

@@ -22,7 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('posts', 'PostController');
-Route::resource('comments', 'CommentController');
+Route::resource('comments', 'CommentController', ['except' => ['destroy']]);
+Route::delete('comments/{comment}/{post}', 'CommentController@destroy');
 Route::resource('users', 'UserController');
 Route::resource('records', 'RecordController');
 Route::resource('photos', 'PhotoGalleryController');
