@@ -541,3 +541,9 @@ table.record-table > thead > tr > th{
 .comment-icon:hover {
      text-decoration: none;
 }
+
+.user-nopost-image {
+     width: 60%;
+     margin: 0 auto 10% auto;
+     object-fit: cover;
+}
