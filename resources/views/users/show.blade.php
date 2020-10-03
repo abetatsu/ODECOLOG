@@ -8,13 +8,12 @@
           <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
           <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-               @csrf
-          </form>
+          <label for="logout-menu10">
+               <form class="dot-menu-item text-muted logout-form-menu" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input id="logout-menu10" class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
+               </form>
+          </label>
      </nav>
 </div>
 <div class="card col-md-6 mx-auto my-5 profile-show">
@@ -24,12 +23,14 @@
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <form class="dropdown-item dot-menu-item text-muted" action="{{ route('users.destroy', $user->id) }}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
-               </form>
+               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <label for="profile-delete">
+                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('users.destroy', $user->id) }}" method="POST">
+                         @method('DELETE')
+                         @csrf
+                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="profile-delete" class="btn btn-link" type="submit" value="WITHDRAWAL" onclick='return confirm("あなたのプロフィール、今までの記録、投稿の全てが削除されます。本当に退会しますか?");'>
+                    </form>
+               </label>
           </div>
      </div>
      @endif
@@ -46,7 +47,7 @@
                <p class="text-muted">投稿数：{{ $user->posts->count() }}</p>
                <p class="text-muted">コメント数：{{ $user->comments->count() }}</p>
                <p class="text-muted">年齢：{{ $user->age }}</p>
-               <p class="text-muted">職業：{{ $user->job }}</p>
+               <p class="text-muted mb-0">職業：{{ $user->job }}</p>
           </div>
      </div>
 </div>
@@ -66,12 +67,14 @@
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
-               </form>
+               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <label for="profile-post-delete{{ $post->id }}">
+                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                         @method('DELETE')
+                         @csrf
+                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="profile-post-delete{{ $post->id }}" class="btn btn-link" type="submit" value="DELETE" onclick='return confirm("削除しますか？");'>
+                    </form>
+               </label>
           </div>
      </div>
      @endif
