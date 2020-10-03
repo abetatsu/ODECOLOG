@@ -40,3 +40,6 @@ Route::get('/posts/{post}/has/unfavorites', 'UnfavoriteController@hasUnfavorite'
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/confirm', 'ContactController@confirm')->name('confirm');
+
+Route::get('/terms/tos', 'TermsController@tos')->name('tos');
+Route::get('/terms/privacyPolicy', 'TermsController@privacyPolicy')->name('privacyPolicy');
