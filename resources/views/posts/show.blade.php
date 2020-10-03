@@ -9,13 +9,12 @@
           <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
           <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-               @csrf
-          </form>
+          <label for="logout-menu2">
+               <form class="dot-menu-item text-muted logout-form-menu" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input id="logout-menu2" class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
+               </form>
+          </label>
      </nav>
 </div>
 <div class="card col-sm-6 my-5 mx-auto profile-show">
@@ -25,12 +24,14 @@
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
           </div>
           <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
-               </form>
+               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+               <label for="post-show-delete{{ $post->id }}">
+                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                         @method('DELETE')
+                         @csrf
+                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="post-show-delete{{ $post->id }}" class="btn btn-link" type="submit" value="DELETE" onclick='return confirm("削除しますか？");'>
+                    </form>
+               </label>
           </div>
      </div>
      @endif
@@ -82,16 +83,18 @@
                </div>
                <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
                     <!-- Button trigger modal -->
-                    <a class="dropdown-item dot-menu-item text-muted" data-toggle="modal" data-target="#exampleModal"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-                    <form class="dropdown-item dot-menu-item text-muted" action="/comments/{{ $comment->id }}/{{ $post->id }}" method="POST">
-                         @method('DELETE')
-                         @csrf
-                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input type="submit" value="DELETE" onclick='return confirm("削除しますか？");'></input>
-                    </form>
+                    <a class="dropdown-item dot-menu-item text-muted post-show-edit" data-toggle="modal" data-target="#editModal{{ $comment->id }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
+                    <label for="post-comment-delete{{ $comment->id }}">
+                         <form class="dropdown-item dot-menu-item text-muted" action="/comments/{{ $comment->id }}/{{ $post->id }}" method="POST">
+                              @method('DELETE')
+                              @csrf
+                              <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="post-comment-delete{{ $comment->id }}" class="btn btn-link" type="submit" value="DELETE" onclick='return confirm("削除しますか？");'>
+                         </form>
+                    </label>
                </div>
           </div>
           <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="editModal{{ $comment->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                     <div class="modal-content">
                          <div class="modal-header">

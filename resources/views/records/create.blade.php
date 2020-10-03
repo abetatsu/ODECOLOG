@@ -9,13 +9,12 @@
           <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
           <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
           <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg">LOG-OUT
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-               @csrf
-          </form>
+          <label for="logout-menu5">
+               <form class="dot-menu-item text-muted logout-form-menu" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input id="logout-menu5" class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
+               </form>
+          </label>
      </nav>
 </div>
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.store') }}">

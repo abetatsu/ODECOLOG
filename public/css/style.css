@@ -72,7 +72,24 @@ a:hover {
      opacity: 0.8;
 }
 
+.post-menu > label {
+     margin-top: 30%;
+     text-decoration: none;
+     color: #111;
+     opacity: 0.8;
+}
+
+.logout-form-menu > .btn {
+     padding: 0;
+}
+
 .post-menu > a:hover {
+     border-bottom: #6c757d solid 1px;
+     opacity: 1;
+     color: #111;
+}
+
+.post-menu > label:hover {
      border-bottom: #6c757d solid 1px;
 }
 
@@ -155,16 +172,18 @@ a:hover {
 
 .dot-menu-show {
      position: absolute;
-     right: 7%;
-     top: 4%;
+     right: 0;
+     top: 0;
      opacity: 0.6;
+     margin: 53px 53px 0 0;
 }
 
 .dot-menu-profile {
      position: absolute;
-     right: 4%;
-     top: 7%;
+     right: 0;
+     top: 0;
      opacity: 0.6;
+     margin: 20px 50px 0 0;
 }
 
 .dot-menu-record {
@@ -536,6 +555,9 @@ table.record-table > thead > tr > th{
 
 .profile-detail{
      padding: 25px 0;
+     justify-content: space-between;
+     flex-direction: column;
+     display: flex;
 }
 
 .comment-icon:hover {
@@ -546,4 +568,71 @@ table.record-table > thead > tr > th{
      width: 60%;
      margin: 0 auto 10% auto;
      object-fit: cover;
+}
+
+.page-link {
+     background: #ddd;
+     box-shadow: 5px 5px 20px #c8c9cc,
+     -5px -5px 20px #ffffff;
+     margin: 0 5px;
+     color: #6c757d;
+}
+
+.page-link:hover {
+     color: #6c757d;
+}
+
+.page-item.disabled .page-link {
+     background: #ddd;
+     box-shadow: inset 5px 5px 20px #c8c9cc,
+     inset -5px -5px 20px #ffffff;
+}
+
+
+.page-item.active .page-link {
+     background: #ddd;
+     box-shadow: inset 5px 5px 20px #c8c9cc,
+     inset -5px -5px 20px #ffffff;
+     color: #6c757d;
+     border: none;
+}
+
+#app > nav {
+     background-color: #ddd;
+     opacity: 0.8;
+}
+
+.dropdown-item {
+     padding: 0.25rem 2.5rem;
+}
+
+.dropdown-menu {
+     padding: 0;
+}
+
+.btn-link {
+     color: #6c757d;
+     font-weight: bold;
+}
+
+.btn-link:hover {
+     color: #6c757d;
+     text-decoration: none;
+     opacity: 0.8;
+}
+
+.post-show-edit {
+     padding: 5px 40px;
+     margin-top: 7px;
+}
+
+.dropdown-item img {
+     filter: contrast(0.5);
+     height: 20px;
+     margin-right: 10px;
+     margin-top: -3px;
+}
+
+.dropdown-item > .btn {
+     padding: 0;
 }
