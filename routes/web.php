@@ -41,5 +41,6 @@ Route::get('/posts/{post}/has/unfavorites', 'UnfavoriteController@hasUnfavorite'
 Route::get('/contact', 'ContactController@index');
 Route::post('/confirm', 'ContactController@confirm')->name('confirm');
 
-Route::get('/terms/tos', 'TermsController@tos')->name('tos');
-Route::get('/terms/privacyPolicy', 'TermsController@privacyPolicy')->name('privacyPolicy');
+Route::get('/terms/tos', 'TermsController@tos')->name('terms.tos');
+Route::get('/terms/privacy/policy', 'TermsController@privacyPolicy')->name('terms.privacyPolicy');
+Route::get('/terms/help', 'TermsController@help')->name('terms.help');
