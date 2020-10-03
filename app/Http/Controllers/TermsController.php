@@ -15,4 +15,9 @@ class TermsController extends Controller
     {
         return view('terms.privacyPolicy');
     }
+
+    public function help()
+    {
+        return view('terms.help');
+    }
 }
