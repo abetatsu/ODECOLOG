@@ -21,6 +21,10 @@
 <form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('posts.store') }}">
      @csrf
      <h2 class="text-center text-muted">新規投稿作成フォーム</h2>
+     <p class="text-center text-muted mt-4 form-sub-text">あなたにとっては何気ないことでも他のユーザーにとっては耳寄りの情報かもしれません。</p>
+     <p class="text-center text-muted form-sub-text">例）ケア用品、日課、飲んでみた薬、スカルプケアの美容室、おすすめの髪型</p>
+     <p class="text-center text-muted form-sub-text">クリニックに通ってみた経験、失敗談、気になっていることの質問、シェアしたい記事など</p>
+     <p class="text-center text-muted form-sub-bottom">どんどん投稿してみましょう。後から編集・削除も可能です。</p>
      @if ($errors->any())
      @foreach ($errors->all() as $error)
      <p class="text-center text-danger">{{ $error }}</p>
