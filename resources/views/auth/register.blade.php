@@ -61,13 +61,20 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="login-button text-muted">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <small class="text-muted">登録すると<a href="{{ route('terms.tos') }}" class="text-muted">利用規約</a>、<a href="{{ route('terms.privacyPolicy') }}" class="text-muted">プライバシーポリシー</a>に同意したことになります。</small>
+                            </div>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
