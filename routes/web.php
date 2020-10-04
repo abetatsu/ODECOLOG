@@ -19,7 +19,7 @@ use Psy\VersionUpdater\GitHubChecker;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('/');
 
 Route::resource('/posts', 'PostController');
 Route::resource('/comments', 'CommentController', ['except' => ['destroy']]);
