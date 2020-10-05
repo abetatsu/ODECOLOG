@@ -37,15 +37,15 @@
      </div>
 </div>
 <h2 class="text-center text-muted">投稿一覧</h2>
-<hr class="col-sm-6">
+<hr class="col-md-6">
 @if($posts->isEmpty())
-<div class="card card-post col-sm-6 my-5 mx-auto">
+<div class="card card-post col-md-6 my-5 mx-auto">
      <p class="text-center my-5 text-muted">あなたの疑問、経験をみんなと共有しましょう。</p>
      <img src="https://res.cloudinary.com/tatsu/image/upload/v1601630099/humaaans_2_j5hcgf.png" alt="画像" class="user-nopost-image">
 </div>
 @else
 @foreach($posts as $post)
-<div class="card card-post col-sm-6 my-5 mx-auto">
+<div class="card card-post col-md-6 my-5 mx-auto">
      @if($post->user_id === Auth::id())
      <div class="dropdown dot-menu">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

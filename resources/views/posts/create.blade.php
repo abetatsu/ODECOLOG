@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('posts.store') }}">
+<form enctype="multipart/form-data" class="col-md-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('posts.store') }}">
      @csrf
      <h2 class="text-center text-muted">新規投稿作成フォーム</h2>
      <p class="text-center text-muted mt-4 form-sub-text">あなたにとっては何気ないことでも他のユーザーにとっては耳寄りの情報かもしれません。</p>

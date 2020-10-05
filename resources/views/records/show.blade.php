@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<div class="card col-sm-6 mx-auto my-5 profile-show">
+<div class="card col-md-6 mx-auto my-5 profile-show">
      @if($record->user_id === Auth::id())
      <div class="dropdown dot-menu-record">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

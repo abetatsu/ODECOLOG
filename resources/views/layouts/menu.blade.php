@@ -1,4 +1,4 @@
-<div class="card post-menu-card col-sm-3">
+<div class="card post-menu-card col-md-3">
      <nav class="post-menu">
           <a class="text-muted pb-1 {{ request()->is('*posts') ? 'active' : ''}}" href="{{ route('posts.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
           <a class="text-muted pb-1 {{ request()->is('*posts/create') ? 'active' : ''}}" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>

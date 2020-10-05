@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 class="text-center text-muted my-5">ODECOLOGとは？</h1>
-<div class="col-sm-7 mx-auto my-5 text-muted">
+<div class="col-md-7 mx-auto my-5 text-muted">
      <div class="card-post text-center py-4 my-5">
           <h2 class="mb-4">おでこの広さを記録しよう</h2>
           <p>前髪をかき上げた時に「ハゲてきてない？」って言われたことはありませんか？</p>
@@ -11,6 +11,7 @@
           <p>そんな方のためにODECOLOGを作りました。</p>
           <p>ODECOLOGコア機能はおでこの記録ができることです。</p>
           <p>カレンダー形式で写真やその他の情報も保存でき、写真ギャラリーで生え際の変化を確認できます。</p>
+          <img src="https://res.cloudinary.com/tatsu/image/upload/v1601878737/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-10-05_15.17.28_ang5w1.png" alt="カレンダー" class="help-image">
      </div>
      <div class="card-post text-center py-4 my-5">
           <h2 class="mb-4">気軽に育毛に関する情報を投稿しあおう</h2>
@@ -22,6 +23,7 @@
           <p>このODECOLOGを利用するユーザーの方々はおでこの一進一退の攻防に関心がある方々の集まりです。</p>
           <p>同じような悩みを持った人達どうしで育毛に関する良質な情報をシェアしましょう。</p>
           <p>気になっていることがあるなら質問を投稿しても構いません。</p>
+          <img src="https://res.cloudinary.com/tatsu/image/upload/v1601891643/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-10-05_18.50.59_iffhjq.png" alt="コメント画像" class="help-image">
      </div>
      <div class="card-post text-center py-4 my-5">
           <h2 class="mb-4">目標とお願い</h2>

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.update', $record->id) }}">
+<form enctype="multipart/form-data" class="col-md-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.update', $record->id) }}">
      @csrf
      @method('PUT')
      <h2 class="text-center text-muted">記録編集フォーム</h2>

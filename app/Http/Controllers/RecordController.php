@@ -27,9 +27,9 @@ class RecordController extends Controller
     {
         $records = Record::where('user_id', Auth::id())->get();
         $cal = new Calendar($records);
-        $tag = $cal->showCalendarTag($request->month, $request->year);
+        $calendar = $cal->showCalendar($request->month, $request->year);
 
-        return view('records.index', compact('records', 'tag'));
+        return view('records.index', compact('records', 'calendar'));
     }
 
     /**

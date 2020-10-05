@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<div class="card col-sm-6 my-5 mx-auto profile-show">
+<div class="card col-md-6 my-5 mx-auto profile-show">
      @if($post->user_id === Auth::id())
      <div class="dropdown dot-menu-show">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,7 @@
           </div>
      </div>
 </div>
-<div class="card col-sm-6 mx-auto profile-show" id="comment">
+<div class="card col-md-6 mx-auto profile-show" id="comment">
      <h2 class="text-center disscuss text-muted mb-5">Conversation</h2>
      @if($post->comments->isEmpty())
      <img src="https://res.cloudinary.com/tatsu/image/upload/v1601204891/humaaans_va79aq.png" alt="コメント画像" class="discuss-image">

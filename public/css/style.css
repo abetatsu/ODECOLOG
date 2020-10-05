@@ -30,6 +30,7 @@ a:hover {
      position: fixed;
      top: 55px;
      left: 0;
+     display: none;
 }
 
 .navbar-expand-md {
@@ -41,7 +42,6 @@ a:hover {
 .post-menu {
      display: flex;
      flex-direction: column;
-     margin-top: 10%;
      font-weight: bold;
      align-self: center;
 }
@@ -345,7 +345,6 @@ a:hover {
      background: #ddd;
      box-shadow: 5px 5px 20px #c8c9cc,
      -5px -5px 20px #ffffff;
-     margin: 2% 2% 2% 25%;
      padding: 5%;
 }
 
@@ -482,7 +481,6 @@ table.record-table > thead > tr > th{
      background: #ddd;
      box-shadow: 5px 5px 20px #c8c9cc,
      -5px -5px 20px #ffffff;
-     margin-left: 25%;
      padding: 2%;
      display: block;
 }
@@ -791,5 +789,30 @@ table.record-table > thead > tr > th{
 .alert {
      margin-top: 30px;
      z-index: 1;
+}
+
+.help-image {
+     width: 90%;
+     height: 400px;
+     object-fit: contain;
+}
+
+@media (min-width:768px) {
+
+     .post-menu-card {
+          display: flex;
+     }
+
+     .post-menu {
+          margin-top: 10%
+     }
+
+     .calendar-index {
+          margin: 2% 2% 2% 25%;
+     }
+
+     .slider-photo {
+          margin-left: 25%;
+     }
 }
 

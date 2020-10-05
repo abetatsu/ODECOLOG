@@ -3,7 +3,7 @@
 @section('content')
 @include('layouts.menu')
 @foreach($posts as $post)
-<div class="card card-post col-sm-6 my-5 mx-auto">
+<div class="card card-post col-md-6 my-5 mx-auto">
      @if($post->user_id === Auth::id())
      <div class="dropdown dot-menu-show">
           <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
