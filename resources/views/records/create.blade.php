@@ -24,8 +24,7 @@
           <input type="file" class="form-control-file" id="image" name="image">
      </div>
      <div class="form-group text-muted">
-          <label for="size">サイズ(眉山から生え際の長さ)</label>
-          <small class="form-text text-muted">サイズの入力は必須です</small>
+          <label for="size">サイズ(眉山から生え際の長さ)</label><small class="d-inline-block ml-3 text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
                @if(!empty(old('size')))
                <option value="{{ old('size') }}">{{ old('size') }}</option>
