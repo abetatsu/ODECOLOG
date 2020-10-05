@@ -31,7 +31,7 @@ class Post extends Model
         return $this->belongsToMany('App\User', 'dislikes')->withTimestamps();
     }
 
-    public function getAbstruct()
+    public function getAbstract()
     {
         return $content = Str::limit($this->content,150);
     }

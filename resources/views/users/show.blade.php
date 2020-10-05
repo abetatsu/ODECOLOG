@@ -80,8 +80,7 @@
           </a>
      </h2>
      <div class="card-body">
-          @php $content = Illuminate\Support\Str::limit($post->content,150); @endphp
-          <p class="card-text text-muted">{{ $content }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
+          <p class="card-text text-muted">{{ $post->getAbstract() }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
      </div>
      @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
