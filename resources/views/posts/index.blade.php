@@ -38,7 +38,7 @@
           </a>
      </h2>
      <div class="card-body">
-          <p class="card-text text-muted">{{ $post->getAbstruct() }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
+          <p class="card-text text-muted">{{ $post->getAbstract() }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
      </div>
      @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
