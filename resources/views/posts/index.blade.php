@@ -1,23 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card post-menu-card col-sm-3">
-     <nav class="post-menu">
-          <a class="text-muted" href="{{ route('posts.index') }}" style="border-bottom:#6c757d solid 1px;"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034922/home_itbvjs.svg">HOME</a>
-          <a class="text-muted" href="{{ route('posts.create') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601039532/document-add_t7ccey.svg">CREATE POST</a>
-          <a class="text-muted" href="{{ route('users.show', Auth::user()->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034937/user_grc1yd.svg">PROFILE</a>
-          <a class="text-muted" href="{{ route('records.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034931/calendar_cplkec.svg">CALENDAR</a>
-          <a class="text-muted" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
-          <a class="text-muted" href="{{ route('terms.help') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601694212/circle-help_bt6r0s.svg">HELP</a>
-          <a class="text-muted" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
-          <label for="logout-menu1">
-               <form class="dot-menu-item text-muted logout-form-menu" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input id="logout-menu1" class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
-               </form>
-          </label>
-     </nav>
-</div>
+@include('layouts.menu')
 @foreach($posts as $post)
 <div class="card card-post col-sm-6 my-5 mx-auto">
      @if($post->user_id === Auth::id())
@@ -54,8 +38,7 @@
           </a>
      </h2>
      <div class="card-body">
-          @php $content = Illuminate\Support\Str::limit($post->content,150); @endphp
-          <p class="card-text text-muted">{{ $content }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
+          <p class="card-text text-muted">{{ $post->getAbstruct() }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
      </div>
      @if(isset($post->image_path))
      <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">

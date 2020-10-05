@@ -72,6 +72,10 @@ a:hover {
      opacity: 0.8;
 }
 
+.post-menu > a.active {
+     border-bottom: #6c757d solid 1px;
+}
+
 .post-menu > label {
      margin-top: 30%;
      text-decoration: none;
@@ -783,3 +787,4 @@ table.record-table > thead > tr > th{
      border-right: 100px solid transparent;
      border-top: 60px solid #ddd;
 }
+

@@ -62,11 +62,7 @@
             </div>
         </nav>
         <main class="py-4">
-            @if (session('flash_message'))
-            <div class="alert alert-danger">
-                {{ session('flash_message') }}
-            </div>
-            @endif
+            @include('layouts.flash')
             @yield('content')
         </main>
         <footer class="text-center text-muted">

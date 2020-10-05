@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -28,5 +29,10 @@ class Post extends Model
     public function dislikes()
     {
         return $this->belongsToMany('App\User', 'dislikes')->withTimestamps();
+    }
+
+    public function getAbstruct()
+    {
+        return $content = Str::limit($this->content,150);
     }
 }
