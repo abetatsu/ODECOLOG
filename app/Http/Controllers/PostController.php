@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use Auth;
@@ -41,7 +41,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
@@ -67,7 +67,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success_message', '記事が投稿されました');
     }
 
     /**
@@ -94,7 +94,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if(Auth::id() !== $post->user_id) {
+        if (Auth::id() !== $post->user_id) {
             return abort(403);
         }
 
@@ -104,7 +104,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -117,7 +117,7 @@ class PostController extends Controller
         $post->url = $request->url;
 
         if ($image = $request->file('image')) {
-            if(isset($post->public_id)){
+            if (isset($post->public_id)) {
                 Cloudder::destroyImage($post->public_id);
             }
             $image_path = $image->getRealPath();
@@ -133,7 +133,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return view('posts.show', compact('post'));
+        return redirect()->route('posts.show', compact('post'))->with('success_message', '記事が編集されました');
     }
 
     /**
@@ -146,16 +146,16 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if(Auth::id() !== $post->user_id) {
+        if (Auth::id() !== $post->user_id) {
             return abort(403);
         }
-        
-        if(isset($post->public_id)) {
+
+        if (isset($post->public_id)) {
             Cloudder::destroyImage($post->public_id);
         }
 
         $post->delete();
 
-        return redirect()->route('posts.index')->with('flash_message', '投稿が削除されました');
+        return redirect()->route('posts.index')->with('delete_message', '投稿が削除されました');
     }
 }

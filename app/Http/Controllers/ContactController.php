@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\User;
 use Auth;
@@ -13,14 +13,24 @@ class ContactController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
+    /**
+     * Display a Contact Form. 
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $user = User::find(Auth::id());
-
         return view('contact.index', compact('user'));
     }
-
+    
+    /**
+     * Display a Confirmation Form. //メソッドの説明
+     *
+     * @param  \App\Http\Requests\ContactRequestt  $request
+     * @return \Illuminate\Http\Response
+     */
     public function confirm(ContactRequest $request)
     {
         $name = $request->name;

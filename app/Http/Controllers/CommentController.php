@@ -10,30 +10,15 @@ use Auth;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CommentRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CommentRequest $request)
@@ -48,29 +33,7 @@ class CommentController extends Controller
 
         $comment->save();
 
-        return redirect()->route('posts.show', compact('post'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return redirect()->route('posts.show', compact('post'))->with('success_message', 'コメントが投稿されました');
     }
 
     /**
@@ -93,14 +56,13 @@ class CommentController extends Controller
 
         $post->load('user', 'comments');
 
-        return redirect()->route('posts.show', compact('post'));
-
+        return redirect()->route('posts.show', compact('post'))->with('success_message', 'コメントが編集されました');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $comment_id $post_id
      * @return \Illuminate\Http\Response
      */
     public function destroy($comment_id, $post_id)
@@ -116,6 +78,6 @@ class CommentController extends Controller
 
         $post = Post::find($post_id);
 
-        return redirect()->route('posts.show', compact('post'))->with('flash_message', 'コメントが削除されました');
+        return redirect()->route('posts.show', compact('post'))->with('delete_message', 'コメントが削除されました');
     }
 }

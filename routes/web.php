@@ -22,11 +22,11 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('/');
 
 Route::resource('/posts', 'PostController');
-Route::resource('/comments', 'CommentController', ['except' => ['destroy']]);
-Route::delete('/comments/{comment}/{post}', 'CommentController@destroy');
-Route::resource('/users', 'UserController');
 Route::resource('/records', 'RecordController');
-Route::resource('/photos', 'PhotoGalleryController');
+Route::resource('/users', 'UserController', ['except' => ['index', 'create', 'store']]);
+Route::resource('/photos', 'PhotoGalleryController', ['only' => ['index']]);
+Route::resource('/comments', 'CommentController', ['only' => ['store', 'update']]);
+Route::delete('/comments/{comment}/{post}', 'CommentController@destroy');
 
 Route::get('/posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
 Route::get('/posts/{post}/remove/favorites', 'FavoriteController@destroy')->name('removefavorites');
