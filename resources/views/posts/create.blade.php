@@ -9,12 +9,7 @@
      <p class="text-center text-muted form-sub-text">例）ケア用品、日課、飲んでみた薬、スカルプケアの美容室、おすすめの髪型</p>
      <p class="text-center text-muted form-sub-text">クリニックに通ってみた経験、失敗談、気になっていることの質問、シェアしたい記事など</p>
      <p class="text-center text-muted form-sub-bottom">どんどん投稿してみましょう。後から編集・削除も可能です。</p>
-     @if ($errors->any())
-     @foreach ($errors->all() as $error)
-     <p class="text-center text-danger">{{ $error }}</p>
-     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
-     @endforeach
-     @endif
+     @include('layouts.error')
      <div class="form-group text-muted">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
