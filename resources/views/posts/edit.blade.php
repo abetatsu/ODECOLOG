@@ -11,12 +11,7 @@
           <input type="file" class="form-control-file" id="image" name="image">
           <img src="{{ $post->image_path }}" alt="画像" class="form-image">
      </div>
-     @if ($errors->any())
-     @foreach ($errors->all() as $error)
-     <p class="text-center text-danger">{{ $error }}</p>
-     <p class="text-center text-danger">画像を選択された方は、恐れ入りますが再度画像を選択してください。</p>
-     @endforeach
-     @endif
+     @include('layouts.error')
      <div class="form-group text-muted">
           <label for="title">タイトル</label><small class="d-inline-block ml-3 text-muted">タイトルの入力は必須です</small>
           <input type="text" class="form-control" name="title" id="title" value="{{ $post->title }}">
