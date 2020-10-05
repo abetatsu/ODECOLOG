@@ -15,7 +15,7 @@ class Calendar
      }
 
      private $html;
-     public function showCalendarTag($m, $y)
+     public function showCalendar($y, $m)
      {
           $now = Carbon::now();
           $year = $y;

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<form action="{{ route('confirm') }}" method="post" class="mx-auto col-sm-6 form-wrap my-5">
+<form action="{{ route('confirm') }}" method="post" class="mx-auto col-md-6 form-wrap my-5">
      @csrf
      <h2 class="text-center text-muted">お問い合わせフォーム</h2>
      <p class="text-center text-muted">サービスの改善に役立たせていただきます</p>

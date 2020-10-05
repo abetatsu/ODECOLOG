@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.menu')
-<form enctype="multipart/form-data" class="col-sm-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.store') }}">
+<form enctype="multipart/form-data" class="col-md-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.store') }}">
      @csrf
      <h2 class="text-center text-muted">記録作成フォーム</h2>
      <p class="text-center text-muted mt-4 form-sub-text">おでこが後退してきているのか記録を残して確認しましょう。</p>
