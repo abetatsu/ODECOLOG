@@ -26,7 +26,7 @@ class ContactController extends Controller
     }
     
     /**
-     * Display a Confirmation Form. //メソッドの説明
+     * Display a Confirmation Form.
      *
      * @param  \App\Http\Requests\ContactRequestt  $request
      * @return \Illuminate\Http\Response
