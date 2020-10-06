@@ -3,20 +3,12 @@
 @include('layouts.menu')
 <div class="card col-md-6 mx-auto my-5 profile-show">
      @if($user->id === Auth::id())
-     <div class="dropdown dot-menu-profile">
-          <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
-          </div>
-          <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('users.edit', $user->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <label for="profile-delete">
-                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('users.destroy', $user->id) }}" method="POST">
-                         @method('DELETE')
-                         @csrf
-                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="profile-delete" class="btn btn-link" type="submit" value="WITHDRAWAL" onclick='return confirm("あなたのプロフィール、今までの記録、投稿の全てが削除されます。本当に退会しますか?");'>
-                    </form>
-               </label>
-          </div>
+     <div class="dot-menu-profile">
+          @include('layouts._dot-menu', [
+               'id' => $user->id,
+               'editRoute' => 'users.edit',
+               'deleteRoute' => 'users.destroy',
+          ])
      </div>
      @endif
      <div class="row">

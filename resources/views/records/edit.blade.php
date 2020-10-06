@@ -20,12 +20,12 @@
           <label for="size">サイズ(眉山から生え際までの長さ)</label><small class="d-inline-block ml-3 text-muted">サイズの入力は必須です</small>
           <select class="form-control" name="size" id="size">
                @if(!empty($record->size))
-               <option value="{{ $record->size }}" selected>{{ $record->size }}</option>
+                    <option value="{{ $record->size }}" selected>{{ $record->size }}</option>
                @else
-               <option value="">選択してください</option>
+                    <option value="">選択してください</option>
                @endif
                @foreach(config('foreheadSize') as $option)
-               <option value="{{ $option }}">{{ $option }}</option>
+                    <option value="{{ $option }}">{{ $option }}</option>
                @endforeach
           </select>
      </div>
@@ -33,12 +33,12 @@
           <label for="sleep_time">睡眠時間(任意)</label>
           <select class="form-control" id="sleep_time" name="sleep_time">
                @if(!empty($record->sleep_time))
-               <option value="{{ $record->sleep_time }}" selected>{{ $record->sleep_time }}</option>
+                    <option value="{{ $record->sleep_time }}" selected>{{ $record->sleep_time }}</option>
                @else
-               <option value="">選択してください</option>
+                    <option value="">選択してください</option>
                @endif
                @foreach(config('sleepTime') as $sleepTime)
-               <option value="{{ $sleepTime }}">{{ $sleepTime }}</option>
+                    <option value="{{ $sleepTime }}">{{ $sleepTime }}</option>
                @endforeach
           </select>
      </div>
@@ -62,12 +62,12 @@
           <label for="alcohol">飲酒量(任意)</label>
           <select class="form-control" id="alcohol" name="alcohol">
                @if(!empty($record->alcohol))
-               <option value="{{ $record->alcohol }}" selected>{{ $record->alcohol }}</option>
+                    <option value="{{ $record->alcohol }}" selected>{{ $record->alcohol }}</option>
                @else
-               <option value="">選択してください</option>
+                    <option value="">選択してください</option>
                @endif
                @foreach(config('alcohol') as $drinkAlcohol)
-               <option value="{{ $drinkAlcohol }}">{{ $drinkAlcohol }}</option>
+                    <option value="{{ $drinkAlcohol }}">{{ $drinkAlcohol }}</option>
                @endforeach
           </select>
      </div>
@@ -75,12 +75,12 @@
           <label for="stress">ストレス(任意)</label>
           <select class="form-control" id="stress" name="stress">
                @if(!empty($record->stress))
-               <option value="{{ $record->stress }}" selected>{{ $record->stress }}</option>
+                    <option value="{{ $record->stress }}" selected>{{ $record->stress }}</option>
                @else
-               <option value="">選択してください</option>
+                    <option value="">選択してください</option>
                @endif
                @foreach(config('stress') as $stress)
-               <option value="{{ $stress }}">{{ $stress }}</option>
+                    <option value="{{ $stress }}">{{ $stress }}</option>
                @endforeach
           </select>
      </div>

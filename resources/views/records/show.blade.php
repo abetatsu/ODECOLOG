@@ -4,20 +4,12 @@
 @include('layouts.menu')
 <div class="card col-md-6 mx-auto my-5 profile-show">
      @if($record->user_id === Auth::id())
-     <div class="dropdown dot-menu-record">
-          <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
-          </div>
-          <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('records.edit', $record->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <label for="record-show-delete">
-                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('records.destroy', $record->id) }}" method="POST">
-                         @method('DELETE')
-                         @csrf
-                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="record-show-delete" class="btn btn-link" type="submit" value="DELETE" onclick='return confirm("削除しますか？");'>
-                    </form>
-               </label>
-          </div>
+     <div class="dot-menu-record">
+          @include('layouts._dot-menu', [
+               'id' => $record->id,
+               'editRoute' => 'records.edit',
+               'deleteRoute' => 'records.destroy',
+          ])
      </div>
      @endif
      <div class="card-body col-xs-6">

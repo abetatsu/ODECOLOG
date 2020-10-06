@@ -4,20 +4,12 @@
 @include('layouts.menu')
 <div class="card col-md-6 my-5 mx-auto profile-show">
      @if($post->user_id === Auth::id())
-     <div class="dropdown dot-menu-show">
-          <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
-          </div>
-          <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item dot-menu-item text-muted btn btn-link post-show-edit" href="{{ route('posts.edit', $post->id) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601172995/edit_g4swwu.svg">EDIT</a>
-               <label for="post-show-delete{{ $post->id }}">
-                    <form class="dropdown-item dot-menu-item text-muted" action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                         @method('DELETE')
-                         @csrf
-                         <img src="https://res.cloudinary.com/tatsu/image/upload/v1601172993/delete_b1rjwi.svg"><input id="post-show-delete{{ $post->id }}" class="btn btn-link" type="submit" value="DELETE" onclick='return confirm("削除しますか？");'>
-                    </form>
-               </label>
-          </div>
+     <div class="dot-menu-show">
+          @include('layouts._dot-menu', [
+               'id' => $post->id,
+               'editRoute' => 'posts.edit',
+               'deleteRoute' => 'posts.destroy',
+          ])
      </div>
      @endif
      <div class="post-top">

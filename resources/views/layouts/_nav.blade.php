@@ -49,7 +49,7 @@
                          <label for="logout-menu1">
                               <form class="dot-menu-item text-muted logout-form-menu" action="{{ route('logout') }}" method="POST">
                                    @csrf
-                                   <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input id="logout-menu1" class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
+                                   <img src="https://res.cloudinary.com/tatsu/image/upload/v1601081054/log-out_gwkzdh.svg"><input class="btn btn-link" type="submit" value="LOG-OUT" onclick='return confirm("ログアウトしますか？");'>
                               </form>
                          </label>
                     </li>
