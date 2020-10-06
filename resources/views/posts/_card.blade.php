@@ -11,9 +11,9 @@
      <div class="post-top">
           <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles">
                @if(empty($post->user->image_path))
-               <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
+                    <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="プロフィール画像" class="post-profile">
                @else
-               <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
+                    <img src="{{ $post->user->image_path }}" alt="プロフィール画像" class="post-profile">
                @endif
           </a>
           <a href="{{ route('users.show', $post->user->id) }}" class="post-profile-name text-muted">{{ $post->user->name }}</a>
@@ -28,7 +28,7 @@
           <p class="card-text text-muted">{{ $post->getAbstract() }} <a href="{{ route('posts.show', $post->id) }}" class="text-muted">続きをみる</a></p>
      </div>
      @if(isset($post->image_path))
-     <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
+          <img src="{{ $post->image_path }}" alt="画像" class="post-image mx-auto">
      @endif
      <hr>
      <div class="row pb-3">

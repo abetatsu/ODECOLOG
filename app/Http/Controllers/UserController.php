@@ -117,6 +117,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('posts.index')->with('delete_message', 'ユーザー情報が削除されました');
+        return redirect()->route('posts.index')->with('success_message', 'ユーザー情報が削除されました');
     }
 }

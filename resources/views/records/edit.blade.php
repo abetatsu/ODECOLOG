@@ -7,6 +7,7 @@
      @method('PUT')
      <h2 class="text-center text-muted">記録編集フォーム</h2>
      @include('layouts.error')
+     @include('layouts.fileError')
      <div class="form-group text-muted">
           <label for="day">日付</label><small class="d-inline-block ml-3 text-muted">日付の入力は必須です</small><br>
           <input type="date" class="form-controll" id="day" name="day" value="{{ $record->day }}">

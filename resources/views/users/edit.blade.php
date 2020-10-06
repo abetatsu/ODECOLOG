@@ -12,6 +12,7 @@
           <img src="{{ $user->image_path }}" alt="画像" class="form-image">
      </div>
      @include('layouts.error')
+     @include('layouts.fileError')
      <div class="form-group text-muted">
           <label for="name">名前</label><small class="d-inline-block ml-3 text-muted">名前の入力は必須です</small>
           <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">

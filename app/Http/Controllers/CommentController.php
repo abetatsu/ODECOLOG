@@ -78,6 +78,6 @@ class CommentController extends Controller
 
         $post = Post::find($post_id);
 
-        return redirect()->route('posts.show', compact('post'))->with('delete_message', 'コメントが削除されました');
+        return redirect()->route('posts.show', compact('post'))->with('success_message', 'コメントが削除されました');
     }
 }

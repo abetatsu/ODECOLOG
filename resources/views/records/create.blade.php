@@ -10,6 +10,7 @@
      <p class="text-center text-muted form-sub-text">写真は同じ角度からの写真を撮り続けることで変化が分かりやすくなります。</p>
      <p class="text-center text-muted form-sub-bottom">継続は力なりです。</p>
      @include('layouts.error')
+     @include('layouts.fileError')
      <div class="form-group text-muted">
           <label for="day">日付</label><small class="d-inline-block ml-3 text-muted">日付の入力は必須です</small><br>
           <input type="date" class="form-controll" id="day" name="day" value="{{ $date }}">

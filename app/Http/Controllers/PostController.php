@@ -155,6 +155,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('posts.index')->with('delete_message', '投稿が削除されました');
+        return redirect()->route('posts.index')->with('success_message', '投稿が削除されました');
     }
 }

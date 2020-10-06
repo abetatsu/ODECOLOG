@@ -10,6 +10,7 @@
      <p class="text-center text-muted form-sub-text">クリニックに通ってみた経験、失敗談、気になっていることの質問、シェアしたい記事など</p>
      <p class="text-center text-muted form-sub-bottom">どんどん投稿してみましょう。後から編集・削除も可能です。</p>
      @include('layouts.error')
+     @include('layouts.fileError')
      <div class="form-group text-muted">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">

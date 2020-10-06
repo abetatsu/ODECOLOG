@@ -111,9 +111,7 @@
      </div>
      @endforeach
      <hr>
-     @foreach ($errors->all() as $error)
-     <p class="text-center text-danger">{{ $error }}</p>
-     @endforeach
+     @include('layouts.error')
      <form action="{{ route('comments.store') }}" method="POST" class="comment-form">
           @csrf
           <div class="col-10">
