@@ -202,6 +202,6 @@ class RecordController extends Controller
         $cal = new Calendar($records);
         $calendar = $cal->showCalendar($request->month, $request->year);
 
-        return redirect()->route('records.index', compact('records', 'calendar'))->with('delete_message', '記録が削除されました');
+        return redirect()->route('records.index', compact('records', 'calendar'))->with('success_message', '記録が削除されました');
     }
 }

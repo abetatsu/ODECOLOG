@@ -12,6 +12,7 @@
           <img src="{{ $post->image_path }}" alt="画像" class="form-image">
      </div>
      @include('layouts.error')
+     @include('layouts.fileError')
      <div class="form-group text-muted">
           <label for="title">タイトル</label><small class="d-inline-block ml-3 text-muted">タイトルの入力は必須です</small>
           <input type="text" class="form-control" name="title" id="title" value="{{ $post->title }}">
