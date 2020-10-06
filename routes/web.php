@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 use Psy\VersionUpdater\GitHubChecker;
 
 Auth::routes();

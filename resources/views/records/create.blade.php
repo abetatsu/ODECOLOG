@@ -25,26 +25,9 @@
                <option value="{{ old('size') }}">{{ old('size') }}</option>
                @endif
                <option value="">選択してください</option>
-               <option value="指1本">指1本</option>
-               <option value="指2本">指2本</option>
-               <option value="指3本">指3本</option>
-               <option value="指4本">指4本</option>
-               <option value="指5本">指5本</option>
-               <option value="1cm">1cm</option>
-               <option value="2cm">2cm</option>
-               <option value="3cm">3cm</option>
-               <option value="4cm">4cm</option>
-               <option value="5cm">5cm</option>
-               <option value="6cm">6cm</option>
-               <option value="7cm">7cm</option>
-               <option value="8cm">8cm</option>
-               <option value="9cm">9cm</option>
-               <option value="10cm">10cm</option>
-               <option value="11cm">11cm</option>
-               <option value="12cm">12cm</option>
-               <option value="13cm">13cm</option>
-               <option value="14cm">14cm</option>
-               <option value="15cm">15cm</option>
+               @foreach(config('foreheadSize') as $option)
+               <option value="{{ $option }}">{{ $option }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">

@@ -62212,6 +62212,10 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./contact */ "./resources/js/contact.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -62236,11 +62240,7 @@ var app = new Vue({
   el: '#app'
 });
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
 __webpack_require__(/*! ./swiper */ "./resources/js/swiper.js");
-
-__webpack_require__(/*! ./contact */ "./resources/js/contact.js");
 
 /***/ }),
 
