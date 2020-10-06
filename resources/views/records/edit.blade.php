@@ -24,8 +24,8 @@
                @else
                     <option value="">選択してください</option>
                @endif
-               @foreach(config('foreheadSize') as $option)
-                    <option value="{{ $option }}">{{ $option }}</option>
+               @foreach(config('foreheadSize') as $foreheadSize)
+                    <option value="{{ $foreheadSize }}">{{ $foreheadSize }}</option>
                @endforeach
           </select>
      </div>
