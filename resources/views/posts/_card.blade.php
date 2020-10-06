@@ -1,11 +1,13 @@
 <div class="card card-post col-md-6 my-5 mx-auto">
-     @if($post->user_id === Auth::id())
-          @include('layouts._dot-menu', [
-               'id' => $post->id,
-               'editRoute' => 'posts.edit',
-               'deleteRoute' => 'posts.destroy',
-          ])
-     @endif
+     <div class="dot-menu-show">
+          @if($post->user_id === Auth::id())
+               @include('layouts._dot-menu', [
+                    'id' => $post->id,
+                    'editRoute' => 'posts.edit',
+                    'deleteRoute' => 'posts.destroy',
+               ])
+          @endif
+     </div>
      <div class="post-top">
           <a href="{{ route('users.show', $post->user->id) }}" class="post-profiles">
                @if(empty($post->user->image_path))
