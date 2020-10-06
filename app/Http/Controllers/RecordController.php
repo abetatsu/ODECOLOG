@@ -96,9 +96,9 @@ class RecordController extends Controller
         $records = Record::where('user_id', Auth::id())->get();
         $records = Record::all();
         $cal = new Calendar($records);
-        $tag = $cal->showCalendarTag($request->month, $request->year);
+        $calendar = $cal->showCalendar($request->month, $request->year);
 
-        return redirect()->route('records.index', compact('records', 'tag'))->with('success_message', '記録が保存されました');
+        return redirect()->route('records.index', compact('records', 'calendar'))->with('success_message', '記録が保存されました');
     }
 
     /**
@@ -200,8 +200,8 @@ class RecordController extends Controller
 
         $records = Record::where('user_id', Auth::id())->get();
         $cal = new Calendar($records);
-        $tag = $cal->showCalendarTag($request->month, $request->year);
+        $calendar = $cal->showCalendar($request->month, $request->year);
 
-        return redirect()->route('records.index', compact('records', 'tag'))->with('delete_message', '記録が削除されました');
+        return redirect()->route('records.index', compact('records', 'calendar'))->with('delete_message', '記録が削除されました');
     }
 }

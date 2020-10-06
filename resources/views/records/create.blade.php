@@ -25,8 +25,8 @@
                <option value="{{ old('size') }}">{{ old('size') }}</option>
                @endif
                <option value="">選択してください</option>
-               @foreach(config('foreheadSize') as $option)
-               <option value="{{ $option }}">{{ $option }}</option>
+               @foreach(config('foreheadSize') as $foreheadSize)
+               <option value="{{ $foreheadSize }}">{{ $foreheadSize }}</option>
                @endforeach
           </select>
      </div>
@@ -37,18 +37,9 @@
                <option value="{{ old('sleep_time') }}">{{ old('sleep_time') }}</option>
                @endif
                <option value="">選択してください</option>
-               <option value="1時間">1時間</option>
-               <option value="2時間">2時間</option>
-               <option value="3時間">３時間</option>
-               <option value="4時間">4時間</option>
-               <option value="5時間">5時間</option>
-               <option value="6時間">6時間</option>
-               <option value="7時間">7時間</option>
-               <option value="8時間">8時間</option>
-               <option value="9時間">9時間</option>
-               <option value="10時間">10時間</option>
-               <option value="11時間以上">11時間以上</option>
-               <option value="1時間未満">1時間未満</option>
+               @foreach(config('sleepTime') as $sleepTime)
+               <option value="{{ $sleepTime }}">{{ $sleepTime }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
@@ -74,12 +65,9 @@
                <option value="{{ old('alcohol') }}">{{ old('alcohol') }}</option>
                @endif
                <option value="">選択してください</option>
-               <option value="1合（180ml）未満">1合（180ml）未満</option>
-               <option value="1合以上2合（360ml）未満">1合以上2合（360ml）未満</option>
-               <option value="2合以上3合（540ml）未満">2合以上3合（540ml）未満</option>
-               <option value="3合以上4合（720ml）未満">3合以上4合（720ml）未満</option>
-               <option value="4合以上5合（900ml）未満">4合以上5合（900ml）未満</option>
-               <option value="5合（900ml）以上">5合（900ml）以上</option>
+               @foreach(config('alcohol') as $drinkAlcohol)
+               <option value="{{ $drinkAlcohol }}">{{ $drinkAlcohol }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
@@ -88,11 +76,9 @@
                @if(!empty(old('stress')))
                <option value="{{ old('stress') }}">{{ old('stress') }}</option>
                @endif
-               <option value="">選択してください</option>
-               <option value="ほぼない">ほぼない</option>
-               <option value="少しある">少しある</option>
-               <option value="ある">ある</option>
-               <option value="強く感じる">強く感じる</option>
+               @foreach(config('stress') as $stress)
+               <option value="{{ $stress }}">{{ $stress }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">

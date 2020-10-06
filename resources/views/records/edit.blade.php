@@ -24,26 +24,9 @@
                @else
                <option value="">選択してください</option>
                @endif
-               <option value="指1本">指1本</option>
-               <option value="指2本">指2本</option>
-               <option value="指3本">指3本</option>
-               <option value="指4本">指4本</option>
-               <option value="指5本">指5本</option>
-               <option value="1cm">1cm</option>
-               <option value="2cm">2cm</option>
-               <option value="3cm">3cm</option>
-               <option value="4cm">4cm</option>
-               <option value="5cm">5cm</option>
-               <option value="6cm">6cm</option>
-               <option value="7cm">7cm</option>
-               <option value="8cm">8cm</option>
-               <option value="9cm">9cm</option>
-               <option value="10cm">10cm</option>
-               <option value="11cm">11cm</option>
-               <option value="12cm">12cm</option>
-               <option value="13cm">13cm</option>
-               <option value="14cm">14cm</option>
-               <option value="15cm">15cm</option>
+               @foreach(config('foreheadSize') as $option)
+               <option value="{{ $option }}">{{ $option }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
@@ -54,18 +37,9 @@
                @else
                <option value="">選択してください</option>
                @endif
-               <option value="1時間">1時間</option>
-               <option value="2時間">2時間</option>
-               <option value="3時間">３時間</option>
-               <option value="4時間">4時間</option>
-               <option value="5時間">5時間</option>
-               <option value="6時間">6時間</option>
-               <option value="7時間">7時間</option>
-               <option value="8時間">8時間</option>
-               <option value="9時間">9時間</option>
-               <option value="10時間">10時間</option>
-               <option value="11時間以上">11時間以上</option>
-               <option value="1時間未満">1時間未満</option>
+               @foreach(config('sleepTime') as $sleepTime)
+               <option value="{{ $sleepTime }}">{{ $sleepTime }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
@@ -92,12 +66,9 @@
                @else
                <option value="">選択してください</option>
                @endif
-               <option value="1合（180ml）未満">1合（180ml）未満</option>
-               <option value="1合以上2合（360ml）未満">1合以上2合（360ml）未満</option>
-               <option value="2合以上3合（540ml）未満">2合以上3合（540ml）未満</option>
-               <option value="3合以上4合（720ml）未満">3合以上4合（720ml）未満</option>
-               <option value="4合以上5合（900ml）未満">4合以上5合（900ml）未満</option>
-               <option value="5合（900ml）以上">5合（900ml）以上</option>
+               @foreach(config('alcohol') as $drinkAlcohol)
+               <option value="{{ $drinkAlcohol }}">{{ $drinkAlcohol }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
@@ -108,10 +79,9 @@
                @else
                <option value="">選択してください</option>
                @endif
-               <option value="ほぼない">ほぼない</option>
-               <option value="少しある">少しある</option>
-               <option value="ある">ある</option>
-               <option value="強く感じる">強く感じる</option>
+               @foreach(config('stress') as $stress)
+               <option value="{{ $stress }}">{{ $stress }}</option>
+               @endforeach
           </select>
      </div>
      <div class="form-group text-muted">
