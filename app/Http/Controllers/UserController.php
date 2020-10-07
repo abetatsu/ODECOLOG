@@ -99,6 +99,8 @@ class UserController extends Controller
         $post = Post::where('user_id', $user->id)->get();
         $pluckedRecord = $record->pluck('public_id');
         $pluckedPost = $post->pluck('public_id');
+        $countRecord = count($pluckedRecord);
+        $countPost = count($pluckedPost);
 
         if(Auth::id() !== $user->id) {
             return abort(403);
@@ -109,15 +111,23 @@ class UserController extends Controller
         }
         
         if(!empty($pluckedRecord[0])){
-            Cloudder::destroyImage($pluckedRecord[0]);
+            $i=0;
+            while($i < $countRecord) {
+                Cloudder::destroyImage($pluckedRecord[$i]);
+                $i++;
+            }
         }
         
-        if(!empty($pluckedPost[0])) {
-            Cloudder::destroyImage($pluckedPost[0]);
+        if(!empty($pluckedPost[0])){
+            $i=0;
+            while($i < $countPost) {
+                Cloudder::destroyImage($pluckedPost[$i]);
+                $i++;
+            }
         }
 
         $user->delete();
 
-        return redirect()->route('posts.index')->with('success_message', 'ユーザー情報が削除されました');
+        return redirect()->route('/')->with('success_message', 'ユーザー情報が削除されました');
     }
 }
