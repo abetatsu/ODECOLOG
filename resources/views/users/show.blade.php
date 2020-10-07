@@ -4,7 +4,7 @@
 <div class="card col-md-6 mx-auto my-5 profile-show">
      @if($user->id === Auth::id())
      <div class="dot-menu-profile">
-          @include('layouts._dot-menu', [
+          @include('users._dot-menu', [
                'id' => $user->id,
                'editRoute' => 'users.edit',
                'deleteRoute' => 'users.destroy',

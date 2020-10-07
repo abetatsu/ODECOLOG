@@ -110,6 +110,7 @@ class PostController extends Controller
     public function update(PostRequest $request, $id)
     {
         $post = Post::find($id);
+        $user = Auth::id();
 
         $post->title = $request->title;
         $post->content = $request->content;
