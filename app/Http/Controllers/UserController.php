@@ -93,12 +93,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+
         $user = User::find($id);
-        $record = Record::where('user_id', $user->id)->get('public_id');
-        $post = Post::where('user_id', $user->id)->get('public_id');
+        $record = Record::where('user_id', $user->id)->get();
+        $post = Post::where('user_id', $user->id)->get();
         $pluckedRecord = $record->pluck('public_id');
         $pluckedPost = $post->pluck('public_id');
-        
+
         if(Auth::id() !== $user->id) {
             return abort(403);
         }
@@ -107,11 +108,11 @@ class UserController extends Controller
             Cloudder::destroyImage($user->public_id);
         }
         
-        if($record->isNotEmpty()){
+        if(!empty($pluckedRecord[0])){
             Cloudder::destroyImage($pluckedRecord[0]);
         }
         
-        if($post->isNotEmpty()) {
+        if(!empty($pluckedPost[0])) {
             Cloudder::destroyImage($pluckedPost[0]);
         }
 
