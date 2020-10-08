@@ -19,13 +19,14 @@
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.20.1",
-        "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
+        "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
         "swiper": "^6.2.0",
-        "vue-awesome-swiper": "^4.1.1"
+        "vue-awesome-swiper": "^4.1.1",
+        "vue-moment": "^4.1.0"
     }
 }
