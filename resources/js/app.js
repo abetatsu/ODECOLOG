@@ -12,6 +12,7 @@ window.Vue = require('vue');
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper);
+Vue.use(require('vue-moment'));
 
 /**
  * The following block of code may be used to automatically register your
