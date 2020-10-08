@@ -1,6 +1,9 @@
 <template>
      <swiper :options="swiperOption" ref="mySwiper1">
-     <swiper-slide v-for="record in records" :key="record.image_path"><img :src="record.image_path"></swiper-slide>
+     <swiper-slide v-for="record in records" :key="record.image_path">
+               <span>{{ record.created_at }}</span>
+               <img :src="record.image_path">
+     </swiper-slide>
      <div class="swiper-pagination"  slot="pagination"></div>
      <div class="swiper-button-prev" slot="button-prev"></div>
      <div class="swiper-button-next" slot="button-next"></div>
@@ -16,6 +19,13 @@
      max-width: 100%;
      overflow: hidden;
 }
+
+span {
+     position: absolute;
+     color: #6c757d;
+     top: 0;
+     left: 0;
+}
 </style>
 
 <script>
@@ -24,10 +34,9 @@ export default {
           data() {
                return {
                swiperOption: {
-                    autoplay: {
-                         delay: 2500,
-                         disableOnInteraction: false
-                    },
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
                     pagination: {
                          el: '.swiper-pagination',
                          clickable: true
