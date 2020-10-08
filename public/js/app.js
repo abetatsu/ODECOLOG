@@ -2115,15 +2115,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["records"],
   data: function data() {
     return {
       swiperOption: {
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -6590,7 +6599,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.swiper-slide[data-v-5415256c] {\n     text-align: center;\n}\n.swiper-slide img[data-v-5415256c] {\n     -o-object-fit: contain;\n        object-fit: contain;\n     max-width: 100%;\n     overflow: hidden;\n}\n", ""]);
+exports.push([module.i, "\n.swiper-slide[data-v-5415256c] {\n     text-align: center;\n}\n.swiper-slide img[data-v-5415256c] {\n     -o-object-fit: contain;\n        object-fit: contain;\n     max-width: 100%;\n     overflow: hidden;\n}\nspan[data-v-5415256c] {\n     position: absolute;\n     color: #6c757d;\n     top: 0;\n     left: 0;\n}\n", ""]);
 
 // exports
 
@@ -50650,6 +50659,8 @@ var render = function() {
     [
       _vm._l(_vm.records, function(record) {
         return _c("swiper-slide", { key: record.image_path }, [
+          _c("span", [_vm._v(_vm._s(record.created_at))]),
+          _vm._v(" "),
           _c("img", { attrs: { src: record.image_path } })
         ])
       }),
