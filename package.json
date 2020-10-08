@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "swiper": "^6.2.0"
+        "swiper": "^6.2.0",
+        "vue-awesome-swiper": "^4.1.1"
     }
 }

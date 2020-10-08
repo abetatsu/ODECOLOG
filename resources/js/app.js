@@ -6,8 +6,12 @@
 
 require('./bootstrap');
 require('./contact');
+require('./swiper');
 
 window.Vue = require('vue');
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper);
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,6 +27,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('like-component', require('./components/LikeComponent.vue').default);
 Vue.component('dislike-component', require('./components/DislikeComponent.vue').default);
+Vue.component('swiper-component', require('./components/SwiperComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,5 +38,3 @@ Vue.component('dislike-component', require('./components/DislikeComponent.vue').
 const app = new Vue({
     el: '#app',
 });
-
-require('./swiper');
