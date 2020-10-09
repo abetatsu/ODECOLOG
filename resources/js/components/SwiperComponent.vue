@@ -1,7 +1,7 @@
 <template>
      <swiper :options="swiperOption" ref="mySwiper1">
      <swiper-slide v-for="record in records" :key="record.image_path">
-               <span>{{ record.created_at | moment("YYYY年MM月DD日") }}</span>
+               <span>{{ record.day | moment("YYYY年MM月DD日") }}</span>
                <img :src="record.image_path">
      </swiper-slide>
      <div class="swiper-pagination"  slot="pagination"></div>

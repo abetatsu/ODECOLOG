@@ -50661,9 +50661,7 @@ var render = function() {
       _vm._l(_vm.records, function(record) {
         return _c("swiper-slide", { key: record.image_path }, [
           _c("span", [
-            _vm._v(
-              _vm._s(_vm._f("moment")(record.created_at, "YYYY年MM月DD日"))
-            )
+            _vm._v(_vm._s(_vm._f("moment")(record.day, "YYYY年MM月DD日")))
           ]),
           _vm._v(" "),
           _c("img", { attrs: { src: record.image_path } })
