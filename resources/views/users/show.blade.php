@@ -12,14 +12,14 @@
      </div>
      @endif
      <div class="row">
-          <div class="card-body col-md-5">
+          <div class="card-body col-5">
                @if(empty($user->image_path))
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="画像" class="profile-image">
                @else
-               <img src="{{ $user->image_path }}" alt="画像" class="profile-image">
+               <img src="{{ $user->image_path }}" alt="画像" class="col-12 rounded-circle">
                @endif
           </div>
-          <div class="card-body col-md-5 profile-detail">
+          <div class="card-body col-5 profile-detail">
                <p class="text-muted">名前：{{ $user->name }}</p>
                <p class="text-muted">投稿数：{{ $user->posts->count() }}</p>
                <p class="text-muted">コメント数：{{ $user->comments->count() }}</p>
