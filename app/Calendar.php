@@ -20,7 +20,7 @@ class Calendar
           $now = Carbon::now();
           $year = $y;
           $month = $m;
-          
+
           if ($year == null) {
                $year = $now->year;
                $month = $now->month;
@@ -63,8 +63,13 @@ EOS;
                     if ($day <= 0 || $day > $lastDay) {
                          $this->html .= "<td>&nbsp;</td>";
                     } else {
+                         $today = Carbon::now()->toDateString();
                          $target = $now->setDate($year, $month, $day)->toDateString();
-                         $this->html .= "<td><a href=\"/records/create?date={$target}\">" . $day . "&nbsp";
+                         if($target === $today) {
+                              $this->html .= "<td><a href=\"/records/create?date={$target}\"  class=\"today\">" . $day . "&nbsp";
+                         } else {
+                              $this->html .= "<td><a href=\"/records/create?date={$target}\">" . $day . "&nbsp";
+                         }
                          foreach ($this->records as $record) {
                               if ($record->day == $target && $record->user_id == Auth::id() ) {
                                    $this->html .= <<< EOS

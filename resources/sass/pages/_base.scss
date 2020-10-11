@@ -1,4 +1,4 @@
-$main_color: #ddd; 
+$main_color: #ddd;
 $sub_color: #6c757d;
 
 html {
@@ -521,7 +521,7 @@ table.record-table > thead > tr > th{
      box-shadow: inset 5px 5px 20px #c8c9cc,
      inset -5px -5px 20px #ffffff;
      color: #555;
-     
+
      &:hover {
           border-radius: 15%;
           background: $main_color;
@@ -582,7 +582,7 @@ table.record-table > thead > tr > th{
      -5px -5px 20px #ffffff;
      margin: 0 5px;
      color: $sub_color;
-     
+
      &:hover {
           color: $sub_color;
      }
@@ -613,7 +613,7 @@ table.record-table > thead > tr > th{
           margin-right: 10px;
           margin-top: -3px;
      }
-     
+
      .btn {
           padding: 0;
      }
@@ -662,7 +662,7 @@ table.record-table > thead > tr > th{
      display: flex;
      align-items: center;
      justify-content: center;
-     flex-direction: column; 
+     flex-direction: column;
 }
 
 .lp-top-logo {
@@ -710,7 +710,7 @@ table.record-table > thead > tr > th{
      background: $main_color;
      border-radius: 30px;
 
-     &:before {  
+     &:before {
           content: "";
           position: absolute;
           left: -38px;
@@ -733,7 +733,7 @@ table.record-table > thead > tr > th{
      }
 
      p {
-          margin: 0; 
+          margin: 0;
           padding: 0;
      }
 }
@@ -800,6 +800,10 @@ table.record-table > thead > tr > th{
      width: 90%;
      height: 400px;
      object-fit: contain;
+}
+
+.today {
+     color: #fff;
 }
 
 @media (min-width:768px) {
