@@ -17741,6 +17741,10 @@ table.record-table > thead > tr > th {
      object-fit: contain;
 }
 
+.today {
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .post-menu-card {
     display: flex;

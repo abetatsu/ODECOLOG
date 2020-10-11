@@ -2,7 +2,7 @@
      <swiper :options="swiperOption" ref="mySwiper1">
      <swiper-slide v-for="record in records" :key="record.image_path">
                <span>{{ record.day | moment("YYYY年MM月DD日") }}</span>
-               <img :src="record.image_path">
+               <img :src="record.image_path" class="swiper-image">
      </swiper-slide>
      <div class="swiper-pagination"  slot="pagination"></div>
      <div class="swiper-button-prev" slot="button-prev"></div>
@@ -17,6 +17,7 @@
 .swiper-slide img {
      object-fit: contain;
      max-width: 100%;
+     height: 500px;
      overflow: hidden;
 }
 

@@ -2125,6 +2125,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["records"],
   data: function data() {
@@ -6600,7 +6601,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.swiper-slide[data-v-5415256c] {\n     text-align: center;\n}\n.swiper-slide img[data-v-5415256c] {\n     -o-object-fit: contain;\n        object-fit: contain;\n     max-width: 100%;\n     overflow: hidden;\n}\nspan[data-v-5415256c] {\n     position: absolute;\n     color: #6c757d;\n     top: 0;\n     left: 0;\n}\n", ""]);
+exports.push([module.i, "\n.swiper-slide[data-v-5415256c] {\n     text-align: center;\n}\n.swiper-slide img[data-v-5415256c] {\n     -o-object-fit: contain;\n        object-fit: contain;\n     max-width: 100%;\n     height: 500px;\n     overflow: hidden;\n}\nspan[data-v-5415256c] {\n     position: absolute;\n     color: #6c757d;\n     top: 0;\n     left: 0;\n}\n", ""]);
 
 // exports
 
@@ -50664,7 +50665,10 @@ var render = function() {
             _vm._v(_vm._s(_vm._f("moment")(record.day, "YYYY年MM月DD日")))
           ]),
           _vm._v(" "),
-          _c("img", { attrs: { src: record.image_path } })
+          _c("img", {
+            staticClass: "swiper-image",
+            attrs: { src: record.image_path }
+          })
         ])
       }),
       _vm._v(" "),
