@@ -9,7 +9,7 @@
 
      <!-- Global site tag (gtag.js) - Google Analytics -->
      @if(env('APP_ENV') === 'production')
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180188564-1"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=env(GA_ID)"></script>
      <script>
           window.dataLayer = window.dataLayer || [];
 
@@ -18,7 +18,7 @@
           }
           gtag('js', new Date());
 
-          gtag('config', 'UA-180188564-1');
+          gtag('config', 'env(GA_ID)');
      </script>
      @endif
 
