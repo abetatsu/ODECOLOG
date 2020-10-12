@@ -21,7 +21,7 @@ class LikeTableSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'post_id' => 2,
+                'post_id' => 11,
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
             ],
