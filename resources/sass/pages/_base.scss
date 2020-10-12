@@ -1,6 +1,3 @@
-$main_color: #ddd;
-$sub_color: #6c757d;
-
 html {
      scroll-behavior: smooth;
 }
@@ -27,15 +24,6 @@ a:hover {
      opacity: 0.6;
 }
 
-.post-menu-card {
-     height: 100%;
-     background-color: $main_color;
-     position: fixed;
-     top: 55px;
-     left: 0;
-     display: none;
-}
-
 .navbar-expand-md {
      position: fixed;
      width: 100%;
@@ -54,15 +42,15 @@ a:hover {
           color: #111;
           opacity: 0.8;
 
+          &.active {
+               border-bottom: $sub_color solid 1px;
+          }
+
           &:hover {
                border-bottom: $sub_color solid 1px;
                opacity: 1;
                color: #111;
           }
-     }
-
-     a.active {
-          border-bottom: $sub_color solid 1px;
      }
 
      label {
@@ -79,20 +67,28 @@ a:hover {
           margin-right: 10px;
           margin-top: -3px;
      }
+
+     &-card {
+          height: 100%;
+          background-color: $main_color;
+          position: fixed;
+          top: 55px;
+          left: 0;
+          display: none;
+     }
 }
 
 
 .card {
      border: none;
      border-radius: 0;
+
+     &-post {
+          border-radius: 50px;
+          @include neumorphism();
+     }
 }
 
-.card-post {
-     border-radius: 50px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
-}
 
 
 .logout-form-menu > .btn {
@@ -107,9 +103,7 @@ a:hover {
      width: 60px;
      height: 60px;
      border-radius: 50%;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      border: $main_color solid 5px;
 
      &:hover {
@@ -121,17 +115,13 @@ a:hover {
      width: 200px;
      height: 200px;
      border-radius: 50%;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      border: $main_color solid 5px;
 }
 
 .profile-show {
      border-radius: 50px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
 }
 
 #comment {
@@ -174,32 +164,21 @@ a:hover {
 }
 
 .dot-menu {
-     position: absolute;
-     right: 7%;
-     top: 7%;
-     opacity: 0.6;
+     @include dot-menu-position(7%, 7%);
 }
 
 .dot-menu-show {
-     position: absolute;
-     right: 0;
-     top: 0;
-     opacity: 0.6;
+     @include dot-menu-position();
      margin: 53px 53px 0 0;
 }
 
 .dot-menu-profile {
-     position: absolute;
-     right: 0;
-     top: 0;
-     opacity: 0.6;
+     @include dot-menu-position();
      margin: 20px 50px 0 0;
 }
 
 .dot-menu-record {
-     position: absolute;
-     right: 5%;
-     top: 4%;
+     @include dot-menu-position(4%, 5%);
      opacity: 0.6;
 }
 
@@ -272,9 +251,7 @@ a:hover {
 
 .comment-wrap {
      border-radius: 50px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      margin: 2%;
 }
 
@@ -326,15 +303,11 @@ a:hover {
      border: none;
      border-radius: 50px;
      font-weight: bold;
-     background: $main_color;
-     box-shadow: inset 5px 5px 20px #c8c9cc,
-     inset -5px -5px 20px #ffffff;
+     @include un-neumorphism();
 
      &:hover {
           opacity: 0.8;
-          background: $main_color;
-          box-shadow: 5px 5px 20px #c8c9cc,
-          -5px -5px 20px #ffffff;
+          @include neumorphism();
      }
 }
 
@@ -350,9 +323,7 @@ a:hover {
 
 .calendar-index {
      border-radius: 50px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      padding: 5%;
 }
 
@@ -368,9 +339,7 @@ a:hover {
 
 .calendar-arrow {
      border-radius: 50%;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      margin: 2%;
      padding: 2%;
      opacity: 0.8;
@@ -383,9 +352,7 @@ a:hover {
 
 .calendar-check {
      border-radius: 50%;
-     background: $main_color;
-     box-shadow: inset 5px 5px 20px #c8c9cc,
-     inset -5px -5px 20px #ffffff;
+     @include un-neumorphism();
      padding: 5%;
 
      &:hover {
@@ -394,46 +361,42 @@ a:hover {
 }
 
 
-td > a {
-     color: #111;
-     opacity: 0.8;
-}
-
+td > a,
 td > a:hover {
      color: #111;
-     opacity: 0.6;
+     opacity: 0.8;
 }
 
 .table {
      table-layout: fixed;
 }
 
-.red {
+.sunday {
      color: #FF97C2;
 }
 
-.blue {
+.saturday {
      color: #8EB8FF;
 }
 
 table.table-bordered{
-     border:1px solid #aaa;
+     @include table-border();
 
      thead > tr > th{
-          border:1px solid #aaa;
+          @include table-border();
      }
 
      tbody > tr{
-          border:1px solid #aaa;
+          @include table-border();
      }
 
      tbody > tr > td{
-          border:1px solid #aaa;
+          @include table-border();
      }
 }
 
 .table tbody + tbody {
-     border:1px solid #aaa;
+     @include table-border();
 }
 
 .alert-danger {
@@ -463,9 +426,7 @@ table.table-bordered{
 
 .record-image {
      border-radius: 15px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      width: 100%;
      height: 350px;
      margin: 2% 0 6% 0;
@@ -473,7 +434,7 @@ table.table-bordered{
 }
 
 table.record-table > tbody > tr > td{
-     border:1px solid #aaa;
+     @include table-border();
      font-weight: bold;
      color: #111;
      opacity: 0.8;
@@ -489,9 +450,7 @@ table.record-table > thead > tr > th{
 
 .slider-photo {
      border-radius: 30px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      padding: 2%;
      display: block;
 }
@@ -505,9 +464,7 @@ table.record-table > thead > tr > th{
 
 .login-card {
      border-radius: 30px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      padding: 3%;
      font-weight: bold;
 }
@@ -517,16 +474,12 @@ table.record-table > thead > tr > th{
      padding: 15px 20px;
      font-weight: bold;
      border-radius: 15%;
-     background: $main_color;
-     box-shadow: inset 5px 5px 20px #c8c9cc,
-     inset -5px -5px 20px #ffffff;
+     @include un-neumorphism();
      color: #555;
 
      &:hover {
           border-radius: 15%;
-          background: $main_color;
-          box-shadow: 5px 5px 20px #c8c9cc,
-          -5px -5px 20px #ffffff;
+          @include neumorphism();
           border: none;
           padding: 15px 20px;
           font-weight: bold;
@@ -536,9 +489,7 @@ table.record-table > thead > tr > th{
 
 .form-wrap {
      border-radius: 15px;
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      padding: 5%;
 }
 
@@ -577,9 +528,7 @@ table.record-table > thead > tr > th{
 }
 
 .page-link {
-     background: $main_color;
-     box-shadow: 5px 5px 20px #c8c9cc,
-     -5px -5px 20px #ffffff;
+     @include neumorphism();
      margin: 0 5px;
      color: $sub_color;
 
@@ -590,16 +539,12 @@ table.record-table > thead > tr > th{
 
 
 .page-item.disabled .page-link {
-     background: $main_color;
-     box-shadow: inset 5px 5px 20px #c8c9cc,
-     inset -5px -5px 20px #ffffff;
+     @include un-neumorphism();
 }
 
 
 .page-item.active .page-link {
-     background: $main_color;
-     box-shadow: inset 5px 5px 20px #c8c9cc,
-     inset -5px -5px 20px #ffffff;
+     @include un-neumorphism();
      color: $sub_color;
      border: none;
 }
@@ -648,6 +593,7 @@ table.record-table > thead > tr > th{
 .form-sub-bottom {
      margin-bottom: 1rem;
 }
+
 
 .lp-section {
      max-width: 1440px;
@@ -803,7 +749,7 @@ table.record-table > thead > tr > th{
 }
 
 .today {
-     color: #fff;
+     color: $white;
 }
 
 @media (min-width:768px) {

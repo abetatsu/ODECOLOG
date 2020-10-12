@@ -1,0 +1,22 @@
+@mixin dot-menu-position($top: 0, $right: 0) {
+     position: absolute;
+     top: $top;
+     right: $right;
+     opacity: 0.6;
+}
+
+@mixin neumorphism() {
+     background: $main_color;
+     box-shadow: 5px 5px 20px $card_color,
+     -5px -5px 20px $white;
+}
+
+@mixin un-neumorphism() {
+     background: $main_color;
+     box-shadow: inset 5px 5px 20px $card_color,
+     inset -5px -5px 20px $white;
+}
+
+@mixin table-border() {
+     border:1px solid #aaa;
+}
