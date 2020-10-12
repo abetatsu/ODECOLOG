@@ -5,10 +5,10 @@
 <form enctype="multipart/form-data" class="col-md-6 mx-auto my-5 form-wrap" method="POST" action="{{ route('records.store') }}">
      @csrf
      <h2 class="text-center text-muted">記録作成フォーム</h2>
-     <p class="text-center text-muted mt-4 form-sub-text">おでこが後退してきているのか記録を残して確認しましょう。</p>
-     <p class="text-center text-muted form-sub-text">使っているものがあれば一緒に記録することで効果を可視化できますね。</p>
-     <p class="text-center text-muted form-sub-text">写真は同じ角度からの写真を撮り続けることで変化が分かりやすくなります。</p>
-     <p class="text-center text-muted form-sub-bottom">継続は力なりです。</p>
+     <p class="text-left text-muted mt-4 form-sub-text">おでこが後退してきているのか記録を残して確認しましょう。</p>
+     <p class="text-left text-muted form-sub-text">使っているものがあれば一緒に記録することで効果を可視化できますね。</p>
+     <p class="text-left text-muted form-sub-text">写真は同じ角度からの写真を撮り続けることで変化が分かりやすくなります。</p>
+     <p class="text-left text-muted form-sub-bottom">継続は力なりです。</p>
      @include('layouts.error')
      @include('layouts.fileError')
      <div class="form-group text-muted">
