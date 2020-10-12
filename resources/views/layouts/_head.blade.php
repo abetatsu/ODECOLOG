@@ -7,6 +7,21 @@
 
      <title>ODECOLOG</title>
 
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     @if(env('APP_ENV') === 'production')
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180188564-1"></script>
+     <script>
+          window.dataLayer = window.dataLayer || [];
+
+          function gtag() {
+               dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+
+          gtag('config', 'UA-180188564-1');
+     </script>
+     @endif
+
      <!-- Scripts -->
      <script src="{{ asset('js/app.js') }}" defer></script>
 
