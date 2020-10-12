@@ -14,14 +14,14 @@ class CommentTableSeeder extends Seeder
     {
         DB::table('comments')->insert([
             [
-                'user_id' => '2',
+                'user_id' => '11',
                 'post_id' => '1',
                 'comment' => '私もこのシャンプーを愛用しています。他のシャンプーに比べて汚れが落ちている感じがします。しかし、少し髪の毛がきしむ感じもします。',
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
             ],
             [
-                'user_id' => '3',
+                'user_id' => '21',
                 'post_id' => '1',
                 'comment' => '私もこのシャンプーを使ってますが、EXTRA COOLは何か違いがありますか？',
                 'created_at' => new Carbon(),
