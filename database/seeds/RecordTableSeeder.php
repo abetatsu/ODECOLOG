@@ -62,7 +62,7 @@ class RecordTableSeeder extends Seeder
                 'day' => '2020-10-22',
             ],
             [
-                'user_id' => 2,
+                'user_id' => 11,
                 'size' => '6cm',
                 'sleep_time' => '7時間',
                 'care_item1' => 'サクセスシャンプー',
@@ -78,7 +78,7 @@ class RecordTableSeeder extends Seeder
                 'day' => '2020-10-23',
             ],
             [
-                'user_id' => 2,
+                'user_id' => 11,
                 'size' => '6cm',
                 'sleep_time' => '7時間',
                 'care_item1' => 'サクセスシャンプー',
@@ -94,7 +94,7 @@ class RecordTableSeeder extends Seeder
                 'day' => '2020-10-24',
             ],
             [
-                'user_id' => 2,
+                'user_id' => 11,
                 'size' => '6cm',
                 'sleep_time' => '7時間',
                 'care_item1' => 'サクセスシャンプー',

@@ -14,14 +14,14 @@ class LikeTableSeeder extends Seeder
     {
         DB::table('likes')->insert([
             [
-                'user_id' => 3,
+                'user_id' => 21,
                 'post_id' => 1,
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
             ],
             [
                 'user_id' => 1,
-                'post_id' => 2,
+                'post_id' => 11,
                 'created_at' => new Carbon(),
                 'updated_at' => new Carbon(),
             ],
