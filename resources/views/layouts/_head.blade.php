@@ -18,7 +18,7 @@
           }
           gtag('js', new Date());
 
-          gtag('config', env('GA_ID'));
+          gtag('config', process.env.GA_ID);
      </script>
      @endif
 
