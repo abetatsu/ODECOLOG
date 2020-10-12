@@ -46,13 +46,13 @@ class Calendar
           <table class="table table-bordered">
           <thead>
           <tr>
-          <th scope="col" class="red">日</th>
+          <th scope="col" class="sunday">日</th>
           <th scope="col">月</th>
           <th scope="col">火</th>
           <th scope="col">水</th>
           <th scope="col">木</th>
           <th scope="col">金</th>
-          <th scope="col" class="blue">土</th>
+          <th scope="col" class="saturday">土</th>
           </tr>
           </thead>
 EOS;
