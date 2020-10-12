@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-5 lp-top-left text-center">
                 <h1 class="lp-heading text-muted">ODECOLOG</h1>
-                <h2 class="text-muted mt-3 mb-4">大丈夫。私はただおでこが広いだけ。</h2>
+                <h2 class="text-muted mt-3 mb-4">おでこの生え際が気になってる方へ</h2>
                 <a class="login-button text-muted" href="{{ route('login') }}">さっそく始める</a>
             </div>
             <div class="col-md-7 lp-top-logo">
