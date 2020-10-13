@@ -1,21 +1,28 @@
-# Name
-
+# Name :full_moon_with_face:
 <h2 align="center">ODECOLOG</h2>
 
 <p align="center">
-  <img src="https://res.cloudinary.com/tatsu/image/upload/v1601878737/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-10-05_15.17.28_ang5w1.png">
   <img src="https://res.cloudinary.com/tatsu/image/upload/v1602546933/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-10-13_8.55.04_fvpo4k.png">
 </p>
 
-# DEMO
-
+# URL
 https://odecolog.herokuapp.com/
+
+# DEMO
+![Uploading 29143142233140178_2020-10-14_6.52.43.gif…]()
 
 # Features
 
-おでこの生え際の後退が気になっている方向けのアプリです。
-おでこの画像をカレンダー形式で保存でき、写真ギャラリーで変化を確認できます。
-また、生え際が気になっている方々と育毛に関する情報をシェアできます。
+おでこの生え際の後退が気になっている方向けのアプリです。<br>
+
+生え際が気になってきたが、過去の写真をみてもピンポイントで生え際の写真がない、<br>
+SNSやスマホにおでこの写真なんて登録しておきたくない。<br>
+こっそり生え際の変化を確認したい。<br>
+
+そんな方のためにこのアプリを作りました。<br>
+
+おでこの写真を自分だけのカレンダーに保存でき、写真ギャラリーで変化を可視化できます。<br>
+また、生え際が気になっている方々と育毛に関する経験や情報をシェアできます。<br>
 
 
 # Requirement
@@ -26,19 +33,15 @@ https://odecolog.herokuapp.com/
 # Installation
 
 $ git clone https://github.com/abetatsu/ODECOLOG.git
-$ cd ODECOLOG
-$ php artisan migrate
-$ php artisan db:seed
-$ php artisan serve
-
-👉 http://localhost:8000
-
 
 # Usage
 
+$ cd ODECOLOG<br>
+$ php artisan migrate<br>
+$ php artisan db:seed<br>
+$ php artisan serve<br>
 
-# Note
-
+👉 http://localhost:8000
 
 # Author
 
@@ -49,4 +52,3 @@ $ php artisan serve
 # License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
