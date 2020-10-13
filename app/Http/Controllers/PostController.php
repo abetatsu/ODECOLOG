@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
