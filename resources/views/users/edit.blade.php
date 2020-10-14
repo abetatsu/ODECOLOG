@@ -9,7 +9,7 @@
      <div class="form-group text-muted">
           <label for="image">画像</label>
           <input type="file" class="form-control-file" id="image" name="image">
-          <img src="{{ $user->image_path }}" alt="画像" class="form-image">
+          <img src="{{ $user->image_path }}" class="form-image">
      </div>
      @include('layouts.error')
      @include('layouts.fileError')
