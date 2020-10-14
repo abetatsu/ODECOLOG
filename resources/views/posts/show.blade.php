@@ -105,7 +105,9 @@
                     @endif
                </a>
                <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profile-name text-muted">{{ $comment->user->name }}</a>
-               <footer class="blockquote-footer">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
+               <footer class="blockquote-footer">
+                    {{ $comment->created_at->diffForHumans(Carbon\Carbon::now()) }}
+               </footer>
           </div>
           <p class="comment-content text-muted">{{ $comment->comment }}</p>
      </div>

@@ -7,6 +7,7 @@ use App\Http\Requests\CommentRequest;
 use App\Comment;
 use App\Post;
 use Auth;
+use Carbon\Carbon;
 
 class CommentController extends Controller
 {
@@ -14,7 +15,7 @@ class CommentController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -30,6 +31,7 @@ class CommentController extends Controller
         $comment->comment = $request->comment;
         $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
+
 
         $comment->save();
 
@@ -67,7 +69,7 @@ class CommentController extends Controller
      */
     public function destroy($comment_id, $post_id)
     {
-        
+
         $comment = Comment::find($comment_id);
 
         if(Auth::id() !== $comment->user_id) {
