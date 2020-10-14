@@ -6,9 +6,9 @@
      @if($post->user_id === Auth::id())
      <div class="dot-menu-show">
           @include('layouts._dot-menu', [
-               'id' => $post->id,
-               'editRoute' => 'posts.edit',
-               'deleteRoute' => 'posts.destroy',
+          'id' => $post->id,
+          'editRoute' => 'posts.edit',
+          'deleteRoute' => 'posts.destroy',
           ])
      </div>
      @endif
@@ -27,10 +27,10 @@
           <p class="card-text text-muted">{{ $post->content }}</p>
      </div>
      @if(isset($post->url))
-          <p class="post-show-url text-muted">URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer" class="text-muted" onclick='return confirm("外部のページに飛ぼうとしています。よろしいですか？");'>{{ $post->url }}</a></p>
+     <p class="post-show-url text-muted">URL：<a href="{{ $post->url }}" target="_blank" rel="noopener noreferrer" class="text-muted" onclick='return confirm("外部のページに飛ぼうとしています。よろしいですか？");'>{{ $post->url }}</a></p>
      @endif
      @if(isset($post->image_path))
-          <img src="{{ $post->image_path }}" alt="画像" class="post-show-image mx-auto">
+     <img src="{{ $post->image_path }}" alt="画像" class="post-show-image mx-auto">
      @endif
      <p class="post-show-date text-muted">{{ $post->updated_at->format('Y/m/d H:i:s') }}</p>
      <hr>
@@ -105,7 +105,7 @@
                     @endif
                </a>
                <a href="{{ route('users.show', $comment->user->id) }}" class="comment-profile-name text-muted">{{ $comment->user->name }}</a>
-               <footer class="blockquote-footer">{{ $post->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
+               <footer class="blockquote-footer">{{ $comment->created_at->diffForHumans(Carbon\Carbon::now()) }}</footer>
           </div>
           <p class="comment-content text-muted">{{ $comment->comment }}</p>
      </div>
