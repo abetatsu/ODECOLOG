@@ -57,8 +57,8 @@ class PostController extends Controller
             Cloudder::upload($image_path, null);
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width' => 200,
-                'height' => 200
+                'width' => 600,
+                'height' => 500
             ]);
             $post->image_path = $logoUrl;
             $post->public_id = $publicId;
@@ -124,8 +124,8 @@ class PostController extends Controller
             Cloudder::upload($image_path, null);
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width' => 200,
-                'height' => 200
+                'width' => 600,
+                'height' => 500
             ]);
             $post->image_path = $logoUrl;
             $post->public_id = $publicId;
