@@ -17013,7 +17013,9 @@ a:hover {
 }
 
 .post-menu a:hover {
-  border-bottom: #6c757d solid 1px;
+  text-decoration: underline;
+  -webkit-text-decoration: underline solid #6c757d;
+          text-decoration: underline solid #6c757d;
   opacity: 1;
   color: #111;
 }
@@ -17059,8 +17061,10 @@ a:hover {
   padding: 0;
 }
 
-.logout-form-menu:hover {
-  border-bottom: #6c757d solid 1px;
+.logout-form-menu > input:hover {
+  -webkit-text-decoration: underline solid #6c757d;
+          text-decoration: underline solid #6c757d;
+  text-decoration: underline;
 }
 
 .post-profile {
