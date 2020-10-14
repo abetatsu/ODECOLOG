@@ -17786,6 +17786,8 @@ footer {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .modal {
