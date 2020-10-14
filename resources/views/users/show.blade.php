@@ -12,7 +12,7 @@
      </div>
      @endif
      <div class="row">
-          <div class="card-body col-md-5">
+          <div class="card-body col-md-5 profile-show-body">
                @if(empty($user->image_path))
                <img src="https://res.cloudinary.com/tatsu/image/upload/v1601430063/noImage_iplfhh.png" alt="画像" class="profile-image">
                @else
@@ -21,7 +21,7 @@
                </div>
                @endif
           </div>
-          <div class="card-body col-5 profile-detail">
+          <div class="card-body col-5 profile-detail profile-show-body">
                <p class="text-muted">名前：{{ $user->name }}</p>
                <p class="text-muted">投稿数：{{ $user->posts->count() }}</p>
                <p class="text-muted">コメント数：{{ $user->comments->count() }}</p>
