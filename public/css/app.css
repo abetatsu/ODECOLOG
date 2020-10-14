@@ -17057,7 +17057,7 @@ a:hover {
   box-shadow: 5px 5px 20px #c8c9cc, -5px -5px 20px #ffffff;
 }
 
-.card-body {
+.profile-show-body {
   pointer-events: none;
 }
 
@@ -17784,6 +17784,14 @@ footer {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal {
+  top: 60px;
+}
+
+.modal-backdrop {
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
