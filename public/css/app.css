@@ -17514,6 +17514,7 @@ table.record-table > thead > tr > th {
   justify-content: space-between;
   flex-direction: column;
   display: flex;
+  pointer-events: none;
 }
 
 .comment-icon:hover {
