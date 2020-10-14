@@ -17057,6 +17057,10 @@ a:hover {
   box-shadow: 5px 5px 20px #c8c9cc, -5px -5px 20px #ffffff;
 }
 
+.card-body {
+  pointer-events: none;
+}
+
 .logout-form-menu > .btn {
   padding: 0;
 }
@@ -17510,11 +17514,13 @@ table.record-table > thead > tr > th {
 }
 
 .profile-detail {
-  padding: 25px 0 25px 60px;
+  padding: 25px 0 25px 0;
   justify-content: space-between;
   flex-direction: column;
   display: flex;
   pointer-events: none;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .comment-icon:hover {
@@ -17760,6 +17766,26 @@ footer {
   position: relative;
 }
 
+.icon-container {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin: 120px auto 0 auto;
+}
+
+.icon {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media (min-width: 768px) {
   .post-menu-card {
     display: flex;
@@ -17775,6 +17801,16 @@ footer {
 
   .slider-photo {
     margin-left: 25%;
+  }
+
+  .icon-container {
+    margin: 0 auto;
+  }
+
+  .profile-detail {
+    padding: 25px 0 25px 60px;
+    align-items: start;
+    margin: 0;
   }
 }
 
