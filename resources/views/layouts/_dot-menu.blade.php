@@ -1,4 +1,4 @@
-<div class="dropdown">
+<div class="btn-group dropleft">
      <div class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="https://res.cloudinary.com/tatsu/image/upload/v1601111215/options-horizontal_i4cub7.svg">
      </div>
