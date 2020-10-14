@@ -17751,7 +17751,7 @@ table.record-table > thead > tr > th {
 }
 
 footer {
-  z-index: 8;
+  z-index: 4;
   position: relative;
 }
 
