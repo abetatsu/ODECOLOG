@@ -43,7 +43,8 @@ a:hover {
           opacity: 0.8;
 
           &.active {
-               border-bottom: $sub_color solid 1px;
+               text-decoration: underline;
+               text-decoration: underline solid $sub_color;
           }
 
           &:hover {
@@ -786,8 +787,8 @@ footer {
 }
 
 .icon {
-     min-width: 100%;
-     min-height: 100%;
+     width: 100%;
+     height: 100%;
      position: absolute;
      left: 50%;
      top: 50%;
@@ -800,6 +801,10 @@ footer {
 
 .modal-backdrop {
      z-index: 1;
+}
+
+.tos {
+     margin-bottom: 30px;
 }
 
 @media (min-width:768px) {
@@ -828,5 +833,9 @@ footer {
           padding: 25px 0 25px 60px;
           align-items: start;
           margin: 0;
+     }
+
+     .swiper-image {
+          margin-top: 30px;
      }
 }

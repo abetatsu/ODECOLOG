@@ -19,7 +19,7 @@ class RecordController extends Controller
 
     /**
      * Display a listing of the resource.
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -84,7 +84,7 @@ class RecordController extends Controller
             Cloudder::upload($image_path, null);
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width' => 500,
+                'width' => 900,
                 'height' => 500
             ]);
             $record->image_path = $logoUrl;
