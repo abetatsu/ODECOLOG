@@ -34,8 +34,6 @@ Route::get('/posts/{post}/remove/unfavorites', 'UnfavoriteController@destroy')->
 Route::get('/posts/{post}/count/unfavorites', 'UnfavoriteController@countUnfavorite');
 Route::get('/posts/{post}/has/unfavorites', 'UnfavoriteController@hasUnfavorite');
 
-Route::get('posts/{post}/ogp.png', 'PostController@ogp');
-
 Route::get('/contact', 'ContactController@index');
 Route::post('/confirm', 'ContactController@confirm')->name('confirm');
 
