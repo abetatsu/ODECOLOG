@@ -1,4 +1,3 @@
-<meta name="description" content="ODECOLOG - おでこの生え際が気になる方へ">
 <meta property="og:title"       content="ODECOLOG">
 <meta property="og:description" content="ODECOLOG - おでこの生え際が気になる方へ">
 <meta property="og:url"         content="https://odecolog.herokuapp.com/">
