@@ -22,6 +22,10 @@
      </script>
      @endif
 
+     @if(request()->is('posts/*'))
+          @include('layouts.ogp-meta')
+     @endif
+
      <!-- Scripts -->
      <script src="{{ asset('js/app.js') }}" defer></script>
 
