@@ -29,7 +29,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('like-component', require('./components/LikeComponent.vue').default);
 Vue.component('dislike-component', require('./components/DislikeComponent.vue').default);
 Vue.component('swiper-component', require('./components/SwiperComponent.vue').default);
-
+Vue.component('firstcareitem-component', require('./components/FirstcareitemComponent.vue').default);
+Vue.component('secondcareitem-component', require('./components/SecondcareitemComponent.vue').default);
+Vue.component('thirdcareitem-component', require('./components/ThirdcareitemComponent.vue').default);
+Vue.component('forthcareitem-component', require('./components/ForthcareitemComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

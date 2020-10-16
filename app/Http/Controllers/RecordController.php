@@ -40,7 +40,19 @@ class RecordController extends Controller
      */
     public function create(Request $request)
     {
-        return view('records.create', ['date' => $request->date]);
+        $first_care_items = Record::where('user_id', Auth::id())->groupBy('care_item1')->get(['care_item1']);
+        $second_care_items = Record::where('user_id', Auth::id())->groupBy('care_item2')->get(['care_item2']);
+        $third_care_items = Record::where('user_id', Auth::id())->groupBy('care_item3')->get(['care_item3']);
+        $forth_care_items = Record::where('user_id', Auth::id())->groupBy('care_item4')->get(['care_item4']);
+
+        return view('records.create',
+        [
+            'date' => $request->date,
+            'first_care_items' => $first_care_items,
+            'second_care_items' => $second_care_items,
+            'third_care_items' => $third_care_items,
+            'forth_care_items' => $forth_care_items,
+        ]);
     }
 
     /**
