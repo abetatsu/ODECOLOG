@@ -45,19 +45,27 @@
      </div>
      <div class="form-group text-muted">
           <label for="care_item1">ケア用品1(任意)</label>
-          <input type="text" class="form-control" name="care_item1" id="care_item1" placeholder="使っているケア用品を入力してください" value="{{ old('care_item1') }}">
+          <firstcareitem-component
+               :first_care_items="{{ json_encode($first_care_items) }}"
+          ></firstcareitem-component>
      </div>
      <div class="form-group text-muted">
           <label for="care_item2">ケア用品2(任意)</label>
-          <input type="text" class="form-control" name="care_item2" id="care_item2" placeholder="使っているケア用品を入力してください" value="{{ old('care_item2') }}">
+          <secondcareitem-component
+               :second_care_items="{{ json_encode($second_care_items) }}"
+          ></secondcareitem-component>
      </div>
      <div class="form-group text-muted">
           <label for="care_item3">ケア用品3(任意)</label>
-          <input type="text" class="form-control" name="care_item3" id="care_item3" placeholder="使っているケア用品を入力してください" value="{{ old('care_item3') }}">
+          <thirdcareitem-component
+               :third_care_items="{{ json_encode($third_care_items) }}"
+          ></thirdcareitem-component>
      </div>
      <div class="form-group text-muted">
           <label for="care_item4">ケア用品4(任意)</label>
-          <input type="text" class="form-control" name="care_item4" id="care_item4" placeholder="使っているケア用品を入力してください" value="{{ old('care_item4') }}">
+          <forthcareitem-component
+               :forth_care_items="{{ json_encode($forth_care_items) }}"
+          ></forthcareitem-component>
      </div>
      <div class="form-group text-muted">
           <label for="alcohol">飲酒量(任意)</label>
