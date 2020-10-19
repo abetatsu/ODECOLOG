@@ -33,6 +33,7 @@ Vue.component('firstcareitem-component', require('./components/FirstcareitemComp
 Vue.component('secondcareitem-component', require('./components/SecondcareitemComponent.vue').default);
 Vue.component('thirdcareitem-component', require('./components/ThirdcareitemComponent.vue').default);
 Vue.component('forthcareitem-component', require('./components/ForthcareitemComponent.vue').default);
+Vue.component('calendar-component', require('./components/CalendarComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

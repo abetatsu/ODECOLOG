@@ -25,6 +25,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
+        "@fullcalendar/core": "^4.2.0",
+        "@fullcalendar/daygrid": "^4.2.0",
+        "@fullcalendar/interaction": "^4.2.0",
+        "@fullcalendar/vue": "^4.2.2",
         "swiper": "^6.2.0",
         "vue-awesome-swiper": "^4.1.1",
         "vue-moment": "^4.1.0"
