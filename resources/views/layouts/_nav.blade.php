@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light">
      <div class="container title-name">
-          <a class="navbar-brand text-muted" href="{{ url('/posts') }}">
+          <a class="navbar-brand text-muted" href="{{ url('/posts',$is_production) }}">
                ODECOLOG
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -43,7 +43,7 @@
                          <a class="text-muted" href="{{ route('terms.help') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601694212/circle-help_bt6r0s.svg">HELP</a>
                     </li>
                     <li class="nav-item d-md-none post-menu">
-                         <a class="text-muted {{ request()->is('*contact') ? 'active' : ''}}" href="{{ url('contact') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
+                         <a class="text-muted {{ request()->is('*contact') ? 'active' : ''}}" href="{{ url('contact',$is_production) }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601038055/email_iny45a.svg">CONTACT US</a>
                     </li>
                     <li class="nav-item d-md-none post-menu">
                          <label for="logout-menu1">
