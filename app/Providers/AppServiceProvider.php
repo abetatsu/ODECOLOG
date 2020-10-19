@@ -29,8 +29,5 @@ class AppServiceProvider extends ServiceProvider
         if (request()->isSecure()) {
             \URL::forceScheme('https');
         }
-
-        $is_production = env('APP_ENV') === 'production' ? true : false;
-        View::share('is_production',$is_production);
     }
 }
