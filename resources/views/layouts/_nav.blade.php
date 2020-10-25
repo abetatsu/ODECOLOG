@@ -40,6 +40,9 @@
                          <a class="text-muted {{ request()->is('*photos') ? 'active' : ''}}" href="{{ route('photos.index') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601034942/image_ckvyba.svg">GALLERY</a>
                     </li>
                     <li class="nav-item d-md-none post-menu">
+                         <a class="text-muted pb-1 {{ request()->is('*questions/question') ? 'active' : ''}}" href="{{ route('questions.question') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1603594282/document-check_fcdeog.svg">DIAGNOSIS</a>
+                    </li>
+                    <li class="nav-item d-md-none post-menu">
                          <a class="text-muted" href="{{ route('terms.help') }}"><img src="https://res.cloudinary.com/tatsu/image/upload/v1601694212/circle-help_bt6r0s.svg">HELP</a>
                     </li>
                     <li class="nav-item d-md-none post-menu">

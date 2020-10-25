@@ -15485,6 +15485,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var queData = [["飲まない", "飲む"], ["吸わない", "吸う"], ["ほぼない", "ストレスだらけ"], ["8時間以上", "6時間", "3時間"]];
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -15497,7 +15501,7 @@ var queData = [["飲まない", "飲む"], ["吸わない", "吸う"], ["ほぼ�
       stress: "",
       sleep: "",
       result_active: "",
-      nemu_active: "",
+      menu_active: "",
       result_txt: "",
       result: {
         "0000": 1,
@@ -15537,7 +15541,7 @@ var queData = [["飲まない", "飲む"], ["吸わない", "吸う"], ["ほぼ�
     var _t = this;
 
     setTimeout(function () {
-      _t.nemu_active = "__active";
+      _t.menu_active = "__active";
     }, 400);
   },
   methods: {
@@ -15549,7 +15553,7 @@ var queData = [["飲まない", "飲む"], ["吸わない", "吸う"], ["ほぼ�
       this.current_num = this.answer.indexOf("");
 
       if (this.answer.indexOf("") == -1) {
-        this.nemu_active = "__hide";
+        this.menu_active = "__hide";
         this.result_active = "__active";
         this.result_num = this.result[this.answer.join("")];
       }
@@ -64394,9 +64398,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card-post col-md-6 mx-auto my-5" }, [
+    _c("h2", { staticClass: "text-muted text-center pt-5" }, [
+      _vm._v("あなたの将来のおでこを診断します")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "text-muted text-center pb-0" }, [
+      _vm._v("※科学的根拠には基づいておりません\n     ")
+    ]),
+    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "menubox", class: _vm.nemu_active },
+      { staticClass: "menubox", class: _vm.menu_active },
       [
         _c(
           "transition-group",
@@ -64723,192 +64735,316 @@ var render = function() {
             _vm.result_num == 1
               ? _c(
                   "div",
-                  { key: "1", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 それはちょっと寝過ぎ")]
+                  {
+                    key: "1",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("それはちょっと寝過ぎ")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 2
               ? _c(
                   "div",
-                  { key: "2", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 ハゲとは無縁です")]
+                  {
+                    key: "2",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("ハゲとは無縁です")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 3
               ? _c(
                   "div",
-                  { key: "3", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 ちゃんと寝て")]
+                  {
+                    key: "3",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("ちゃんと寝て")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 4
               ? _c(
                   "div",
-                  { key: "4", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 ストレスで寝過ぎてるの？")]
+                  {
+                    key: "4",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("ストレスで寝過ぎてるの？")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 5
               ? _c(
                   "div",
-                  { key: "5", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 ストレスマネジメント大事")]
+                  {
+                    key: "5",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("ストレスマネジメント大事")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 6
               ? _c(
                   "div",
-                  { key: "6", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 とりあえず寝ようか")]
+                  {
+                    key: "6",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("とりあえず寝ようか")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 7
               ? _c(
                   "div",
-                  { key: "7", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 タバコやめようか")]
+                  {
+                    key: "7",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("タバコやめようか")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 8
               ? _c(
                   "div",
-                  { key: "8", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 タバコやめたらストレス？")]
+                  {
+                    key: "8",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("タバコやめたらストレス？")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 9
               ? _c(
                   "div",
-                  { key: "9", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 タバコやめてちゃんと寝よう")]
+                  {
+                    key: "9",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("タバコやめてちゃんと寝よう")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 10
               ? _c(
                   "div",
-                  { key: "10", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 タバコやめて筋トレしてみてはいかが？")]
+                  {
+                    key: "10",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("タバコやめて筋トレしてみてはいかが？")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 11
               ? _c(
                   "div",
-                  { key: "11", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 普通です")]
+                  {
+                    key: "11",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("タバコやめて筋トレしてみてはいかが？")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 12
               ? _c(
                   "div",
-                  { key: "12", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 小動物？")]
+                  {
+                    key: "12",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("睡眠少ない、タバコ吸う、ストレス")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 13
               ? _c(
                   "div",
-                  { key: "13", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 ポッチャリさんです")]
+                  {
+                    key: "13",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("酒だけ飲む")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 14
               ? _c(
                   "div",
-                  { key: "14", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 普通です")]
+                  {
+                    key: "14",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("普通です")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 15
               ? _c(
                   "div",
-                  { key: "15", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 なぜ最後ナッツ入れた？")]
+                  {
+                    key: "15",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("できるなら寝た方が良いです")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 16
               ? _c(
                   "div",
-                  { key: "16", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 なぜグミいれた？")]
+                  {
+                    key: "16",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("酒とストレスのダブルパンチ,そして寝過ぎ")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 17
               ? _c(
                   "div",
-                  { key: "17", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 なぜグミいれた？")]
+                  {
+                    key: "17",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("酒とストレスのダブルパンチ")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 18
               ? _c(
                   "div",
-                  { key: "18", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 夜食べない派？")]
+                  {
+                    key: "18",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("酒、ストレス、睡眠のトリプルパンチ")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 19
               ? _c(
                   "div",
-                  { key: "19", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 十分です")]
+                  {
+                    key: "19",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("酒、タバコ、寝過ぎ")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 20
               ? _c(
                   "div",
-                  { key: "20", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 結構余裕ありますね")]
+                  {
+                    key: "20",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("酒とタバコはやめれないですよね〜")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 21
               ? _c(
                   "div",
-                  { key: "21", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 なぜ最後ナッツ？")]
+                  {
+                    key: "21",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("酒、タバコ、睡眠")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 22
               ? _c(
                   "div",
-                  { key: "22", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 けっこうええもん食うてる")]
+                  {
+                    key: "22",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [
+                    _vm._v("診断結果"),
+                    _c("br"),
+                    _vm._v("酒、タバコ、ストレス,\n               寝過ぎ　")
+                  ]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 23
               ? _c(
                   "div",
-                  { key: "23", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 大丈夫です")]
+                  {
+                    key: "23",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("酒、タバコ、ストレス")]
                 )
               : _vm._e(),
             _vm._v(" "),
             _vm.result_num == 24
               ? _c(
                   "div",
-                  { key: "24", staticClass: "result_contents text-muted" },
-                  [_vm._v("診断結果 バイトしよか")]
+                  {
+                    key: "24",
+                    staticClass: "result_contents text-muted text-center"
+                  },
+                  [_vm._v("診断結果"), _c("br"), _vm._v("詰んでます。")]
                 )
               : _vm._e()
           ])
