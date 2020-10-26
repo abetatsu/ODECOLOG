@@ -9,7 +9,7 @@
 https://odecolog.herokuapp.com/
 
 # DEMO :movie_camera:
-![RPReplay_Final1603712934](https://user-images.githubusercontent.com/59195628/97169389-55ca7c00-17cd-11eb-8548-edcb3608a8dd.gif)
+![RPReplay_Final1603712934 (1)](https://user-images.githubusercontent.com/59195628/97171093-2c5f1f80-17d0-11eb-8d1b-ac2a6960f7a9.gif)
 
 # Features :tada:
 
