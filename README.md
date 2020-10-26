@@ -5,13 +5,13 @@
   <img src="https://res.cloudinary.com/tatsu/image/upload/v1602546933/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-10-13_8.55.04_fvpo4k.png">
 </p>
 
-# URL
+# URL :link:
 https://odecolog.herokuapp.com/
 
-# DEMO
-![Uploading 29143142233140178_2020-10-14_6.52.43.gif…]()
+# DEMO :movie_camera:
+![RPReplay_Final1603712934](https://user-images.githubusercontent.com/59195628/97169389-55ca7c00-17cd-11eb-8548-edcb3608a8dd.gif)
 
-# Features
+# Features :tada:
 
 おでこの生え際の後退が気になっている方向けのアプリです。<br>
 
@@ -25,16 +25,15 @@ SNSやスマホにおでこの写真なんて登録しておきたくない。<b
 また、生え際が気になっている方々と育毛に関する経験や情報をシェアできます。<br>
 
 
-# Requirement
-
+# Requirement :memo:
 * php 7.3.11
 * laravel 6.18.38
 
-# Installation
+# Installation :inbox_tray:
 
 $ git clone https://github.com/abetatsu/ODECOLOG.git
 
-# Usage
+# Usage :bulb:
 
 $ cd ODECOLOG<br>
 $ php artisan migrate<br>
@@ -43,12 +42,12 @@ $ php artisan serve<br>
 
 👉 http://localhost:8000
 
-# Author
+# Author :email:
 
 * 作成者 Tatsu
 * 所属
 * E-mail odecolog2020@gmail.com
 
-# License
+# License :speech_balloon:
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
