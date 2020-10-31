@@ -100,7 +100,7 @@
      <div class="result" v-bind:class="result_active">
           <div class="result_inner">
           <transition-group name="fade">
-               <div class="result_contents text-muted text-center" key="1" v-if="result_num==1">診断結果<br>それはちょっと寝過ぎ</div>
+               <div class="result_contents text-muted text-center" key="1" v-if="result_num==1">診断結果<br>ハゲとは無縁です</div>
                <div class="result_contents text-muted text-center" key="2" v-if="result_num==2">診断結果<br>ハゲとは無縁です</div>
                <div class="result_contents text-muted text-center" key="3" v-if="result_num==3">診断結果<br>ちゃんと寝て</div>
                <div class="result_contents text-muted text-center" key="4" v-if="result_num==4">診断結果<br>ストレスで寝過ぎてるの？</div>

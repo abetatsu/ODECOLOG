@@ -64739,7 +64739,7 @@ var render = function() {
                     key: "1",
                     staticClass: "result_contents text-muted text-center"
                   },
-                  [_vm._v("診断結果"), _c("br"), _vm._v("それはちょっと寝過ぎ")]
+                  [_vm._v("診断結果"), _c("br"), _vm._v("ハゲとは無縁です")]
                 )
               : _vm._e(),
             _vm._v(" "),
